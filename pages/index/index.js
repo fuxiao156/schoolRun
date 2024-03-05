@@ -100,7 +100,13 @@ Page({
         this.selectComponent("#blueView").hideAlertView(), this.openBluetoothAdapter();
     },
     getTimeStatus: function() {
-        var t = this, a = this.selectComponent("#timeview"), o = Math.round(new Date().getTime() / 1e3).toString(), n = e.globalData.userStatus.userid, i = e.globalData.userStatus.openid, r = e.globalData.schoolInfo.schoolId, s = e.globalData.schoolInfo.runType;
+        var t = this,
+          a = this.selectComponent("#timeview"),
+          o = Math.round(new Date().getTime() / 1e3).toString(),
+          n = e.globalData.userStatus.userid,
+          i = e.globalData.userStatus.openid,
+          r = e.globalData.schoolInfo.schoolId,
+          s = e.globalData.schoolInfo.runType;
         wx.showLoading({
             title: "加载中...",
             mask: !0
@@ -217,12 +223,13 @@ Page({
         });
     },
     runSet: function() {
-        var t = e.globalData.userStatus.openid, a = e.globalData.userStatus.userid, o = this;
+        // var t = e.globalData.userStatus.openid, a = e.globalData.userStatus.userid, o = this;
+        var t = wx.getStorageSync("userid"), a = wx.getStorageSync("openid"), o = this;
         wx.showLoading({
             title: "加载中...",
             mask: !0
         }), wx.request({
-            url: e.globalData.apiurl + "/f/api/runSet?openid=" + t + "&userid=" + a,
+            url: e.globalData.apiurl + "/f/api/runSet?openid=" + a + "&userid=" + t,
             method: "POST",
             success: function(t) {
                 if (wx.hideLoading(), 200 != t.statusCode) wx.showToast({
@@ -523,7 +530,7 @@ Page({
     },
     getMessageList2: function() {
         var t = this, a = {};
-        a.openid = e.globalData.userStatus.openid, a.userid = e.globalData.userStatus.userid, 
+        a.openid = wx.getStorageSync("openid"), a.userid = wx.getStorageSync("userid"), 
         wx.showLoading({
             title: "加载中...",
             mask: !0

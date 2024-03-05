@@ -417,7 +417,7 @@ Page({
         0 == this.data.fileId && this.writeFile(), 4 == this.data.runType ? this.apiStopSchoolRun() : this.apiStopRun();
     },
     apiStopSchoolRun: function() {
-		console.log("进入apiStopSchoolRun")
+		console.log()
     },
     apiStopRun: function() {
         var a = this;

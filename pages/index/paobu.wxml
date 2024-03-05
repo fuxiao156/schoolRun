@@ -9,7 +9,7 @@
             </cover-view>
             <cover-view class="top-view-2">
                 <cover-view class="top-view-box" style="text-align:left;">
-                    <cover-view class="top-view-head">{{meters>0?av_speed:'0\'00'}}</cover-view>
+                    <cover-view class="top-view-head">{{meters>0?av_speed:'1\'00'}}</cover-view>
                     <cover-view class="top-view-end">平均配速</cover-view>
                 </cover-view>
                 <cover-view class="top-view-box" style="text-align:left;">
