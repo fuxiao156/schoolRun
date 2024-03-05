@@ -1,0 +1,90 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/index/profile",
+        "pages/index/rank",
+        "pages/index/xianlu",
+        "pages/index/paobu",
+        "pages/index/guiji",
+        "pages/index/mapgj",
+        "pages/index/guize",
+        "pages/dating/index",
+        "pages/dating/tice",
+        "pages/dating/tcdetail",
+        "pages/dating/webview",
+        "pages/dating/webviewlogin",
+        "pages/dating/gymevidencelist",
+        "pages/message/index",
+        "pages/message/messagelist",
+        "pages/message/content",
+        "pages/user/index",
+        "pages/user/studentauth",
+        "pages/user/authinfo",
+        "pages/user/shili",
+        "pages/user/record",
+        "pages/user/edituserinfo",
+        "pages/user/setting",
+        "pages/user/questionlist",
+        "pages/user/questiondetail",
+        "pages/user/updateEvidence",
+        "pages/user/usecode",
+        "pages/changguang/cglist",
+        "pages/changguang/cgqiandao",
+        "pages/changguang/cgqiandaomap",
+        "pages/changguang/qddetail",
+        "pages/changguang/qdlist",
+        "pages/changguang/qdtermgoal",
+        "pages/changguang/qdguizhe",
+        "pages/changguang/cgrank",
+        "pages/user/questionSetting",
+        "pages/user/kefu",
+        "pages/user/updateuser",
+        "pages/user/selectgymclass",
+        "pages/user/selectgymstudent",
+        "pages/user/recordstu",
+        "pages/user/guijistu",
+        "pages/user/hisrecord",
+        "pages/user/hisguiji",
+        "pages/dating/prescriptionInfo",
+        "pages/dating/gymevidence",
+        "pages/user/updatenickName",
+        "pages/user/updatemobile",
+        "pages/xbeacon/xbeacontest"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "运动",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "custom"
+    },
+    "tabBar": {
+        "color": "#B2B2B2",
+        "selectedColor": "#0196FD",
+        "borderStyle": "black",
+        "list": [
+            {
+                "text": "运动",
+                "pagePath": "pages/index/index",
+                "iconPath": "images/nav_1_disabled.png",
+                "selectedIconPath": "images/nav_1_enabled.png"
+            },
+            {
+                "text": "大厅",
+                "pagePath": "pages/dating/index",
+                "iconPath": "images/nav_2_disabled.png",
+                "selectedIconPath": "images/nav_2_enabled.png"
+            },
+            {
+                "text": "我的",
+                "pagePath": "pages/user/index",
+                "iconPath": "images/nav_4_disabled.png",
+                "selectedIconPath": "images/nav_4_enabled.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 6000
+    },
+    "sitemapLocation": "sitemap.json"
+}

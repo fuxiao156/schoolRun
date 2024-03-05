@@ -1,0 +1,26 @@
+.helplist {
+    background: #fff;
+    border-bottom: 1px solid #eaeaea;
+    height: auto;
+    padding-bottom: 20rpx;
+    padding-top: 20rpx;
+    width: 100%;
+}
+
+.helplist .title {
+    color: #000;
+    font-size: 28rpx;
+    font-weight: 700;
+    line-height: 60rpx;
+}
+
+.helplist .content,.helplist .title {
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+}
+
+.helplist .content {
+    color: #333;
+    font-size: 24rpx;
+    width: 90%;
+}

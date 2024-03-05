@@ -1,0 +1,50 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px" wx:if="{{approveStatus==1}}">
+    <view bindtap="gotoWebView2" class="dt-list" wx:if="{{uniappStatus==1}}">
+        <image class="dt-icon" src="/images/56_demo.png" style="width:108rpx;height:108rpx;"></image>
+        <view class="dt-list-text">
+            <view class="dt-title">校园智慧体育平台</view>
+        </view>
+    </view>
+    <view bindtap="gotoWebView" class="dt-list" data-title="{{item.urlTitle}}" data-weburl="{{item.urlAddress}}" wx:for="{{urlList}}" wx:key="k">
+        <image class="dt-icon" src="/images/56_demo.png" style="width:108rpx;height:108rpx;"></image>
+        <view class="dt-list-text">
+            <view class="dt-title">{{item.urlTitle}}</view>
+        </view>
+    </view>
+    <view bindtap="gotoNav" class="dt-list" data-url="/pages/dating/tice" wx:if="{{accessType>0}}">
+        <image class="dt-icon" src="/images/56_result_search.png" style="width:108rpx;height:108rpx;"></image>
+        <view class="dt-list-text">
+            <view class="dt-title">体测成绩</view>
+        </view>
+    </view>
+    <view bindtap="gotoNav" class="dt-list" data-url="/pages/user/hisrecord" wx:if="{{runScoreStatus==1}}">
+        <image class="dt-icon" src="/images/56_result_search.png" style="width:108rpx;height:108rpx;"></image>
+        <view class="dt-list-text">
+            <view class="dt-title">历年跑步记录</view>
+        </view>
+    </view>
+    <view bindtap="gotoNav" class="dt-list" data-url="/pages/user/selectgymclass" wx:if="{{userType==2}}">
+        <image class="dt-icon" src="/images/56_result_search.png" style="width:108rpx;height:108rpx;"></image>
+        <view class="dt-list-text">
+            <view class="dt-title">查询学生跑步成绩</view>
+        </view>
+    </view>
+    <view bindtap="gotoNav" class="dt-list" data-url="/pages/dating/gymevidencelist" wx:if="{{userType==2}}">
+        <image class="dt-icon" src="/images/56_demo.png" style="width:108rpx;height:108rpx;"></image>
+        <view class="dt-list-text">
+            <view class="dt-title">审核认证照片</view>
+        </view>
+    </view>
+    <view bindtap="gotoMessage" class="dt-list">
+        <view class="redIcon2" wx:if="{{messageSize>0}}">{{messageSize}}</view>
+        <image class="dt-icon" src="/images/52_notice.png" style="width:108rpx;height:108rpx;"></image>
+        <view class="dt-list-text">
+            <view class="dt-title">消息</view>
+        </view>
+    </view>
+</view>
+<view class="container" style="margin-top:{{navheight}}px" wx:if="{{approveStatus!=1}}">
+    <view class="da-text"> 未认证，无法查看大厅内容 </view>
+    <button bindtap="gotoStudentauth" class="da-button"> 去认证 </button>
+</view>

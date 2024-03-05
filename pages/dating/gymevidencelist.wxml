@@ -1,0 +1,35 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="gymClassList" style="height:{{winHeight-statusBarHeight}}px">
+        <view class="recordtxt">
+            <input bindinput="inpuName" class="input" name="name" placeholder="请输入学号或姓名" placeholderClass="placeholder-left" type="text"></input>
+            <view bindtap="loadInitData" class="button">查询</view>
+        </view>
+        <scroll-view class="scroll-views" scrollX="false" scrollY="true">
+            <view bindtap="gotoGymevidence" class="gymClass" data-evidence="{{item.evidence}}" data-id="{{item.id}}" data-openid="{{item.openid}}" data-realName="{{item.realName}}" data-sex="{{item.sex}}" data-studentNo="{{item.studentNo}}" data-updateEvidence="{{item.updateEvidence}}" data-updateStatus="{{item.updateStatus}}" data-userid="{{item.userid}}" wx:for="{{studentList}}" wx:key="ke1">
+                <view class="gymclass-list">
+                    <view class="gymclass-head">
+                        <view class="lessonName"> 体育班：{{item.gymClassName}} </view>
+                    </view>
+                    <view class="gymclass-body">
+                        <view class="gymClassName">
+                            <text decode="true">{{item.studentNo}}/{{item.realName}}&nbsp;</text>
+                            <view class="sex-view">
+                                <image class="sex" src="/images/20_icon_boy.jpg" wx:if="{{item.sex==1}}"></image>
+                                <image class="sex" src="/images/20_icon_girl.jpg" wx:if="{{item.sex==2}}"></image>
+                            </view>
+                        </view>
+                        <view class="gymClass-num">
+                            <view class="stats-default" wx:if="{{item.updateStatus==1}}"> 待处理 </view>
+                            <view class="stats-true" wx:if="{{item.updateStatus==2}}"> 同意 </view>
+                            <view class="stats-false" wx:if="{{item.updateStatus==3}}"> 拒绝 </view>
+                        </view>
+                    </view>
+                    <view class="gymClass-foot">
+                        <view class="update-time"> 修改时间：{{item.updateDate}} </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

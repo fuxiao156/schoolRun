@@ -1,0 +1,7 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <form catchreset="formReset" catchsubmit="formSubmit" class="form">
+        <input bindinput="inputRealname" class="selectedpicker" name="nickName" placeholder="请选择微信昵称" type="nickname" value="{{userInfo.nickName}}"></input>
+        <button class="auth-btn" formType="submit">保存</button>
+    </form>
+</view>

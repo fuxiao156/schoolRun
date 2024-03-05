@@ -1,0 +1,222 @@
+page {
+    background-color: #fff;
+}
+
+.termgoal-bg {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20rpx;
+    width: 92%;
+}
+
+.termgoal-bg .termgoal {
+    border: 2rpx solid #1d8097;
+    border-radius: 20rpx;
+    float: left;
+    height: auto;
+    margin-left: 1.11%;
+    margin-right: 1.11%;
+    width: 30%;
+}
+
+.termgoal-bg .termgoal .termgoal-head {
+    background-color: #35a2b9;
+    border-radius: 20rpx 20rpx 0rpx 0rpx;
+    color: #fff;
+    height: 80rpx;
+}
+
+.termgoal-bg .termgoal .termgoal-body,.termgoal-bg .termgoal .termgoal-head {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.termgoal-bg .termgoal .termgoal-body {
+    background-color: #cef4e5;
+    border-radius: 0rpx 0rpx 20rpx 20rpx;
+    color: #34a2bb;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 32rpx;
+    height: 220rpx;
+}
+
+.termgoal-bg .termgoal .termgoal-body .termgoal-chang .termgoal-num {
+    font-size: 60rpx;
+    font-weight: 600;
+}
+
+.termgoal-bg .signed {
+    border: 2rpx solid #686a65;
+    border-radius: 10rpx;
+    border-radius: 20rpx;
+    float: left;
+    margin-left: 1.11%;
+    margin-right: 1.11%;
+    width: 30%;
+}
+
+.termgoal-bg .signed .signed-head {
+    background-color: #b0b0b0;
+    border-radius: 20rpx 20rpx 0rpx 0rpx;
+    color: #fff;
+    height: 80rpx;
+}
+
+.termgoal-bg .signed .signed-body,.termgoal-bg .signed .signed-head {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.termgoal-bg .signed .signed-body {
+    background-color: #f6f6f6;
+    border-radius: 0rpx 0rpx 20rpx 20rpx;
+    font-size: 32rpx;
+    height: 220rpx;
+}
+
+.termgoal-bg .signed .signed-body .signed-yx {
+    align-self: center;
+    color: #06920b;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.termgoal-bg .signed .signed-body .signed-yx .signed-yxnum {
+    font-size: 60rpx;
+    font-weight: 600;
+    text-align: center;
+}
+
+.termgoal-bg .signed .signed-body .signed-fh {
+    align-self: center;
+    color: #d2d2d2;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.termgoal-bg .signed .signed-body .signed-fh .signed-fxg {
+    font-size: 60rpx;
+    font-weight: 600;
+    text-align: center;
+}
+
+.termgoal-bg .signed .signed-body .signed-wx {
+    align-self: center;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.termgoal-bg .signed .signed-body .signed-wx .signed-wxnum {
+    font-size: 60rpx;
+    font-weight: 600;
+    text-align: center;
+}
+
+.termgoal-bg .signed .signed-body .signed-chang {
+    align-self: center;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.termgoal-bg .result {
+    border: 2rpx solid #f06e00;
+    border-radius: 20rpx;
+    float: left;
+    height: auto;
+    margin-left: 1.11%;
+    margin-right: 1.11%;
+    width: 30%;
+}
+
+.termgoal-bg .result .result-head {
+    background-color: #ee6e00;
+    border-radius: 20rpx 20rpx 0rpx 0rpx;
+    color: #fff;
+    height: 80rpx;
+}
+
+.termgoal-bg .result .result-body,.termgoal-bg .result .result-head {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.termgoal-bg .result .result-body {
+    background-color: #ffe1c7;
+    border-radius: 0rpx 0rpx 20rpx 20rpx;
+    color: #6b6d68;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 32rpx;
+    height: 220rpx;
+}
+
+.termgoal-bg .result .result-body .result-chang {
+    display: flex;
+    position: relative;
+}
+
+.termgoal-bg .result .result-body .result-chang .result-num {
+    font-size: 60rpx;
+    font-weight: 600;
+}
+
+.termgoal-bg .result .result-body .result-chang .result-text {
+    padding-left: 5rpx;
+}
+
+.termgoal-bg .result-db {
+    border: 2rpx solid #02b93b;
+    border-radius: 20rpx;
+    float: left;
+    height: auto;
+    margin-left: 1.11%;
+    margin-right: 1.11%;
+    width: 30%;
+}
+
+.termgoal-bg .result-db .result-head-db {
+    background-color: #01d543;
+    border-radius: 20rpx 20rpx 0rpx 0rpx;
+    color: #fff;
+    height: 80rpx;
+}
+
+.termgoal-bg .result-db .result-body-db,.termgoal-bg .result-db .result-head-db {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.termgoal-bg .result-db .result-body-db {
+    background-color: #d2ffd6;
+    border-radius: 0rpx 0rpx 20rpx 20rpx;
+    color: #06920f;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 40rpx;
+    font-weight: 600rpx;
+    height: 220rpx;
+}
+
+.termgoal-bg .result-db .result-body-db .result-db-text {
+    text-align: center;
+    width: 100%;
+}

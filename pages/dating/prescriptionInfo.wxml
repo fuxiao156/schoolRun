@@ -1,0 +1,61 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="nonedata" style="margin-top:100rpx;" wx:if="{{!dataList[0].stuNo}}"> 暂无运动处方 </view>
+    <view class="recordview1" wx:if="{{dataList[0].stuNo}}">
+        <view class="title">健康诊断 </view>
+        <view class="body"> {{dataList[0].diagnose}} </view>
+        <view class="body"> {{dataList[0].item1Diagnose}} </view>
+        <view class="body"> {{dataList[0].item2Diagnose}} </view>
+        <view class="body"> {{dataList[0].item3Diagnose}} </view>
+        <view class="body"> {{dataList[0].item4Diagnose}} </view>
+        <view class="body"> {{dataList[0].item5Diagnose}} </view>
+        <view class="body"> {{dataList[0].item6Diagnose}} </view>
+        <view class="body"> {{dataList[0].item7Diagnose}} </view>
+    </view>
+    <view class="recordview1" wx:if="{{dataList[0].stuNo}}">
+        <view class="title">运动处方 </view>
+        <view class="text-center"> 体型 </view>
+        <view wx:if="{{dataList[0].recipe1=='good'||dataList[0].recipe1=='优秀'}}">
+            <image class="good-img" src="/images/good.png"></image>
+        </view>
+        <text class="text" wx:if="{{dataList[0].recipe1!='good'&&dataList[0].recipe1!='优秀'}}">
+      {{dataList[0].recipe1}}
+    </text>
+        <view class="hang-bg-fff"></view>
+        <view class="hang-bg"></view>
+        <view class="text-center"> 心肺机能 </view>
+        <view wx:if="{{dataList[0].recipe2=='good'||dataList[0].recipe2=='优秀'}}">
+            <image class="good-img" src="/images/good.png"></image>
+        </view>
+        <text class="text" wx:if="{{dataList[0].recipe2!='good'&&dataList[0].recipe2!='优秀'}}">
+      {{dataList[0].recipe2}}
+    </text>
+        <view class="hang-bg-fff"></view>
+        <view class="hang-bg"></view>
+        <view class="text-center"> 速度力量素质 </view>
+        <view wx:if="{{dataList[0].recipe3=='good'||dataList[0].recipe3=='优秀'}}">
+            <image class="good-img" src="/images/good.png"></image>
+        </view>
+        <text class="text" wx:if="{{dataList[0].recipe3!='good'&&dataList[0].recipe3!='优秀'}}">
+      {{dataList[0].recipe3}}
+    </text>
+        <view class="hang-bg-fff"></view>
+        <view class="hang-bg"></view>
+        <view class="text-center"> 柔韧素质 </view>
+        <view wx:if="{{dataList[0].recipe4=='good'||dataList[0].recipe4=='优秀'}}">
+            <image class="good-img" src="/images/good.png"></image>
+        </view>
+        <text class="text" wx:if="{{dataList[0].recipe4!='good'&&dataList[0].recipe4!='优秀'}}">
+      {{dataList[0].recipe4}}
+    </text>
+        <view class="hang-bg-fff"></view>
+        <view class="hang-bg"></view>
+        <view class="text-center"> 力量与耐力 </view>
+        <view wx:if="{{dataList[0].recipe5=='good'||dataList[0].recipe5=='优秀'}}">
+            <image class="good-img" src="/images/good.png"></image>
+        </view>
+        <text class="text" wx:if="{{dataList[0].recipe5!='good'&&dataList[0].recipe5!='优秀'}}">
+      {{dataList[0].recipe5}}
+    </text>
+    </view>
+</view>

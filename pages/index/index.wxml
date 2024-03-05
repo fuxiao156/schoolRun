@@ -1,0 +1,86 @@
+<nav-bar navbarData="{{nvabarData}}"></nav-bar>
+<view style="margin-top:{{navheight}}px">
+    <picker bindchange="bindChangePicker" class="area_picker" range="{{areaList}}" rangeKey="{{'areaName'}}" value="{{indexArea}}"> 点击切换校区：{{areaList[indexArea].areaName}} </picker>
+    <view class="pb-index-section">
+        <swiper bindchange="bindchange" class="swiper" current="{{currentData}}" duration="300" style="height:400rpx">
+            <swiper-item wx:if="{{schoolInfo.runRegular==1}}">
+                <view class="c1">
+                    <view class="lj">有效次数</view>
+                    <view class="p_num">
+                        <label class="num">{{userInfo.validCount}}</label>
+                    </view>
+                    <view class="m_runcount">包含晨跑：{{userInfo.morningRunCount}}次</view>
+                    <view class="m">目标次数：{{userInfo.runTarget}}次</view>
+                </view>
+            </swiper-item>
+            <swiper-item wx:if="{{schoolInfo.runRegular==2}}">
+                <view class="c1">
+                    <view class="lj">有效里程</view>
+                    <view class="p_num p_num1">
+                        <label class="num1">{{userInfo.mileage}}</label>
+                    </view>
+                    <view class="m_runcount">包含晨跑：{{userInfo.morningRunCount}}次</view>
+                    <view class="m">目标里程：{{userInfo.mileageTarget}}KM</view>
+                </view>
+            </swiper-item>
+            <swiper-item wx:if="{{schoolInfo.runRegular==3}}">
+                <view class="c1">
+                    <view class="lj">有效分数</view>
+                    <view class="p_num">
+                        <label class="num">{{userInfo.runScore}}</label>
+                    </view>
+                    <view class="m_runcount">包含晨跑：{{userInfo.morningRunCount}}次</view>
+                    <view class="m">目标分数：{{userInfo.sportScore}}分</view>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="flag-sectin" style="top:{{navheight+10}}px">
+        <image bindtap="gotoSeting" class="img75" src="/images/15_icon_set.jpg" wx:if="{{userStatus.approveStatus==1}}"></image>
+        <view bindtap="gotoSeting" class="text75" wx:if="{{userStatus.approveStatus==1}}">设置</view>
+        <image bindtap="gotoRank" class="img75" src="/images/15_icon_rank.jpg" wx:if="{{userStatus.approveStatus==1}}"></image>
+        <view bindtap="gotoRank" class="text75" wx:if="{{userStatus.approveStatus==1}}">排名</view>
+        <image bindtap="gotoHelp" class="img75" src="/images/62_list_disabled.png" wx:if="{{userStatus.approveStatus==1}}"></image>
+        <view bindtap="gotoHelp" class="text75" wx:if="{{userStatus.approveStatus==1}}">规则</view>
+    </view>
+    <button bind:longpress="goToPanbao" class="start-btn">长按跑步 <image class="btn-jt" src="/images/index-jt.png"></image>
+    </button>
+    <button catchtap="goTochang" class="changguan-btn" style="margin-top:30rpx;" wx:if="{{venueFlag==1}}">体育锻炼 <image class="btn-jt" src="/images/index1-jt.png"></image>
+    </button>
+</view>
+<view class="wx-mask-view" wx:if="{{messageSize>0}}">
+    <view class="wx-tips">温馨提示:请仔细阅读，滑动通知内容至底部，关闭通知</view>
+    <view class="wx-alertview">
+        <view class="wx-alert-title">通 知</view>
+        <view class="page-section page-section-spacing swiper">
+            <swiper bindchange="bindchangeNotice" current="{{index}}" indicatorDots="true">
+                <swiper-item wx:for="{{messageList}}" wx:key="*this">
+                    <view class="notice-title">{{item.title}}</view>
+                    <scroll-view bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper" class="scroll-view" scrollIntoView="{{toView}}" scrollTop="{{scrollTop}}" scrollY="true">
+                        <view class="desc">
+                            <text>{{item.content}}</text>
+                        </view>
+                        <view class="notice-date">{{item.createDate}}</view>
+                        <view class="notice-button">
+                            <view bindtap="swiperLeft" class="button-left" wx:if="{{index!=0}}">上一条</view>
+                            <view bindtap="swiperRight" class="button-right" wx:if="{{messageSize-index>1}}">下一条</view>
+                            <view bindtap="addMessageUser" class="button-right-close" wx:if="{{messageSize-index==1}}">关闭</view>
+                        </view>
+                    </scroll-view>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+</view>
+<alertview bind::closeEvent="closeEvent" bind:cancelEvent="freeRun" bind:confirmEvent="schoolRun" cancelText="自由跑" confirmText="校园跑" content="{{runExplain1}}" content1="{{runExplain2}}" content2="{{runExplain3}}" id="endalertview" title="提 示"></alertview>
+<authview bind::closeEvent="closeEvent" bind:cancelEvent="closeEvent3" bind:confirmEvent="gotoAuth" cancelText="取消" confirmText="认证" content="对不起，您尚未" content1="认证" content2="个人信息，暂时不能体验跑步，请先完成认证" id="authview" title="提 示"></authview>
+<userlocationalertview bind::closeEvent="closeEvent2" cancelText="取消" confirmText="去设置" content="暂未授权定位功能，不能体验跑步，请开启" content1="小程序定位" content2="功能" id="userlocationalertview" title="提 示"></userlocationalertview>
+<selectalertview bind:cancelEvent="gotoRun" bind:confirmEvent="stopRunBut" cancelText="继续" confirmText="结束" content="{{endcontent}}" content1="{{endcontent1}}" content2="{{endcontent2}}" id="endalertview2" title="提 示"></selectalertview>
+<inselectalertview bind:cancelEvent="ingotoRun" cancelText="继续" content="{{endcontent}}" content1="{{endcontent1}}" content2="{{endcontent2}}" id="inselectalertview2" title="提 示"></inselectalertview>
+<inselectalertview bind:confirmEvent="removeRun" confirmText="结束" content="{{endcontent}}" content1="{{endcontent1}}" content2="{{endcontent2}}" id="inselectalertview3" title="警 告"></inselectalertview>
+<inalertview bind:cancelEvent="closeBlueEvent" bind:closeEvent="closeBlueEvent" cancelText="已设置" content="请开启您的手机" content1="蓝牙" content2="功能才能运动——（ios~手机设置~微信~蓝牙~开启）" id="blueView" title="提 示"></inalertview>
+<inselectalertview bind:cancelEvent="closeTimeEvent" bind:closeEvent="closeTimeEvent" bind:confirmEvent="closeTimeEvent" cancelText="已设置" confirmText="已设置" content="手机时间与网络时间" content1="不同" content2="，请开启：手机~设置~日期和时间~自动设置" id="timeview" title="警 告"></inselectalertview>
+<inalertview bind:cancelEvent="closeEvent2" bind:closeEvent="closeEvent2" cancelText="已设置" content="无法获取位置信息，为了更精准的定位，请打开" content1="GPS" content2="功能并确保已获取小程序定位授权" id="gpsalertview" title="提 示"></inalertview>
+<selectalertview bind:cancelEvent="cancelEvent" bind:confirmEvent="venueCardEnd" cancelText="继续" confirmText="结束" content="{{endcontent}}" content1="{{endcontent1}}" content2="{{endcontent2}}" id="endalertview3" title="提 示"></selectalertview>
+<inselectalertview bind:confirmEvent="invenueCardEnd" confirmText="结束" content="{{endcontent}}" content1="{{endcontent1}}" content2="{{endcontent2}}" id="inselectalertview" title="提 示"></inselectalertview>
+<notice bind:cancelEvent="closeEvent2" bind:closeEvent="closeEvent2" cancelText="已设置" content="无法获取位置信息，为了更精准的定位，请打开" content1="GPS" content2="功能并确保已获取小程序定位授权" id="notice" title="通 知"></notice>

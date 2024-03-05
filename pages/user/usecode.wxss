@@ -1,0 +1,44 @@
+.container1,page {
+    background: #fff;
+    color: #000;
+    height: 100%;
+}
+
+.container1 {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.night {
+    background: #000;
+    color: #fff;
+}
+
+.code-view {
+    margin-bottom: 20rpx;
+    width: 100%;
+}
+
+.f2 {
+    right: 10rpx;
+    top: 100rpx;
+}
+
+.f1,.f2 {
+    position: fixed;
+}
+
+.f1 {
+    right: 30rpx;
+    top: 200rpx;
+}
+
+.code-view .code-line {
+    font-size: 32rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding-left: 12%;
+    width: 80%;
+}

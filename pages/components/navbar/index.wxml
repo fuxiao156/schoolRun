@@ -1,0 +1,6 @@
+<view class="nav-wrap" style="height: {{navBarHeight}}px;{{navbarData.showCapsule==2?'color:#fff;background:#0094fe;':''}}">
+    <view class="nav-title" style="line-height: {{navBarHeight}}px;top:{{statusBarHeight}}px; {{navbarData.showCapsule==2?'color:#fff;':''}}">
+        <view catchtap="_navbackEvent" class="back-pre-view" style="height: {{navBarHeight}}px;" wx:if="{{navbarData.showCapsule==1}}">
+            <image class="back-pre" mode="aspectFill" src="/images/back-pre.png" style="line-height: {{navBarHeight}}px;"></image>
+        </view> {{navbarData.title}} </view>
+</view>

@@ -1,0 +1,81 @@
+<nav-bar2 navbarData="{{navbarData}}"></nav-bar2>
+<view class="changguanlist" style="margin-top:{{navheight}}px">
+    <view bindtap="gotocgQiandao" class="changguan" data-cardNumber="{{item.cardNumber}}" data-cardRate="{{item.cardRate}}" data-cardRateMax="{{item.cardRateMax}}" data-itemName="{{item.itemName}}" data-rangeHour="{{item.rangeHour}}" data-venueId="{{item.venueId}}" data-venueName="{{item.venueName}}" wx:for="{{venueList}}" wx:key="venueId">
+        <view catchtap="venueCardTotal" class="cg-total" data-venueId="{{item.venueId}}"> {{item.cardTotal>=100?'99+':item.cardTotal}} </view>
+        <view class="img">
+            <image class="" src="{{item.venueImageUrl?item.venueImageUrl:'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}"></image>
+        </view>
+        <view class="xm-name"> {{item.itemName}} </view>
+        <view class="cg-name"> {{item.venueName}} </view>
+    </view>
+</view>
+<view class="flag-sectin" style="top:{{navheight+10}}px;right: 15rpx;">
+    <image bindtap="gotoqdlist" class="img75" src="/images/15_icon_record.jpg"></image>
+    <image bindtap="gotoqdtermgoal" class="img75" src="/images/70_icon_goal.jpg"></image>
+    <image bindtap="gotoqdguizhe" class="img75" src="/images/62_list_disabled.png"></image>
+</view>
+<view class="half-screen" style="margin-top:{{navheight}}px">
+    <view bindtap="hideModal" class="background_screen" wx:if="{{showModalStatus}}">
+        <view bindtap="hideModal" class="back">
+            <image class="" src="/images/icon_cha.png"></image>
+        </view>
+    </view>
+    <view animation="{{animationData}}" class="attr_box" wx:if="{{showModalStatus}}">
+        <view class="statistics-tetle">
+            <view class="statistics-day"> 今日: </view>
+            <view class="statistics-lie">
+                <image class="statistics-image" src="/images/71_icon_online_student.png"></image>
+                <label class="statistics-text">{{partakeNum?partakeNum:0}}人参与</label>
+            </view>
+            <view class="statistics-lie">
+                <image class="statistics-image" src="/images/71_icon_kpi.png"></image>
+                <label class="statistics-text">{{standardNum?standardNum:0}}场达标</label>
+            </view>
+            <view class="statistics-lie">
+                <image class="statistics-image" src="/images/71_icon_classmate.png"></image>
+                <label class="statistics-text">{{schoolmateNum?schoolmateNum:0}}名同学</label>
+            </view>
+        </view>
+        <view class="detailsArray-null" wx:if="{{detailsArray.length==0}}"> 该场馆暂无锻炼学生 </view>
+        <view class="detailsArray-list" wx:if="{{detailsArray.length>0}}">
+            <view class="detailsArray-tatle">
+                <view class="hang-image">
+                    <image class="" src=""></image>
+                </view>
+                <view class="hang-left"> 姓名 </view>
+                <view class="hang-center">
+                    <image class="hang-image" src="/images/71_icon_length_time.png"></image>
+                    <label class="hang-text">锻炼总时长</label>
+                </view>
+                <view class="hang-right">
+                    <image class="hang-image" src="/images/71_icon_kpi.png"></image>
+                    <label class="hang-text">达标场数</label>
+                </view>
+            </view>
+            <scroll-view class="detailsArray-hang" scrollY="true">
+                <view class="detailsArray" style="{{item.classmateFlag==1?'background:#fff9f1':''}}" wx:for="{{detailsArray}}" wx:key="seqNo">
+                    <view class="hang-image">
+                        <image class="image-headUrl" src="{{item.headUrl?item.headUrl:item.sexName=='女'?'/images/20_none_pic_girl.jpg':'/images/20_none_pic_boy.jpg'}}"></image>
+                        <image class="image-right" src="/images/71_icon_classmate.png" wx:if="{{item.classmateFlag==1}}"></image>
+                    </view>
+                    <view class="hang-left" wx:if="{{item.classmateFlag!=1&&item.classmateFlag!=0}}"> 未知 </view>
+                    <view class="hang-left" wx:if="{{item.classmateFlag==1}}"> {{item.realName}} </view>
+                    <view class="hang-left" wx:if="{{item.classmateFlag==0}}"> {{tools.sub(item.realName,0,1)}}** </view>
+                    <view class="hang-center">
+                        <label class="hang-text" wx:if="{{item.cardTime>0}}">{{item.cardTime}}分钟</label>
+                        <label class="hang-text" wx:if="{{!item.cardTime}}">0分钟</label>
+                    </view>
+                    <view class="hang-right">
+                        <icon class="hang-image" color="" size="19" type="success" wx:if="{{item.cardTotal>0}}"></icon>
+                        <label class="hang-text" wx:if="{{item.cardTotal>0}}">{{item.cardTotal}}场</label>
+                        <icon class="hang-image" color="" size="19" type="warn" wx:if="{{!item.cardTotal}}"></icon>
+                        <label class="hang-text" wx:if="{{!item.cardTotal}}">0场</label>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</view>
+<inalertview bind:cancelEvent="closeBlueEvent" bind:closeEvent="closeBlueEvent" cancelText="已设置" content="请开启您的手机" content1="蓝牙" content2="功能才能签到" id="blueView" title="提 示"></inalertview>
+<inalertview bind:cancelEvent="closeEvent2" bind:closeEvent="closeEvent2" cancelText="已设置" content="无法获取位置信息，为了更精准的定位，请打开" content1="GPS" content2="功能并确保已获取小程序定位授权" id="gpsalertview" title="提 示"></inalertview>
+<wxs module="tools" src="../../utils/subutils.wxs" />

@@ -1,0 +1,45 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <map class="map" id="map" latitude="{{initlatitude}}" longitude="{{initlongitude}}" markers="{{markers}}" polygons="{{polygons}}" polyline="{{polyline}}" showLocation="true" style="width:100%;height:{{screenHeight-navheight}}px;">
+        <cover-view class="title" style="top:{{navheight}}px;">
+            <cover-view class="title-text" wx:if="{{startType==5}}">
+                <cover-view>请点击右下角图标</cover-view>
+                <cover-view class="red-text">获取线路</cover-view>
+                <cover-view>。</cover-view>
+                <cover-view class="red-text" wx:if="{{deviceType==1}}">允许~蓝牙权限！！！</cover-view>
+            </cover-view>
+            <cover-view class="title-text" wx:if="{{runCheckStatus==1&&uploadType==2}}">
+                <cover-view>第二步：请点击</cover-view>
+                <cover-view class="red-text">左下上传人脸照片</cover-view>
+                <cover-view>图标！！！</cover-view>
+                <cover-view class="red-text" wx:if="{{!filePath}}">未上传</cover-view>
+                <cover-view wx:if="{{filePath}}">已上传</cover-view>
+            </cover-view>
+            <cover-view class="title-text" wx:if="{{deviceType==1}}">
+                <cover-view>启动失败时：检查右上三点或箭头~设置~蓝牙~</cover-view>
+                <cover-view class="red-text">使用时</cover-view>
+            </cover-view>
+            <cover-view class="title-text" wx:if="{{startType==1||startType==3}}">
+                <cover-view>请站在</cover-view>
+                <cover-view class="red-text">指定位置</cover-view>
+                <cover-view>（橙色打卡点），多次长按开始跑步！</cover-view>
+            </cover-view>
+            <cover-view class="title-text" wx:if="{{startType==0||startType==2}}">
+                <cover-view>请在</cover-view>
+                <cover-view class="red-text">任意位置</cover-view>
+                <cover-view>后，点击开始跑步</cover-view>
+            </cover-view>
+        </cover-view>
+        <cover-view bindtap="sdrunPunchCard" class="sdqd" wx:if="{{runCheckStatus==1&&uploadType==2}}">
+            <cover-image class="onlonlat-img" src="/images/sdqd.png"></cover-image>
+        </cover-view>
+        <cover-view bindtap="sdrunPunchCard" class="sdqd-text" wx:if="{{runCheckStatus==1&&uploadType==2}}"> 上传照片 </cover-view>
+        <cover-view bindtap="getRunLineBtn" class="sxxl">
+            <cover-image class="onlonlat-img" src="/images/sxxl.png"></cover-image>
+        </cover-view>
+        <cover-view bindtap="getRunLineBtn" class="sxxl-text"> 获取线路 </cover-view>
+        <cover-view bind:longpress="runPaobu" class="runbutton"> 长按开始 </cover-view>
+    </map>
+</view>
+<inalertview bind:cancelEvent="closeEvent2" bind:closeEvent="closeEvent2" cancelText="已设置" content="无法获取位置信息，为了更精准的定位，请打开" content1="GPS" content2="功能并确保已获取小程序定位授权" id="gpsalertview" title="提 示"></inalertview>
+<inalertview bind:cancelEvent="closeBlueEvent" bind:closeEvent="closeBlueEvent" cancelText="已设置" content="请开启您的手机" content1="蓝牙" content2="功能才能运动" id="blueView" title="提 示"></inalertview>

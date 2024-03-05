@@ -1,0 +1,12 @@
+<view class="wx_alertview_container" hidden="{{!isShow}}">
+    <view class="wx-mask-view">
+        <view class="wx-alertview">
+            <view class="wx-alert-title">{{title}}</view>
+            <view class="wx-alert-content">{{content}}<label class="font1" wx:if="{{content1!=''}}">{{content1}}</label>{{content2}}</view>
+            <view class="wx-alert-footer">
+                <view catchtap="_cancelEvent" class="wx-alert-btn wx-left-btn" wx:if="{{cancelText!=''}}">{{cancelText}}</view>
+                <view catchtap="_confirmEvent" class="wx-alert-btn wx-right-btn" wx:if="{{confirmText!=''}}">{{confirmText}}</view>
+            </view>
+        </view>
+    </view>
+</view>

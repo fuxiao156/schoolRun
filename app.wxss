@@ -1,0 +1,79 @@
+page {
+    background: #eee;
+}
+
+.container {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.img75 {
+    height: 60rpx;
+    margin-top: 5rpx;
+    width: 60rpx;
+}
+
+.text75 {
+    font-size: 28rpx;
+    height: auto;
+    width: 60rpx;
+}
+
+.flag-sectin {
+    position: fixed;
+    right: 20rpx;
+    top: 50rpx;
+    width: 60rpx;
+    z-index: 1000;
+}
+
+.start-btn {
+    background: #ee7200;
+    border: none;
+    border-radius: 68rpx;
+    color: #fff;
+    font-size: 40rpx;
+    height: 96rpx;
+    letter-spacing: 4pt;
+    line-height: 96rpx;
+    position: relative;
+    width: 370rpx;
+    z-index: 100000;
+}
+
+.btn-jt {
+    height: 39rpx;
+    position: absolute;
+    right: 35rpx;
+    top: 30rpx;
+    width: 30rpx;
+}
+
+.sex {
+    border-radius: 15rpx;
+    height: 30rpx;
+    width: 30rpx;
+}
+
+.linebg {
+    background: #fff;
+    border-bottom: 2rpx solid #d6d6d6;
+    height: 2rpx;
+    width: 100%;
+}
+
+.nonedata {
+    font-size: 26rpx;
+    text-align: center;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: #00f;
+}

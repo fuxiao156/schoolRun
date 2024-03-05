@@ -1,0 +1,167 @@
+.title {
+    background-color: #fff;
+    font-size: 28rpx;
+    height: auto;
+    padding: 0 5%;
+    position: fixed;
+    width: 90%;
+    z-index: 100;
+}
+
+.title-text {
+    display: flex;
+    height: 45rpx;
+    line-height: 45rpx;
+    width: 100%;
+}
+
+.red-text {
+    color: red;
+}
+
+.title-num {
+    align-items: center;
+    font-size: 30rpx;
+    width: 100%;
+}
+
+.distance-text,.title-num {
+    display: flex;
+    height: 70rpx;
+}
+
+.distance-text {
+    align-items: flex-end;
+    flex: 1;
+    font-size: 50rpx;
+    font-weight: 600;
+    justify-content: flex-start;
+}
+
+.num-text {
+    width: auto;
+}
+
+.min-text {
+    font-size: 30rpx;
+    margin-left: 5px;
+    width: 80rpx;
+}
+
+.duration-text {
+    align-items: flex-end;
+    display: flex;
+    flex: 1;
+    font-size: 50rpx;
+    font-weight: 600;
+    height: 70rpx;
+    justify-content: left;
+}
+
+.sdqd {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    height: 100rpx;
+    justify-content: center;
+    top: 80%;
+    width: 100rpx;
+}
+
+.sdqd,.sdqd-text {
+    left: 20rpx;
+    position: fixed;
+    z-index: 100;
+}
+
+.sdqd-text {
+    font-size: 26rpx;
+    top: 88%;
+}
+
+.sxxl {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    height: 100rpx;
+    justify-content: center;
+    top: 75%;
+    width: 100rpx;
+}
+
+.sxxl,.sxxl-text {
+    position: fixed;
+    right: 20rpx;
+    z-index: 100;
+}
+
+.sxxl-text {
+    font-size: 26rpx;
+    top: 83%;
+}
+
+.xbeacon {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    height: 100rpx;
+    justify-content: center;
+    top: 15%;
+    width: 100rpx;
+}
+
+.xbeacon,.xbeacon-text {
+    position: fixed;
+    right: 20rpx;
+    z-index: 100;
+}
+
+.xbeacon-text {
+    font-size: 26rpx;
+    top: 23%;
+}
+
+.beacon {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    height: 100rpx;
+    justify-content: center;
+    top: 35%;
+    width: 100rpx;
+}
+
+.beacon,.beacon-text {
+    position: fixed;
+    right: 20rpx;
+    z-index: 100;
+}
+
+.beacon-text {
+    font-size: 26rpx;
+    top: 43%;
+}
+
+.onlonlat-img {
+    height: 60rpx;
+    width: 60rpx;
+}
+
+.runbutton {
+    background-color: #ee7200;
+    border-radius: 50rpx;
+    color: #fff;
+    font-size: 40rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    position: fixed;
+    right: 20%;
+    text-align: center;
+    top: 90%;
+    width: 60%;
+    z-index: 100;
+}

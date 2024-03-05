@@ -1,0 +1,52 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="stu-list" style="height:150rpx;">
+        <label class="stu-list-tit">我是:</label>
+        <view class="stu-type-selected-view">
+            <image class="type-img" src="/images/07_student_enabled.jpg" wx:if="{{userType==1}}"></image>
+            <image bindtap="updateUserTypestu" class="type-img" src="/images/07_student_disabled.jpg" wx:if="{{userType!=1}}"></image>
+            <image class="type-img" src="/images/07_teachter_enabled.jpg" wx:if="{{userType!=1}}"></image>
+            <image bindtap="updateUserTypetea" class="type-img" src="/images/07_teacher_disabled.jpg" wx:if="{{userType==1}}"></image>
+        </view>
+    </view>
+    <view class="stu-list">
+        <label class="stu-list-tit">学校</label>
+        <view class="selectedpicker">
+            <picker bindchange="bindPickerChange" range="{{schoolNamearray}}" value="{{indexS}}">
+                <view> {{schoolNamearray[indexS]}} </view>
+            </picker>
+        </view>
+    </view>
+    <view class="stu-list">
+        <label class="stu-list-tit">姓名</label>
+        <input bindinput="inputRealname" class="stu-list-txt" name="realName" placeholder="请输入您的姓名" type="text"></input>
+    </view>
+    <view class="stu-list" wx:if="{{userType==1}}">
+        <label class="stu-list-tit">学号</label>
+        <input bindinput="inputStudentNo" class="stu-list-txt" name="studentNo" placeholder="请输入您的学号" type="text"></input>
+    </view>
+    <view class="stu-list" wx:if="{{userType!=1}}">
+        <label class="stu-list-tit">账号</label>
+        <input bindinput="inputStudentNo" class="stu-list-txt" name="studentNo" placeholder="请输入您的账号" type="text"></input>
+    </view>
+    <view class="stu-list" style="padding-bottom:120rpx;" wx:if="{{attestStatus==1}}">
+        <label class="stu-list-tit">证明照片</label>
+        <view bindtap="uploadimage" class="stu-zhaopian">
+            <image class="zp-img" src="{{filePath?filePath:'/images/07_select_pic.jpg'}}"></image>
+        </view>
+    </view>
+    <view class="auth-btn-view">
+        <radio bindtap="binxieyi" checked="{{xieyi}}" class="xyradio" value=""></radio>
+        <label class="auth-lebel">已阅读并同意</label>
+        <label class="auth-lebel" style="color:#0039d7">《用户协议》</label>
+        <label class="auth-lebel">与</label>
+        <label class="auth-lebel" style="color:#0039d7">《隐私政策》</label>
+        <button bindtap="createAuthInfo" class="auth-btn">立即认证</button>
+        <view class="auth-text"> 提示：学号信息错误（检查无误的情况下）解决方案 </view>
+        <view class="auth-text"> 1、少数名族去除点（·），英文名去除空格 </view>
+        <view class="auth-text"> 2、联系客服：提供学校、学号、姓名、性别、班级名称 </view>
+        <view class="auth-text"> 提示：该用户不存在,请重新注册 </view>
+        <view class="auth-text"> 1：打开微信~下滑~长按CSU课外体育~移除~重新添加小程序~授权~认证 </view>
+        <view class="auth-text"> 人工客服：我的~问题与反馈~联系客服 </view>
+    </view>
+</view>

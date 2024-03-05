@@ -1,0 +1,175 @@
+<nav-bar2 navbarData="{{navbarData}}"></nav-bar2>
+<view class="topTabSwiper" style="margin-top:{{navheight}}px">
+    <view bindtap="checkCurrent" class="tab  {{currentData==0?'tabBorer':''}}" data-current="0">打卡</view>
+    <view bindtap="checkCurrent" class="tab  {{currentData==1?'tabBorer':''}}" data-current="1">记录</view>
+    <view bindtap="checkCurrent" class="tab  {{currentData==1?'tabBorer':''}}" data-current="2">地图</view>
+</view>
+<swiper bindchange="bindchange" class="swiper" current="{{currentData}}" duration="300">
+    <swiper-item class="swiper-item">
+        <view class="quyu">
+            <view class="wxquyu" wx:if="{{!quyuoff}}">
+                <image class="wx-image" src="/images/76_icon_outside.png"></image> 已离开有效区域 <image class="mywx-image" mode="widthFix" src="/images/76_position_outside.png"></image>
+            </view>
+            <view class="yxquyu" wx:if="{{quyuoff}}">
+                <image class="yx-image" src="/images/76_icon_inside.png"></image> 已进入有效区域 <image class="myyx-image" mode="widthFix" src="/images/76_position_inside.png"></image>
+            </view>
+            <image bindtap="sxquyuLocation" class="sxlocation-image" mode="widthFix" src="/images/76_icon_refresh.png"></image>
+        </view>
+        <view class="yhcgxx">
+            <view class="yhcgxx-tatle">
+                <image class="yhcgxx-head" src="{{headUrl?headUrl:'/images/07_personal-pic.png'}}"></image>
+                <view class="yhcgxx-name"> {{realName}} </view>
+                <image class="yhcgxx-sex" mode="widthFix" src="{{sexNo=='女'?'/images/20_icon_girl.jpg':'/images/20_icon_boy.jpg'}}"></image>
+                <text class="yhcgxx-cg" decode="true">
+                    /&nbsp;&nbsp;{{itemName}}（{{venueName}}）
+                </text>
+                <image bindtap="showquestion" class="yhcgxx-wenti" src="/images/15_icon_help.jpg"></image>
+            </view>
+            <view class="qinadaoxx">
+                <view class="qinadaoxx-time">
+                    <view class="time-start">
+                        <image binderror="" bindload="" class="image-start" lazyLoad="false" mode="widthFix" src="/images/76_icon_starttime.jpg"></image> 开始于 </view>
+                    <view class="time-startsj"> {{starttime}} </view>
+                    <view class="time-duanlian">
+                        <image binderror="" bindload="" class="image-duanlian" lazyLoad="false" mode="widthFix" src="/images/71_icon_length_time.png"></image> 已锻炼(H:M:S) </view>
+                    <view class="time-duanliansj"> {{runtime}} </view>
+                </view>
+                <view class="qiandaoxx-num">
+                    <view class="num-tatle"> 本场打卡次数 </view>
+                    <view class="num-body">
+                        <view class="num-yx">
+                            <view class="num-yxnum">{{yxvalidCount}}</view>
+                            <view class="num-yxtext">有效</view>
+                        </view>
+                        <view class="num-fh">
+                            <view class="num-fxg">/</view>
+                            <text class="num-null" decode="true" space="ensp">&nbsp;</text>
+                        </view>
+                        <view class="num-wx">
+                            <view class="num-wxnum">{{invalidCount}}</view>
+                            <view class="num-wxtext">无效</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="qiandaoxx-jieguo" wx:if="{{cardNumber-yxvalidCount<=0}}">
+                    <view class="jieguo-body-db">
+                        <icon class="jieguo-image-db" color="" size="24" type="success"></icon>
+                        <view class="jieguo-db"> 达标 </view>
+                    </view>
+                    <view class="jieguo-head-db"> 锻炼结果 </view>
+                </view>
+                <view class="qiandaoxx-jieguo" wx:if="{{cardNumber-yxvalidCount>0}}">
+                    <view class="jieguo-foot-wdb"> 再有效打卡 </view>
+                    <view class="jieguo-body-wdb">
+                        <label>{{cardNumber-yxvalidCount}}</label>次 </view>
+                    <view class="jieguo-head-wdb"> 完成达标 </view>
+                </view>
+            </view>
+            <text class="changcixx" decode="true">
+                本学期已打卡&nbsp;<text class="changcixx-num">{{allCount}}</text>&nbsp;场,其中&nbsp;<text class="changcixx-num">{{validCount}}</text>&nbsp;达标 </text>
+        </view>
+    </swiper-item>
+    <swiper-item class="swiper-item">
+        <view class="jilucgxx">
+            <view class="qinadaoxx">
+                <view class="qinadaoxx-time">
+                    <view class="time-duanlian">
+                        <image binderror="" bindload="" class="image-duanlian" lazyLoad="false" mode="widthFix" src="/images/71_icon_length_time.png"></image> 锻炼时长 </view>
+                    <view class="time-body">
+                        <view class="time-duanliansj"> {{runtimemm}} </view>
+                        <view class="time-text"> 分钟 </view>
+                    </view>
+                </view>
+                <view class="qiandaoxx-num">
+                    <view class="num-tatle">
+                        <image binderror="" bindload="" class="image-cishu" lazyLoad="false" mode="widthFix" src="/images/71_icon_clockin.png"></image> 本场打卡次数 </view>
+                    <view class="num-body">
+                        <view class="num-yx">
+                            <view class="num-yxnum">{{yxvalidCount}}</view>
+                            <view class="num-yxtext">有效</view>
+                        </view>
+                        <view class="num-fh">
+                            <view class="num-fxg">/</view>
+                            <text class="num-null" decode="true" space="ensp">&nbsp;</text>
+                        </view>
+                        <view class="num-wx">
+                            <view class="num-wxnum">{{invalidCount}}</view>
+                            <view class="num-wxtext">无效</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="qiandaoxx-jieguo" wx:if="{{cardNumber-yxvalidCount<=0}}">
+                    <view class="jieguo-body-db">
+                        <icon class="jieguo-image-db" color="" size="24" type="success"></icon>
+                        <view class="jieguo-db"> 达标 </view>
+                    </view>
+                    <view class="jieguo-head-db"> 锻炼结果 </view>
+                </view>
+                <view class="qiandaoxx-jieguo" wx:if="{{cardNumber-yxvalidCount>0}}">
+                    <view class="jieguo-foot-wdb"> 再有效打卡 </view>
+                    <view class="jieguo-body-wdb">
+                        <label>{{cardNumber-yxvalidCount}}</label>次 </view>
+                    <view class="jieguo-head-wdb"> 完成达标 </view>
+                </view>
+            </view>
+            <view class="qiandaojl">
+                <view class="qiandaojl-tetle"> 打卡记录 </view>
+                <view class="detailsArray-list">
+                    <view class="detailsArray-tatle">
+                        <view class="hang-no"> 次数 </view>
+                        <view class="hang-left">
+                            <image class="hang-image" src="/images/76_icon_starttime.jpg"></image>
+                            <label class="hang-text">打卡时间</label>
+                        </view>
+                        <view class="hang-center"> 是否上传 </view>
+                        <view class="hang-right"> 状态 </view>
+                    </view>
+                    <scroll-view class="detailsArray-hang" scrollY="true">
+                        <view class="detailsArray" style="{{item.cardStatus==0?'background:#ff0000':item.status==1?'background:#e8ffe3':'background:#fefce7'}}" wx:for="{{detailsArray}}" wx:key="seqNo">
+                            <view class="hang-no"> {{item.seqNo}} </view>
+                            <view class="hang-left"> {{item.cardTime}} </view>
+                            <view class="hang-center" wx:if="{{!item.uploadStatus}}"> 已上传 </view>
+                            <view class="hang-center" wx:if="{{item.uploadStatus}}"> 未上传 </view>
+                            <view class="hang-right" wx:if="{{item.status==1}}"> {{item.message}} </view>
+                            <view class="hang-right-sb" wx:if="{{item.status==0}}"> {{item.message}} </view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+        </view>
+    </swiper-item>
+    <swiper-item class="swiper-item">
+        <map circles="{{deviceList}}" class="map" latitude="22.24939" longitude="113.533968" markers="{{deviceList}}"></map>
+    </swiper-item>
+</swiper>
+<view class="dl-but">
+    <view bindtap="venueCardStart" class="but-start" data-cardFlag="1" wx:if="{{qiandaoStatus==0}}"> 开始签到 </view>
+    <view class="but-start" data-cardFlag="1" style="background-color:#cccccc" wx:if="{{qiandaoStatus==1}}"> 开始签到 </view>
+    <view bindtap="endQiandaoShowBox" class="but-end"> 结束签到 </view>
+</view>
+<alertview bind:cancelEvent="cancelEvent" bind:confirmEvent="venueCardEnd" cancelText="继续签到" confirmText="结束" content="{{endcontent}}" content1="{{endcontent1}}" content2="{{endcontent2}}" id="endalertview" title="提 示"></alertview>
+<view class="half-screen" style="margin-top:{{navheight}}px">
+    <view bindtap="hideModal" class="background_screen" wx:if="{{showModalStatus}}">
+        <view bindtap="hideModal" class="back">
+            <image class="" src="/images/icon_cha.png"></image>
+        </view>
+    </view>
+    <view animation="{{animationData}}" class="attr_box" wx:if="{{showModalStatus}}">
+        <view class="zysx-title"> 注意事项 </view>
+        <scroll-view class="zysx-body" scrollY="true">
+            <view class="zysx-hang"> 1、<text style="color:#000; font-weight:500;">为了保障数据的准确性，开始打卡后，请保持该页面的正常运行!!!</text>
+            </view>
+            <view class="zysx-hang"> 2、本程序通过手机蓝牙/GPS功能识别定位；<text style="color:#000; font-weight:500;">请确保网络、GPS、蓝牙为开启状态，签到期间中途不可以关闭。结束签到后才可以关闭!!!</text>
+            </view>
+            <view class="zysx-hang"> 3、本人需在场地区域内，才能开始签到、打卡。 </view>
+            <view class="zysx-hang"> 4、开始签到后，正式计时。 </view>
+            <view class="zysx-hang"> 5、该场管签到每次最小间隔时间为<text style="color:#000">{{cardRate}}</text>分钟，最大间隔时间为<text style="color:#000">{{cardRateMax}}</text>分钟，每次会自动打卡。 </view>
+            <view class="zysx-hang"> 6、间隔时间为<text style="color:#000">{{cardRate}}~{{cardRateMax}}</text>分钟中，在有效区域内打卡<text style="color:green">有效</text>，离开有效区域打卡<text style="color:red">无效</text>。 </view>
+            <view class="zysx-hang"> 7、有效打卡<text style="color:green">{{cardNumber}}</text>次（含）后，则本场锻炼<text style="color:green">达标</text>。不足<text style="color:red">{{cardNumber}}</text>次，视为本场<text style="color:red">无效</text>锻炼。 </view>
+            <view class="zysx-hang"> 8、网络<text style="color:red">异常</text>时，签到数据会显示为<text style="color:red">未提交</text>，未提交的视为数据<text style="color:red">无效</text>；网络<text style="color:green">正常</text>后，提交显示为未提交的数据，显示为<text style="color:green">已提交</text>才视为<text style="color:green">有效</text>。 </view>
+            <view class="zysx-hang"> 9、点击刷新按钮时，gps位置需要校准，开始会有一定误差。 蓝牙搜索时不一定及时，可能会导致有误差。打卡时不会有这种现象 </view>
+        </scroll-view>
+    </view>
+</view>
+<blueview bind:cancelEvent="closeBlueEvent" bind:closeEvent="closeBlueEvent" bind:confirmEvent="" cancelText="已设置" confirmText="去开启蓝牙" content="请开启您的手机" content1="蓝牙" content2="功能才能运动" id="blueView" title="提 示"></blueview>
+<setposview bind:cancelEvent="closeEvent2" bind:closeEvent="closeEvent2" bind:confirmEvent="" cancelText="已设置" confirmText="去开启GPS" content="无法获取位置信息，为了更精准的定位，请打开" content1="GPS" content2="功能并确保已获取小程序定位授权" id="gpsalertview" title="提 示"></setposview>

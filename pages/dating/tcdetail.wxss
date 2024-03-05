@@ -1,0 +1,177 @@
+page {
+    background: #f7f7f7;
+}
+
+.recordview-list {
+    background: none;
+    border-radius: 10rpx;
+    margin: 20rpx auto;
+    width: 94%;
+}
+
+.recordview-list .title {
+    background: #edeae5;
+    border-radius: 10rpx 10rpx 0 0;
+    font-size: 32rpx;
+    text-align: center;
+}
+
+.recordview-list .title,.tbg {
+    font-weight: 700;
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 100%;
+}
+
+.tbg {
+    background: #3188cb;
+    color: #fff;
+    display: flex;
+    font-size: 30rpx;
+}
+
+.tbg .tit1 {
+    width: 30%;
+}
+
+.tbg .tit1,.tbg .tit2 {
+    border-right: 1rpx solid #3a92d2;
+    height: 70rpx;
+    text-align: center;
+}
+
+.tbg .tit2 {
+    width: 20%;
+}
+
+.tbg .tit3 {
+    border-right: 1rpx solid #3a92d2;
+    height: 70rpx;
+    text-align: center;
+    width: 35%;
+}
+
+.tbg .tit4 {
+    text-align: center;
+    width: 15%;
+}
+
+.zj001 {
+    background: #fff;
+    display: inline-flex;
+    margin-bottom: 10rpx;
+    padding-bottom: 30rpx;
+    width: 100%;
+}
+
+.zj001 .box {
+    font-size: 26rpx;
+    font-weight: 700;
+    margin-top: 30rpx;
+    text-align: center;
+    width: 33%;
+}
+
+.zj001 .img {
+    height: 145rpx;
+    width: 118rpx;
+}
+
+.list1 {
+    background: #fff;
+    font-size: 26rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+}
+
+.lis1,.list1 {
+    align-items: center;
+    display: flex;
+}
+
+.lis1 {
+    height: 100%;
+    text-align: left;
+    width: 30%;
+}
+
+.lis2 {
+    width: 20%;
+}
+
+.lis2,.lis3 {
+    align-items: center;
+    text-align: center;
+}
+
+.lis3 {
+    display: inline-flex;
+    width: 35%;
+}
+
+.lis4 {
+    width: 15%;
+}
+
+.lis4,.lis5 {
+    align-items: center;
+    text-align: center;
+}
+
+.lis5 {
+    color: #3a92d2;
+    font-weight: 700;
+    width: 50%;
+}
+
+.img-icon {
+    height: 50rpx;
+    width: 50rpx;
+}
+
+.list1-bg {
+    background: #f1f3f2;
+}
+
+.progress {
+    background: #fff;
+    border: 1rpx solid #e4ebe3;
+    height: 40rpx;
+    margin-left: 10rpx;
+    width: 80%;
+}
+
+.progress-finished {
+    background: #11971e;
+    color: #000;
+    font-size: 24rpx;
+    font-weight: 700;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+}
+
+.red-bg {
+    background: #fd0506;
+}
+
+.yellow-bg {
+    background: #ffcc01;
+}
+
+.green-bg1 {
+    background: #25ce37;
+}
+
+.more {
+    align-items: center;
+    margin-top: 40rpx;
+    text-align: center;
+    width: 100%;
+}
+
+.moreimg {
+    height: 31rpx;
+    width: 31rpx;
+}

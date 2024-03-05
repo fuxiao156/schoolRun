@@ -1,0 +1,42 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="stu-list" style="height:150rpx;">
+        <label class="stu-list-tit">我是</label>
+        <view class="stu-type-selected-view" wx:if="{{userType==1}}">
+            <image class="type-img" src="/images/07_student_enabled.jpg"></image>
+        </view>
+        <view class="stu-type-selected-view" wx:if="{{userType==2}}">
+            <image class="type-img" src="/images/07_teachter_enabled.jpg"></image>
+        </view>
+    </view>
+    <view class="stu-list">
+        <label class="stu-list-tit">学校</label>
+        <view class="selectedpicker">
+            <view class="picker"> {{schoolName}} </view>
+        </view>
+    </view>
+    <view class="stu-list">
+        <label class="stu-list-tit">院系</label>
+        <view class="selectedpicker">
+            <view bindtap="gotoSelectyuanxi" class="picker"> {{collegeName}} </view>
+        </view>
+    </view>
+    <view class="stu-list">
+        <label class="stu-list-tit">班级</label>
+        <view class="selectedpicker">
+            <view bindtap="gotoSelectbanji" class="picker"> {{className}} </view>
+        </view>
+    </view>
+    <view class="stu-list">
+        <label class="stu-list-tit">年级</label>
+        <view class="selectedpicker">
+            <view bindtap="gotoSelectbanji" class="picker"> {{gradeName}} </view>
+        </view>
+    </view>
+    <view class="stu-list">
+        <label class="stu-list-tit">姓名／账号</label>
+        <view bindtap="gotoSelectstutentnum" class="selectedpicker">
+            <view class="picker"> {{realName}}/{{studentNo}} </view>
+        </view>
+    </view>
+</view>

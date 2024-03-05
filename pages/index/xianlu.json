@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "nav-bar": "../components/cnavbar/navbar",
+        "inalertview": "../components/inalertview/inalertview"
+    }
+}

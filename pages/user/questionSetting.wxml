@@ -1,0 +1,19 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view style="margin-top:{{navheight+10}}px;">
+    <view bindtap="openDocumentDocHW" class="helplist">华为权限设置</view>
+    <view bindtap="openDocumentDocOPPO" class="helplist">OPPO权限设置</view>
+    <view bindtap="openDocumentDocVIVO" class="helplist">VIVO权限设置</view>
+    <view bindtap="openDocumentDocIphone" class="helplist">苹果权限设置</view>
+    <view bindtap="openDocumentDocSamsung" class="helplist">三星权限设置</view>
+    <view bindtap="openDocumentDocXiaomi" class="helplist">小米权限设置</view>
+    <view bindtap="openDocumentDocYijia" class="helplist">一加权限设置</view>
+</view>
+<view class="foot-red-text">
+    <view>文档下载，只需点击一次，请耐心等待</view>
+    <view>小程序建议前台(CSU课外体育为手机显示页面)亮屏运行</view>
+    <view>权限设置中，微信位置没有总是允许不建议后台运行</view>
+    <view>例：微信版本8.0.10版本，位置权限：</view>
+    <view>有总是允许选项，按照文档操作，可以尝试后台息屏</view>
+    <view>微信版本8.0.11版本，位置权限</view>
+    <view>没有总是允许选项，不建议后台息屏</view>
+</view>

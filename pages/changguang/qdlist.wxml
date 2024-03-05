@@ -1,0 +1,123 @@
+<nav-bar2 navbarData="{{navbarData}}"></nav-bar2>
+<view class="qdlistbody" style="margin-top:{{navheight}}px">
+    <view class="nonedata" style="margin-top:100rpx;" wx:if="{{nonedata}}">暂无签到记录</view>
+    <view class="qdlist-head">
+        <view class="qdlist-text"> 本学期所有项目累计签到<text class="sunnum" space="ensp"> {{allCount}} </text>场，其中<text class="yxnum" space="ensp"> {{validCount}} </text>场达标。 </view>
+    </view>
+    <view class="qdlist">
+        <view class="qdlist-tatle">
+            <view bindtap="showitemArray" class="hang-image"> 项目 <image class="" mode="widthFix" src="/images/list_filter_enabled.png" wx:if="{{select}}"></image>
+                <image class="" mode="widthFix" src="/images/list_filter_disabled.png" wx:if="{{!select}}"></image>
+                <view class="itemArray" wx:if="{{select}}">
+                    <view catchtap="selectitemArray" class="itemArrayall" data-itemNo=""> 全部 </view>
+                    <view catchtap="selectitemArray" class="itemArray-name" data-itemNo="{{item.itemNo}}" wx:for="{{itemArray}}" wx:key="itemNo"> {{item.itemName}} </view>
+                </view>
+            </view>
+            <view class="hang-cn"> 场次 </view>
+            <view class="hang-left"> 签到时间 </view>
+            <view class="hang-center"> 锻炼总长 </view>
+            <view class="hang-right"> 打卡 </view>
+        </view>
+        <view class="summaryArray-hang">
+            <view bindtap="venueCardDetails" class="summaryArray" data-cardid="{{item.cardid}}" data-seqNo="{{item.seqNo}}" style="{{item.status==1?'background:#e8ffe3':''}}" wx:if="{{item.itemNo==selectitemNo||selectitemNo==''}}" wx:for="{{summaryArray}}" wx:key="seqNo">
+                <view class="hang-image">
+                    <image class="image-headUrl" src="{{item.venueImageUrl?item.venueImageUrl:''}}"></image>
+                </view>
+                <view class="hang-no"> {{item.seqNo}} </view>
+                <view class="hang-left"> {{item.cardDate}} </view>
+                <view class="hang-center"> {{item.cardTime>0?item.cardTime:0}}分钟 </view>
+                <view class="hang-right">
+                    <icon class="hang-image" color="" size="19" type="success" wx:if="{{item.status==1}}"></icon>
+                    <label class="hang-text" wx:if="{{item.status==1}}">有效</label>
+                    <icon class="hang-image" color="" size="19" type="warn" wx:if="{{item.status==0}}"></icon>
+                    <label class="hang-text" wx:if="{{item.status==0}}">无效</label>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="half-screen" style="margin-top:{{navheight}}px">
+    <view bindtap="hideModal" class="background_screen" wx:if="{{showModalStatus}}">
+        <view bindtap="hideModal" class="back">
+            <image class="" src="/images/icon_cha.png"></image>
+        </view>
+    </view>
+    <view animation="{{animationData}}" class="attr_box" wx:if="{{showModalStatus}}">
+        <view class="detailsArray-list">
+            <view class="qiandaocc">
+                <view class="qiandaocc-image">
+                    <image class="image" mode="widthFix" src="{{itemImage}}"></image>
+                </view>
+                <view class="qiandaocc-cc">
+                    <image bindtap="lastvenueCardDetails" class="qiandaocc-left" mode="widthFix" src="/images/73_icon_lastpage.png" wx:if="{{seqNo!=1}}"></image>
+                    <view class="qiandaocc-text"> 第 <view class="qiandaocc-num">{{seqNo}}</view> 场 </view>
+                    <image bindtap="nextvenueCardDetails" class="qiandaocc-right" mode="widthFix" src="/images/73_icon_nextpage.png" wx:if="{{seqNo!=detailsArrlen}}"></image>
+                </view>
+            </view>
+            <view class="qinadaoxx">
+                <view class="qinadaoxx-time">
+                    <view class="time-duanlian">
+                        <image binderror="" bindload="" class="image-duanlian" lazyLoad="false" mode="widthFix" src="/images/71_icon_length_time.png"></image> 锻炼时长 </view>
+                    <view class="time-body">
+                        <view class="time-duanliansj"> {{exerciseTime}} </view>
+                        <view class="time-text"> 分钟 </view>
+                    </view>
+                </view>
+                <view class="qiandaoxx-num">
+                    <view class="num-tatle">
+                        <image binderror="" bindload="" class="image-cishu" lazyLoad="false" mode="widthFix" src="/images/71_icon_clockin.png"></image> 本场打卡次数 </view>
+                    <view class="num-body">
+                        <view class="num-yx">
+                            <view class="num-yxnum">{{yxvalidCount}}</view>
+                            <view class="num-yxtext">有效</view>
+                        </view>
+                        <view class="num-fh">
+                            <view class="num-fxg">/</view>
+                            <text class="num-null" decode="true" space="ensp">&nbsp;</text>
+                        </view>
+                        <view class="num-wx">
+                            <view class="num-wxnum">{{invalidCount}}</view>
+                            <view class="num-wxtext">无效</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="qiandaoxx-jieguo">
+                    <view class="jieguo-body-db" wx:if="{{cardStatus!=0}}">
+                        <icon class="jieguo-image-db" color="" size="24" type="success"></icon>
+                        <view class="jieguo-db"> 达标 </view>
+                    </view>
+                    <view class="jieguo-body-wdb" wx:if="{{cardStatus==0}}">
+                        <icon class="jieguo-image-wdb" color="#6b6d68" size="24" type="cancel"></icon>
+                        <view class="jieguo-wdb"> 未达标 </view>
+                    </view>
+                    <view class="jieguo-head-db" wx:if="{{cardStatus!=0}}"> 锻炼结果 </view>
+                    <view class="jieguo-head-wdb" wx:if="{{cardStatus==0}}"> 锻炼结果 </view>
+                </view>
+            </view>
+            <view class="qiandaojl">
+                <view class="qiandaojl-tetle"> 打卡记录 </view>
+                <view class="detailsArrayDetails-list">
+                    <view class="detailsArray-tatle">
+                        <view class="hang-no"> 次数 </view>
+                        <view class="hang-left">
+                            <image class="hang-image" src="/images/76_icon_starttime.jpg"></image>
+                            <label class="hang-text">打卡时间</label>
+                        </view>
+                        <view class="hang-center"> 是否上传 </view>
+                        <view class="hang-right"> 状态 </view>
+                    </view>
+                    <view class="detailsArray-null" wx:if="{{detailsArray.length==0}}"> 暂无打卡记录 </view>
+                    <scroll-view class="detailsArray-hang" scrollY="true">
+                        <view class="detailsArray" style="{{item.cardStatus==0?'background:#ff0000':item.status==1?'background:#e8ffe3':'background:#fefce7'}}" wx:for="{{detailsArray}}" wx:key="seqNo">
+                            <view class="hang-no"> {{item.seqNo}} </view>
+                            <view class="hang-left"> {{item.cardTime}} </view>
+                            <view class="hang-center"> 已上传{{item.cardStatus}} </view>
+                            <view class="hang-right" wx:if="{{item.status==1}}"> {{item.message}} </view>
+                            <view class="hang-right-sb" wx:if="{{item.status==0}}"> {{item.message}} </view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

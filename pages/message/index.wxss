@@ -1,0 +1,46 @@
+.dt-list {
+    background: #fff;
+    height: 190rpx;
+    margin-bottom: 12rpx;
+    position: relatives;
+    width: 100%;
+}
+
+.dt-list .redIcon2 {
+    background: red;
+    border-radius: 30rpx;
+    color: #fff;
+    font-size: 20rpx;
+    height: 30rpx;
+    left: 17%;
+    line-height: 30rpx;
+    margin-top: 40rpx;
+    position: absolute;
+    text-align: center;
+    width: 30rpx;
+}
+
+.dt-list .dt-icon {
+    float: left;
+    margin-top: 40rpx;
+    padding-left: 40rpx;
+    width: 20%;
+}
+
+.dt-list .dt-list-text {
+    float: left;
+    font-size: 28rpx;
+    margin-top: 45rpx;
+    padding-left: 40rpx;
+    width: 70%;
+}
+
+.dt-list .dt-list-text .dt-title {
+    line-height: 50rpx;
+    width: 100%;
+}
+
+.dt-list .dt-list-text .dt-desc {
+    color: #8e8e8e;
+    width: 100%;
+}

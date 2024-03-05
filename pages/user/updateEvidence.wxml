@@ -1,0 +1,25 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="stu-list">
+        <label class="stu-list-tit">姓名／学号</label>
+        <view bindtap="gotoSelectstutentnum" class="selectedpicker">
+            <view class="picker"> {{realName}}/{{studentNo}} </view>
+        </view>
+    </view>
+    <view class="stu-list-image" style="padding-bottom:30rpx;">
+        <view class="stu-list-tit">新的证明照片</view>
+        <view class="stu-list-tit" style="color:#a9a9a9;">(ps:审核通过、审核失败，可重新申请)</view>
+        <view bindtap="uploadimage" class="stu-zhaopian" wx:if="{{updateStatus!=1}}">
+            <image class="zp-img" src="{{filePath?filePath:'/images/07_select_pic.jpg'}}"></image>
+        </view>
+        <view class="stu-zhaopian" wx:if="{{updateStatus==1}}">
+            <image class="zp-img" src="{{filePath?filePath:'/images/07_select_pic.jpg'}}"></image>
+        </view>
+    </view>
+    <view class="auth-btn-view">
+        <button bindtap="updateEvidence" class="auth-btn" style="border:1px solid #eaeaea;" wx:if="{{updateStatus==0}}">申请</button>
+        <button class="auth-btn" style="border:1px solid #eaeaea;background:#eaeaea;color:#999999;" wx:if="{{updateStatus==1}}">待审核</button>
+        <button bindtap="updateEvidence" class="auth-btn" style="border:1px solid #eaeaea;background:#07c160;color:#fff;" wx:if="{{updateStatus==2}}">审核通过</button>
+        <button bindtap="updateEvidence" class="auth-btn" style="border:1px solid #eaeaea;background:#ff0000;color:#fff;" wx:if="{{updateStatus==3}}">审核失败</button>
+    </view>
+</view>

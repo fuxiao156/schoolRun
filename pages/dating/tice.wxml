@@ -1,0 +1,22 @@
+<nav-bar2 navbarData="{{navbarData}}"></nav-bar2>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view bindchange="bindchange" class="swiper" duration="300" style="height:{{winHeight}}px">
+        <view class="">
+            <view class="tbg">
+                <view class="tit2">学年</view>
+                <view class="tit1">学期</view>
+                <view class="tit1">成绩</view>
+                <view class="tit1">等级评定</view>
+                <view class="tit1">详情</view>
+            </view>
+            <view bindtap="gotoDetail" class="list1 {{idx%2==1?'list1-bg':''}}" data-addScore="{{item.addScore}}" data-avoirdupois="{{item.avoirdupois}}" data-bend="{{item.bend}}" data-bendConclusion="{{item.bendConclusion}}" data-bendScore="{{item.bendScore}}" data-conclusion="{{item.conclusion}}" data-fiftyMeter="{{item.fiftyMeter}}" data-fiftyMeterConclusion="{{item.fiftyMeterConclusion}}" data-fiftyMeterScore="{{item.fiftyMeterScore}}" data-healthScore="{{item.healthScore}}" data-kiloMeter="{{item.kiloMeter}}" data-kiloMeterConclusion="{{item.kiloMeterConclusion}}" data-kiloMeterScore="{{item.kiloMeterScore}}" data-leftAmetropia="{{item.leftAmetropia}}" data-leftMirror="{{item.leftMirror}}" data-leftVision="{{item.leftVision}}" data-lie="{{item.lie}}" data-lieConclusion="{{item.lieConclusion}}" data-lieScore="{{item.lieScore}}" data-rightAmetropia="{{item.rightAmetropia}}" data-rightMirror="{{item.rightMirror}}" data-rightVision="{{item.rightVision}}" data-saConclusion="{{item.saConclusion}}" data-saScore="{{item.saScore}}" data-schoolTerm="{{item.schoolTerm}}" data-schoolYear="{{item.schoolYear}}" data-score="{{item.score}}" data-sex="{{sex}}" data-standingLongJump="{{item.standingLongJump}}" data-standingLongJumpConclusion="{{item.standingLongJumpConclusion}}" data-standingLongJumpScore="{{item.standingLongJumpScore}}" data-stature="{{item.stature}}" data-vitalCapacity="{{item.vitalCapacity}}" data-vitalCapacityConclusion="{{item.vitalCapacityConclusion}}" data-vitalCapacityScore="{{item.vitalCapacityScore}}" wx:for="{{listData}}" wx:for-index="idx" wx:key="ke1">
+                <view class="lis2">{{item.schoolYear}}</view>
+                <view class="lis1">{{item.schoolTerm}}</view>
+                <view class="lis1">{{item.score}}</view>
+                <view class="lis1">{{item.conclusion}}</view>
+                <view class="lis3">查看</view>
+            </view>
+        </view>
+    </view>
+</view>
+<wxs module="tools" src="../../utils/subutils.wxs" />

@@ -1,0 +1,299 @@
+page {
+    background: #f7f7f7;
+}
+
+.tab {
+    float: left;
+    font-size: 30rpx;
+    padding: 15rpx 0;
+    text-align: center;
+    width: 45%;
+}
+
+.topTabSwiper {
+    zoom: 1;
+    background: #fff;
+    border-bottom: 0 solid #ccc;
+    border-top: 0 solid #ccc;
+    font-size: 30rpx;
+    font-weight: 400;
+    height: 10%;
+    padding-left: 10%;
+    width: 100%;
+    z-index: 10000;
+}
+
+.topTabSwiper:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.tabBorer {
+    border-bottom: 1px solid #ff9801;
+    color: #ff9801;
+    font-size: 30rpx;
+    font-weight: 400;
+}
+
+.swiper {
+    width: 100%;
+}
+
+.swiper_con {
+    background: none;
+    height: 100%;
+    margin-top: 60rpx;
+    padding: 0rpx 0;
+    text-align: center;
+    width: 100%;
+}
+
+.linebg {
+    background: #fff;
+    border-bottom: 2rpx solid #d6d6d6;
+    height: 2rpx;
+    width: 100%;
+}
+
+.rank-type {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.rank-type .ranklabel {
+    display: inline-block;
+    font-size: 32rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    width: 32%;
+}
+
+.rank-type .active {
+    color: #ff9801;
+}
+
+.rank-type .sline {
+    background: #f6f6f6;
+    display: inline-block;
+    height: 40rpx;
+    width: 4rpx;
+}
+
+.rank-list {
+    border-bottom: 1rpx solid #e0e0e0;
+    color: #333;
+    font-size: 32rpx;
+    height: 126rpx;
+    line-height: 50rpx;
+    padding-top: 20rpx;
+    width: 100%;
+}
+
+.level {
+    color: #999;
+    font-size: 28rpx;
+}
+
+.stutentname {
+    font-size: 32rpx;
+}
+
+.rank-list .name-view {
+    float: left;
+    font-size: 30rpx;
+    text-align: left;
+    width: 30%;
+}
+
+.rank-list .bbdata-view {
+    float: right;
+    font-size: 30rpx;
+    padding-right: 30rpx;
+    text-align: right;
+    width: 25%;
+}
+
+.img-icon1 {
+    height: 65rpx;
+    width: 65rpx;
+}
+
+.recordtxt {
+    font-size: 32rpx;
+    height: 5%;
+    padding-left: 30rpx;
+}
+
+.recordtxt label {
+    color: #ff9801;
+}
+
+.recordview {
+    border-radius: 10rpx;
+    padding: 0 3% 30rpx;
+    width: 94%;
+}
+
+.recordview .recordlist {
+    background: #fff;
+    border-radius: 10rpx;
+    height: 220rpx;
+    margin-bottom: 10rpx;
+    padding: 0 3%;
+    width: 94%;
+}
+
+.recordlist-head {
+    border-bottom: 1px dashed silver;
+    display: flex;
+    height: 55rpx;
+    width: 100%;
+}
+
+.recordview .recordlist .recordlist-xiaoqu {
+    color: #000;
+    font-size: 26rpx;
+    height: 40rpx;
+    margin-top: 10rpx;
+    text-align: right;
+    width: 36%;
+}
+
+.recordlist .recordlist-runtime {
+    color: #8b8b8b;
+    font-size: 26rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-top: 10rpx;
+    text-align: left;
+    width: 30%;
+}
+
+.recordlist-status {
+    border-radius: 20rpx;
+    color: #fff;
+    font-size: 26rpx;
+    height: 40rpx;
+    margin-right: 2%;
+    margin-top: 10rpx;
+    text-align: center;
+    width: 15%;
+}
+
+.recordview .recordlist .recordlist-img {
+    align-items: center;
+    display: flex;
+    float: left;
+    height: 110rpx;
+    justify-content: center;
+    width: 10%;
+}
+
+.recordlist .recordlist-left {
+    float: left;
+    height: 110rpx;
+    text-align: center;
+    width: 30%;
+}
+
+.recordlist .recordlist-right {
+    float: right;
+    height: 110rpx;
+    text-align: center;
+    width: 30%;
+}
+
+.recordlist-test-mileage,.recordlist-test-num {
+    font-size: 36rpx;
+    font-weight: 600;
+    height: 55rpx;
+    width: 100%;
+}
+
+.recordlist-test-mileage::after {
+    color: #333;
+    content: "km";
+    font-size: 24rpx;
+}
+
+.recordlist-test-test {
+    color: #999;
+    font-size: 30rpx;
+    height: 45rpx;
+    width: 100%;
+}
+
+.recordlist-remarks {
+    border-top: 1px dashed silver;
+    float: left;
+    font-size: 28rpx;
+    height: 55rpx;
+    text-align: center;
+    width: 100%;
+}
+
+.recordview1 {
+    background: #fff;
+    border-radius: 10rpx;
+    margin-left: 5%;
+    margin-top: 30rpx;
+    padding-bottom: 30rpx;
+    width: 90%;
+}
+
+.recordview1 .title {
+    background: #edeae5;
+    border-radius: 10rpx 10rpx 0 0;
+    font-size: 36rpx;
+    font-weight: 700;
+    height: 84rpx;
+    line-height: 84rpx;
+    text-align: center;
+}
+
+.reclist {
+    border-bottom: 1px dashed silver;
+    font-size: 30rpx;
+    font-weight: 400;
+    margin-left: 5%;
+    padding: 20rpx 0;
+    width: 90%;
+}
+
+.reclist .reclist-left {
+    float: left;
+    font-weight: 400;
+    line-height: 60rpx;
+    text-align: left;
+    width: 50%;
+}
+
+.reclist .reclist-right {
+    float: left;
+    line-height: 60rpx;
+    text-align: right;
+    width: 50%;
+}
+
+.reclist label {
+    color: #ff9000;
+}
+
+.swiper-box {
+    display: block;
+    height: 100%;
+    margin-top: 92rpx;
+    overflow: hidden;
+    width: 100%;
+}
+
+.scroll-views {
+    height: 95%;
+}
+
+.ft {
+    font-size: 24rpx;
+}

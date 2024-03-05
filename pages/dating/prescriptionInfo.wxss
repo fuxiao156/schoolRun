@@ -1,0 +1,60 @@
+.recordview1 {
+    background: #fff;
+    border-radius: 10rpx;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 30rpx;
+    padding-bottom: 30rpx;
+    width: 94%;
+}
+
+.recordview1 .title {
+    background: #edeae5;
+    border-radius: 10rpx 10rpx 0 0;
+    font-size: 32rpx;
+    font-weight: 700;
+    height: 84rpx;
+    line-height: 84rpx;
+    padding-left: 10rpx;
+    text-align: left;
+}
+
+.recordview1 .body {
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+    margin-top: 20rpx;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.text-center {
+    border-bottom-style: dotted;
+    border-width: 2px;
+    font-size: 30rpx;
+    line-height: 64rpx;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+}
+
+.recordview1 .text {
+    font-size: 28rpx;
+}
+
+.good-img {
+    height: 90rpx;
+    width: 90rpx;
+}
+
+.hang-bg-fff {
+    background: #fff;
+}
+
+.hang-bg,.hang-bg-fff {
+    height: 20rpx;
+    width: 100%;
+}
+
+.hang-bg {
+    background: #edeae5;
+}

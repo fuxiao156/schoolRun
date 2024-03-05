@@ -1,0 +1,389 @@
+page {
+    background: #fff;
+    height: 90%;
+    width: 100%;
+}
+
+.changguanlist {
+    margin-right: 11%;
+    overflow: hidden;
+    width: 89%;
+}
+
+.changguanlist .changguan {
+    background-color: #e0e0e0;
+    float: left;
+    margin-left: 1.33%;
+    margin-top: 10rpx;
+    padding-bottom: 30rpx;
+    position: relative;
+    width: 32%;
+}
+
+.changguanlist .changguan .cg-total {
+    background-color: #19d02a;
+    color: #fff;
+    font-size: 26rpx;
+    position: absolute;
+    right: 0rpx;
+    text-align: center;
+    top: 0rpx;
+    width: 60rpx;
+}
+
+.changguanlist .changguan .img {
+    align-items: center;
+    display: flex;
+    height: 130rpx;
+    justify-content: center;
+    margin: 40rpx auto 10rpx;
+    width: 60%;
+}
+
+.changguanlist .changguan .img image {
+    height: 100%;
+    width: 100%;
+}
+
+.changguanlist .changguan .xm-name {
+    font-size: 34rpx;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+}
+
+.changguanlist .changguan .cg-name {
+    color: #606060;
+    font-size: 26rpx;
+    text-align: center;
+    width: 100%;
+}
+
+.yxqiandaos {
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 20rpx;
+    padding-bottom: 30rpx;
+    padding-top: 30rpx;
+    width: 94%;
+}
+
+.yxqiandaos .yxqiandao-tetle {
+    font-size: 32rpx;
+    font-weight: 600;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.yxqiandaos .yxqiandao-list-no {
+    font-size: 26rpx;
+    margin-top: 30rpx;
+    text-align: center;
+}
+
+.yxqiandaos .yxqiandao-list {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao {
+    margin-top: 0rpx;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-wx {
+    border-bottom: 1px solid silver;
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-wx .hang-left {
+    font-size: 28rpx;
+    width: 20%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-wx .hang-center {
+    font-size: 28rpx;
+    width: 65%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-wx .hang-right {
+    font-size: 28rpx;
+    width: 15%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-yx {
+    background: #ffe1b3;
+    border-bottom: 1px solid silver;
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-yx .hang-left {
+    font-size: 28rpx;
+    width: 20%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-yx .hang-center {
+    font-size: 28rpx;
+    width: 65%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-yx .hang-right {
+    font-size: 28rpx;
+    width: 15%;
+}
+
+.background_screen {
+    background: #000;
+    color: #fff;
+    height: 100%;
+    left: 0;
+    opacity: .8;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.background_screen .back {
+    height: 50rpx;
+    position: absolute;
+    right: 50%;
+    top: 92%;
+    width: 50rpx;
+    z-index: 1001;
+}
+
+.background_screen .back image {
+    height: 100%;
+    opacity: 1;
+    width: 100%;
+    z-index: 1002;
+}
+
+.attr_box {
+    background: #fff;
+    border-radius: 30rpx;
+    height: 75%;
+    left: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+    overflow: hidden;
+    padding-top: 2%;
+    position: fixed;
+    top: 15%;
+    width: 90%;
+    z-index: 2000;
+}
+
+.attr_box .back {
+    height: 20px;
+    position: absolute;
+    right: 3%;
+    top: 2%;
+    width: 20px;
+}
+
+.attr_box .back image {
+    height: 100%;
+    width: 100%;
+}
+
+.attr_box .statistics-tetle {
+    border-bottom: 5rpx solid #c5c5c5;
+    display: flex;
+    height: 8%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 90%;
+}
+
+.attr_box .statistics-tetle .statistics-day {
+    font-size: 28rpx;
+    width: 13%;
+}
+
+.attr_box .statistics-tetle .statistics-day,.attr_box .statistics-tetle .statistics-lie {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.attr_box .statistics-tetle .statistics-lie {
+    width: 29%;
+}
+
+.attr_box .statistics-tetle .statistics-lie .statistics-image {
+    height: 20px;
+    width: 20px;
+}
+
+.attr_box .statistics-tetle .statistics-lie .statistics-text {
+    font-size: 28rpx;
+    margin-left: 5rpx;
+}
+
+.attr_box .detailsArray-null {
+    align-items: center;
+    display: flex;
+    font-size: 34rpx;
+    font-weight: 600rpx;
+    height: 720rpx;
+    justify-content: center;
+    width: 100%;
+}
+
+.attr_box .detailsArray-list {
+    height: 86%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 20rpx;
+    width: 96%;
+}
+
+.attr_box .detailsArray-list .detailsArray-tatle {
+    display: flex;
+    height: 8%;
+    line-height: 80rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-tatle .hang-image {
+    width: 18%;
+}
+
+.attr_box .detailsArray-list .detailsArray-tatle .hang-image image {
+    height: 80rpx;
+    width: 80rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-tatle .hang-left {
+    width: 17%;
+}
+
+.attr_box .detailsArray-list .detailsArray-tatle .hang-center,.attr_box .detailsArray-list .detailsArray-tatle .hang-left {
+    align-items: center;
+    display: flex;
+    font-size: 28rpx;
+    justify-content: center;
+}
+
+.attr_box .detailsArray-list .detailsArray-tatle .hang-center {
+    width: 35%;
+}
+
+.attr_box .detailsArray-list .detailsArray-tatle .hang-center .hang-image {
+    height: 40rpx;
+    width: 30rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-tatle .hang-center .hang-text {
+    font-size: 28rpx;
+    margin-left: 5rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-tatle .hang-right {
+    align-items: center;
+    display: flex;
+    font-size: 28rpx;
+    justify-content: center;
+    width: 30%;
+}
+
+.attr_box .detailsArray-list .detailsArray-tatle .hang-right .hang-image {
+    height: 40rpx;
+    width: 40rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-tatle .hang-right .hang-text {
+    font-size: 28rpx;
+    margin-left: 5rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-hang {
+    height: 90%;
+    margin-top: 20rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-hang .detailsArray {
+    display: flex;
+    height: 100rpx;
+    line-height: 100rpx;
+    margin-top: 10rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-hang .detailsArray .hang-image {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 18%;
+}
+
+.attr_box .detailsArray-list .detailsArray-hang .detailsArray .hang-image .image-headUrl {
+    border-radius: 40rpx;
+    height: 80rpx;
+    width: 80rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-hang .detailsArray .hang-image .image-right {
+    height: 30rpx;
+    position: absolute;
+    right: 10rpx;
+    top: 10rpx;
+    width: 30rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-hang .detailsArray .hang-left {
+    align-items: center;
+    display: flex;
+    font-size: 34rpx;
+    font-weight: 600;
+    justify-content: center;
+    width: 17%;
+}
+
+.attr_box .detailsArray-list .detailsArray-hang .detailsArray .hang-center {
+    align-items: center;
+    display: flex;
+    font-size: 28rpx;
+    justify-content: center;
+    width: 35%;
+}
+
+.attr_box .detailsArray-list .detailsArray-hang .detailsArray .hang-center .hang-image {
+    height: 40rpx;
+    width: 30rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-hang .detailsArray .hang-center .hang-text {
+    font-size: 28rpx;
+    margin-left: 5rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-hang .detailsArray .hang-right {
+    align-items: center;
+    display: flex;
+    font-size: 28rpx;
+    justify-content: center;
+    width: 30%;
+}
+
+.attr_box .detailsArray-list .detailsArray-hang .detailsArray .hang-right .hang-image {
+    height: 40rpx;
+    width: 40rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray-hang .detailsArray .hang-right .hang-text {
+    font-size: 28rpx;
+    margin-left: 5rpx;
+}

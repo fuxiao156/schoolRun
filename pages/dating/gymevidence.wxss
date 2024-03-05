@@ -1,0 +1,211 @@
+.container {
+    padding: 0;
+}
+
+.stu-list {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    height: auto;
+    line-height: 75rpx;
+    min-height: 75rpx;
+    position: relative;
+    width: 100%;
+}
+
+.stu-list .stu-img-view {
+    float: left;
+    margin-top: 20rpx;
+    text-align: right;
+    width: 45%;
+}
+
+.stu-list .stu-name-view {
+    color: #333;
+    float: left;
+    font-size: 30rpx;
+    line-height: 42rpx;
+    margin-top: 30rpx;
+}
+
+.stu-list .stu-name-view label {
+    padding-left: 20rpx;
+}
+
+.stu-list .stu-name-view label.phone {
+    color: #999;
+    font-size: 28rpx;
+}
+
+.stu-list-tit {
+    color: #333;
+    font-size: 30rpx;
+    padding-left: 40rpx;
+}
+
+.stu-img-view .stu-img {
+    border-radius: 88rpx;
+    height: 88rpx;
+    width: 88rpx;
+}
+
+.stu-list .edit-name-view {
+    position: absolute;
+    right: 50rpx;
+    top: 40rpx;
+}
+
+.edit-img {
+    height: 64rpx;
+    width: 64rpx;
+}
+
+.type-img {
+    height: 118rpx;
+    margin-right: 20rpx;
+    width: 78rpx;
+}
+
+.stu-list .stu-type-selected-view {
+    display: inline-block;
+    position: absolute;
+    right: 30rpx;
+    text-align: right;
+    top: 20rpx;
+    width: 50%;
+}
+
+.sub-list {
+    margin-left: 10%;
+    width: 90%;
+}
+
+.txt-content {
+    background: #fff;
+    border: 1px solid #f7f7f7;
+    color: #ed7100;
+    font-size: 30rpx;
+    height: 200rpx;
+    line-height: 40rpx;
+    padding-left: 40rpx;
+    width: 90%;
+}
+
+.auth-btn-view {
+    background: #fff;
+    display: flex;
+    padding-bottom: 50rpx;
+    text-align: center;
+    width: 100%;
+}
+
+.auth-btn-view .auth-btn {
+    background: #ee7200;
+    border-radius: 48rpx;
+    color: #fff;
+    font-size: 36rpx;
+    height: 96rpx;
+    letter-spacing: 5pt;
+    line-height: 96rpx;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 60rpx;
+    text-align: center;
+    width: 40%;
+}
+
+.auth-btn-view .auth-btn::after {
+    border: none;
+}
+
+.auth-btn-view .auth-lebel {
+    font-size: 28rpx;
+    line-height: 80rpx;
+}
+
+.stu-list .stu-zhaopian {
+    position: absolute;
+    right: 40rpx;
+    top: 40rpx;
+}
+
+.zp-img {
+    height: 170rpx;
+    width: 140rpx;
+}
+
+.stu-desc {
+    color: #999;
+    margin-top: -20rpx;
+}
+
+.stu-desc,.stu-sl {
+    font-size: 28rpx;
+    line-height: 60rpx;
+    padding-left: 40rpx;
+}
+
+.stu-sl {
+    color: #0081ca;
+}
+
+radio {
+    transform: scale(.7);
+}
+
+.stu-list .selectedpicker {
+    color: #a9a9a9;
+    font-size: 32rpx;
+    padding-right: 40rpx;
+    position: absolute;
+    right: 15rpx;
+    top: 0rpx;
+}
+
+.stu-list .selectedpicker:after {
+    border-color: #a9a9a9;
+    border-style: solid;
+    border-width: 2rpx 2rpx 0 0;
+    content: " ";
+    height: 0rpx;
+    margin-top: -4rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 46%;
+    transform: rotate(45deg);
+    width: 0rpx;
+}
+
+.stu-list-image {
+    align-items: center;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    display: inline-grid;
+    height: auto;
+    min-height: 195rpx;
+    position: relative;
+    width: 100%;
+}
+
+.stu-list-image .stu-zhaopian {
+    position: absolute;
+    right: 40rpx;
+    top: 10rpx;
+}
+
+.stu-textarea-tit {
+    color: #333;
+    font-size: 30rpx;
+    padding-left: 40rpx;
+}
+
+.stats-default {
+    color: #ee7200;
+}
+
+.stats-true {
+    color: #06920b;
+}
+
+.stats-false {
+    color: red;
+}

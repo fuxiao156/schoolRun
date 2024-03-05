@@ -1,0 +1,25 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container1 {{isnight?'night':''}}" style="margin-top:{{navheight}}px;width:100%;">
+    <view style="width:88%;float:left;margin-top:20px;" wx:if="{{ismax}}">
+        <image src="{{codeUrl}}" style="width:{{winWidth-70}}px;height:{{winWidth-70}}px;"></image>
+    </view>
+    <view catchtap="changeNight" class="f2" style="top:{{navheight+30}}px" wx:if="{{!isnight}}">
+        <image src="/images/48_night.png" style="width:75rpx;height:75rpx"></image>
+    </view>
+    <view catchtap="changeNight" class="f2" style="top:{{navheight+30}}px" wx:if="{{isnight}}">
+        <image src="/images/48_sun.png" style="width:75rpx;height:75rpx"></image>
+    </view>
+    <view class="code-view" wx:if="{{!ismax}}">
+        <view class="code-line">姓名：{{realName}}</view>
+        <view class="code-line">性别：{{sex}}</view>
+        <view class="code-line">学号：{{studentNo}}</view>
+    </view>
+    <view class="code-view" wx:if="{{ismax}}">
+        <view class="code-line" style="padding-left:11%">姓名：{{realName}}</view>
+        <view class="code-line" style="padding-left:11%">性别：{{sex}}</view>
+        <view class="code-line" style="padding-left:11%">学号：{{studentNo}}</view>
+    </view>
+    <view style="width:75%;float:left;">
+        <image src="{{evidence}}" style="width:510rpx;height:305rpx;"></image>
+    </view>
+</view>

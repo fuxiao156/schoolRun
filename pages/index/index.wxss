@@ -1,0 +1,269 @@
+page {
+    background: #fff;
+}
+
+.area_picker {
+    font-size: 36rpx;
+    height: 80rpx;
+    padding-left: 3%;
+    width: 100%;
+}
+
+.topTabSwiper-index {
+    margin: 0 auto;
+    width: 100rpx;
+}
+
+.topTabSwiper-index .tab1 {
+    margin-left: 10rpx;
+    width: 20rpx;
+}
+
+.topTabSwiper-index .tab1,.topTabSwiper-index .tab2 {
+    background: #f0f0f0;
+    border-radius: 10rpx;
+    display: inline-block;
+    height: 20rpx;
+}
+
+.topTabSwiper-index .tab2 {
+    width: 60rpx;
+}
+
+canvas {
+    height: 750rpx;
+    left: 75rpx;
+    margin-top: -415rpx;
+    position: fixed;
+    top: 50%;
+    width: 600rpx;
+}
+
+.pb-index-section {
+    height: 490rpx;
+    margin-top: 60rpx;
+}
+
+.pb-index-section .c1 {
+    border: 12rpx solid #f0f0f0;
+    border-radius: 250rpx;
+    height: 380rpx;
+    margin: 0 auto;
+    position: relative;
+    width: 380rpx;
+}
+
+.pb-index-section .c1 .lj {
+    color: #9f9f9f;
+    font-size: 36rpx;
+    position: absolute;
+    text-align: center;
+    top: 46rpx;
+    width: 100%;
+}
+
+.pb-index-section .c1 .p_num {
+    color: #ee7200;
+    font-size: 100rpx;
+    position: absolute;
+    text-align: center;
+    top: 80rpx;
+    width: 100%;
+}
+
+.pb-index-section .c1 .m_runcount {
+    color: #0094fe;
+    font-size: 28rpx;
+    position: absolute;
+    text-align: center;
+    top: 210rpx;
+    width: 100%;
+}
+
+.pb-index-section .c1 .p_num1 {
+    color: #ee7200;
+    font-size: 100rpx;
+    position: absolute;
+    text-align: center;
+    top: 80rpx;
+    width: 100%;
+}
+
+.num,.num1 {
+    font-size: 80rpx;
+    font-weight: 600;
+    letter-spacing: -4rpx;
+}
+
+.num1::after {
+    color: #ee7200;
+    content: "km";
+    font-size: 36rpx;
+    padding-left: 10rpx;
+}
+
+.pb-index-section .c1 .km1 {
+    color: #ee7200;
+    font-size: 36rpx;
+    position: absolute;
+    right: 30rpx;
+    top: 200rpx;
+}
+
+.pb-index-section .c1 .m {
+    bottom: 74rpx;
+    color: #3a3a3a;
+    font-size: 32rpx;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.topScroll {
+    position: absolute;
+    top: -2000rpx;
+}
+
+.changguan-btn {
+    background: #0094fe;
+    border: none;
+    border-radius: 68rpx;
+    color: #fff;
+    font-size: 40rpx;
+    height: 96rpx;
+    letter-spacing: 4pt;
+    line-height: 96rpx;
+    position: relative;
+    width: 370rpx;
+    z-index: 100000;
+}
+
+.wx-mask-view {
+    background: rgba(0,0,0,.2);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000001;
+}
+
+.wx-tips {
+    align-items: center;
+    display: flex;
+    font-size: 26rpx;
+    height: 50rpx;
+    justify-content: center;
+    top: 19%;
+}
+
+.wx-alertview,.wx-tips {
+    background-color: #fff;
+    border-radius: 20rpx;
+    left: 50%;
+    overflow: hidden;
+    position: fixed;
+    -webket-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 90%;
+    z-index: 2000;
+}
+
+.wx-alertview {
+    height: 65%;
+    top: 55%;
+}
+
+.wx-alert-title {
+    background-color: #0094fe;
+    color: #fff;
+    font-size: 40rpx;
+    font-weight: 700;
+    height: 5%;
+    padding: 15rpx 0rpx;
+    text-align: center;
+}
+
+.swiper,swiper {
+    height: 95%;
+    width: 100%;
+}
+
+.notice-title {
+    border-bottom: 2rpx dashed #000;
+    font-size: 36rpx;
+    margin: 0 5%;
+    width: 90%;
+}
+
+.notice-date,.notice-title {
+    height: auto;
+    text-align: center;
+}
+
+.notice-date {
+    background: #d4d4d4;
+    border-radius: 6rpx;
+    color: #fff;
+    font-size: 20rpx;
+    padding: 10rpx 20rpx;
+    width: 100%;
+}
+
+.scroll-view {
+    height: 85%;
+    margin: 0 5%;
+    width: 90%;
+}
+
+.desc {
+    font-size: 32rpx;
+    height: auto;
+    margin: 40rpx 0rpx;
+    text-align: left;
+    width: 99%;
+}
+
+.notice-button {
+    display: flex;
+    height: 100rpx;
+    position: absolute;
+    width: 100%;
+}
+
+.button-left {
+    left: 0;
+}
+
+.button-left,.button-right {
+    align-items: center;
+    background-color: #777;
+    border-radius: 20rpx;
+    color: #fff;
+    display: flex;
+    height: 60rpx;
+    justify-content: center;
+    margin: 0 5%;
+    position: absolute;
+    top: 20rpx;
+    width: 40%;
+}
+
+.button-right {
+    left: 50%;
+}
+
+.button-right-close {
+    align-items: center;
+    background-color: #ee7200;
+    border-radius: 20rpx;
+    color: #fff;
+    display: flex;
+    height: 60rpx;
+    justify-content: center;
+    left: 50%;
+    margin: 0 5%;
+    position: absolute;
+    top: 20rpx;
+    width: 40%;
+}

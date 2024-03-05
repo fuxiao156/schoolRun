@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "blueview": "../components/inalertview/inalertview",
+        "setposview": "../components/inalertview/inalertview",
+        "nav-bar2": "../components/cnavbar/navbar",
+        "alertview": "../components/alertview/alertview",
+        "nav-bar": "../components/navbar/index"
+    }
+}

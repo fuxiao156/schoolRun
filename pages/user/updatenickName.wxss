@@ -1,0 +1,30 @@
+.form {
+    width: 100%;
+}
+
+.selectedpicker {
+    align-items: center;
+    background-color: #fff;
+    display: flex;
+    font-size: 32rpx;
+    height: 105rpx;
+    justify-content: flex-start;
+    padding-left: 40rpx;
+    width: 100%;
+}
+
+.auth-btn {
+    background: #ee7200;
+    border-radius: 48rpx;
+    bottom: 50rpx;
+    color: #fff;
+    font-size: 36rpx;
+    height: 86rpx;
+    letter-spacing: 5pt;
+    line-height: 86rpx;
+    margin-left: 25%;
+    position: fixed;
+    text-align: center;
+    width: 50%;
+    z-index: 999;
+}

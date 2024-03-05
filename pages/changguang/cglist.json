@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "nav-bar2": "../components/cnavbar/navbar",
+        "inalertview": "../components/inalertview/inalertview",
+        "selectalertview": "../components/selectalertview/selectalertview"
+    }
+}

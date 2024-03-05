@@ -1,0 +1,16 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="feedlist-sectioon">
+        <view class="feeklist">
+            <view class="date-txt">{{createDate}}</view>
+            <view class="feeklist-box">
+                <view class="title">{{title}}</view>
+                <view class="desc">
+                    <text>
+            {{content}}
+           </text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

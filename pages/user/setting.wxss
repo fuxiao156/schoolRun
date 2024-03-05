@@ -1,0 +1,82 @@
+.container {
+    padding: 0;
+}
+
+.grouplist {
+    width: 100%;
+}
+
+.grouplist .group {
+    color: #606060;
+    font-size: 28rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    padding-left: 5%;
+}
+
+.grouplist .xiaoquList {
+    background: #fff;
+}
+
+.grouplist .xiaoquList .subList {
+    height: 125rpx;
+}
+
+.grouplist .xiaoquList .subList,.grouplist .xiaoquList .subList2 {
+    border-bottom: 1px solid #f7f7f7;
+    line-height: 50rpx;
+    padding-bottom: 20rpx;
+    padding-top: 30rpx;
+    position: relative;
+}
+
+.grouplist .xiaoquList .subList2 {
+    height: 80rpx;
+}
+
+.grouplist .xiaoquList .subList .xqname,.grouplist .xiaoquList .subList2 .xqname2 {
+    color: #333;
+    font-size: 36rpx;
+    padding-left: 5%;
+}
+
+.grouplist .xiaoquList .subList .opentime {
+    color: #888;
+    font-size: 32rpx;
+    padding-left: 5%;
+}
+
+.subList2 .switch {
+    position: absolute;
+    right: 20rpx;
+    top: 35rpx;
+}
+
+.subList .selected {
+    position: absolute;
+    right: 20rpx;
+    top: 50rpx;
+}
+
+.subList2 .selectedpicker {
+    color: #a9a9a9;
+    font-size: 32rpx;
+    padding-right: 40rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 35rpx;
+}
+
+.selectedpicker:after {
+    border-color: #a9a9a9;
+    border-style: solid;
+    border-width: 2rpx 2rpx 0 0;
+    content: " ";
+    height: 15rpx;
+    margin-top: -4rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 46%;
+    transform: rotate(45deg);
+    width: 15rpx;
+}

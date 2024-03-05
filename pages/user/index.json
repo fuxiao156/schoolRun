@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "nav-bar": "../components/navbar/index"
+    },
+    "navigationBarTitleText": "我的",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
+}

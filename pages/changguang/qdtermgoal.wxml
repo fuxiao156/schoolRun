@@ -1,0 +1,52 @@
+<nav-bar2 navbarData="{{navbarData}}"></nav-bar2>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="termgoal-bg">
+        <view class="termgoal">
+            <view class="termgoal-head"> 学期目标 </view>
+            <view class="termgoal-body">
+                <view class="termgoal-chang">
+                    <label class="termgoal-num">{{targetCount}}</label> 场 </view>
+                <view class="termgoal-yxdl"> 有效锻炼 </view>
+            </view>
+        </view>
+        <view class="signed">
+            <view class="signed-head"> 已签到 </view>
+            <view class="signed-body">
+                <view class="signed-yx">
+                    <view class="signed-yxnum">{{validCount}}</view>
+                    <view class="signed-yxtext">有效</view>
+                </view>
+                <view class="signed-fh">
+                    <view class="signed-fxg">/</view>
+                    <text class="signed-null" decode="true" space="ensp">&nbsp;</text>
+                </view>
+                <view class="signed-wx">
+                    <view class="signed-wxnum">{{invalidCount}}</view>
+                    <view class="signed-wxtext">无效</view>
+                </view>
+                <view class="signed-chang">
+                    <view class="signed-ctext">场</view>
+                    <text class="signed-cnull"></text>
+                </view>
+            </view>
+        </view>
+        <view class="result" wx:if="{{!isStandard}}">
+            <view class="result-head"> 结果 </view>
+            <view class="result-body">
+                <view class="result-chang">
+                    <label class="result-num">{{needCount}}</label>
+                    <label class="result-text">
+                        <view class="result-zqd"> 再签到 </view> 场 </label>
+                </view>
+                <view class="result-wcmb"> 完成目标 </view>
+            </view>
+        </view>
+        <view class="result-db" wx:if="{{isStandard==1}}">
+            <view class="result-head-db"> 结果 </view>
+            <view class="result-body-db">
+                <icon class="result-image-db" color="" size="34" type="success"></icon>
+                <view class="result-db-text"> 达标 </view>
+            </view>
+        </view>
+    </view>
+</view>

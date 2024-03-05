@@ -1,0 +1,87 @@
+<daojishi id="daojishi" wx:if="{{isdaojishi}}"></daojishi>
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <map class="map" id="myMap" latitude="{{initlatitude}}" layerStyle="{{layerstyle}}" longitude="{{initlongitude}}" mapStyleId="style1" markers="{{markers}}" polygons="{{polygons}}" polyline="{{polylines}}" showLocation="true" style="width:100%;height:{{screenHeight-navheight}}px;">
+        <cover-view class="top-view">
+            <cover-view class="top-view-1">
+                <cover-view class="label1">{{meters}}</cover-view>
+                <cover-view class="label1-km">km</cover-view>
+            </cover-view>
+            <cover-view class="top-view-2">
+                <cover-view class="top-view-box" style="text-align:left;">
+                    <cover-view class="top-view-head">{{meters>0?av_speed:'0\'00'}}</cover-view>
+                    <cover-view class="top-view-end">平均配速</cover-view>
+                </cover-view>
+                <cover-view class="top-view-box" style="text-align:left;">
+                    <cover-view class="top-view-head">{{time}}</cover-view>
+                    <cover-view class="top-view-end">运动时间</cover-view>
+                </cover-view>
+                <cover-view class="top-view-box" wx:if="{{runType==4}}">
+                    <cover-view class="top-view-head">{{punchCardNum}}/{{punchCardSum}}</cover-view>
+                    <cover-view class="top-view-end">已打卡/需打卡</cover-view>
+                </cover-view>
+                <cover-view class="top-view-box" wx:if="{{runType==1}}">
+                    <cover-view class="top-view-head">{{punchCardNum}}/{{punchCardSum}}</cover-view>
+                    <cover-view class="top-view-end">已打卡/需打卡</cover-view>
+                </cover-view>
+                <cover-view class="top-view-box" wx:if="{{runType==2}}">
+                    <cover-view class="top-view-head">{{cal}}</cover-view>
+                    <cover-view class="top-view-end">热量（千卡）</cover-view>
+                </cover-view>
+            </cover-view>
+            <cover-view class="rule-bg">
+                <cover-view class="rule">
+                    <cover-view class="rule-test">有效成绩：目标里程{{mileageTarget}}公里；平均配速{{minTime}}~{{maxTime}}分钟/公里；</cover-view>
+                </cover-view>
+            </cover-view>
+        </cover-view>
+        <cover-view bindtap="sdrunPunchCard" class="sdqd" wx:if="{{runCheckStatus==1&&uploadType==1}}">
+            <cover-image class="sdqd-img" src="/images/sdqd.png"></cover-image>
+        </cover-view>
+        <cover-view bindtap="sdrunEndPunchCard" class="sdqd" wx:if="{{runCheckStatus==1&&uploadType==2}}">
+            <cover-image class="sdqd-img" src="/images/sdqd.png"></cover-image>
+        </cover-view>
+        <cover-view bindtap="sdrunPunchCard" class="sdqd-text" wx:if="{{runCheckStatus==1&&uploadType==1}}"> 上传照片 </cover-view>
+        <cover-view bindtap="sdrunEndPunchCard" class="sdqd-text" wx:if="{{runCheckStatus==1&&uploadType==2}}"> 上传照片 </cover-view>
+        <cover-view bind:longpress="runPunchCardBlue" class="punchCard" wx:if="{{runType==4&&deviceType==1}}">
+            <cover-image class="punchCard-img" src="/images/dak.png"></cover-image>
+        </cover-view>
+        <cover-view bind:longpress="runPunchCardBlue" class="punchCard-text-time" wx:if="{{runType==4&&deviceType==1}}"> 长按三秒 </cover-view>
+        <cover-view bind:longpress="runPunchCardBlue" class="punchCard-text-open" wx:if="{{runType==4&&deviceType==1}}"> 手动打卡 </cover-view>
+        <cover-view bindtap="stopNoRun" class="onstoprun" wx:if="{{startType>1}}">
+            <cover-image class="onstoprun-img" src="/images/stoprun.png"></cover-image>
+        </cover-view>
+        <cover-view bindtap="stopNoRun" class="onstoprun-text" wx:if="{{startType>1}}"> 强制结束 </cover-view>
+        <cover-view bindtap="getPunchCard" class="ondevice" wx:if="{{suspendStatus==1}}">
+            <cover-image class="ondevice-img" src="/images/refreshqy.png"></cover-image>
+        </cover-view>
+        <cover-view bindtap="getPunchCard" class="ondevice-text" wx:if="{{suspendStatus==1}}"> 更新打卡 </cover-view>
+        <cover-view class="pb-btn-vew">
+            <cover-view bind:longpress="endRunShowBox" class="btn-end" hoverClass="btn-end2" wx:if="{{suspendStatus==0}}">
+                <cover-view class="ctxt">长按</cover-view>结束 <cover-view class="endicon"></cover-view>
+            </cover-view>
+            <cover-view bind:longpress="endRunShowBox" class="btn-endstop" hoverClass="btn-end2" wx:if="{{suspendStatus==1}}">
+                <cover-view class="ctxt">长按</cover-view>结束 <cover-view class="endicon"></cover-view>
+            </cover-view>
+            <cover-view bind:longpress="recoveryRunBtn" class="btn-stop" hoverClass="btn-end2" wx:if="{{runstatus==1&&suspendStatus==1}}">
+                <cover-view class="ctxt">长按</cover-view>继续 <cover-view class="zticon">
+                    <cover-image src="/images/start.png" style="width:40rpx;height:40rpx;"></cover-image>
+                </cover-view>
+            </cover-view>
+            <cover-view bind:longpress="suspendRunBtn" class="btn-stop" hoverClass="btn-end2" wx:if="{{runstatus==0&&suspendStatus==1}}">
+                <cover-view class="ctxt">长按</cover-view>暂停 <cover-view class="zticon">
+                    <cover-image src="/images/stop.png" style="width:40rpx;height:40rpx;"></cover-image>
+                </cover-view>
+            </cover-view>
+        </cover-view>
+    </map>
+    <alertview bind:cancelEvent="cancelEvent" bind:confirmEvent="endRun" cancelText="继续" confirmText="结束" content="{{endcontent}}" content1="{{endcontent1}}" content2="{{endcontent2}}" id="endalertview" title="提 示"></alertview>
+    <alertview bind:cancelEvent="cancelNoEvent" bind:confirmEvent="endNoRun" cancelText="继续跑" confirmText="结束" content="强制结束将" content1="无效" content2="此次记录。您确定要结束吗？" id="endnoalertview" title="提 示"></alertview>
+    <inselectalertview bind:confirmEvent="closeToindex" confirmText="回到首页" content="获取位置信息异常！开始跑步失败。" content1="此次运动数据将视为无效。" content2="请点击回到首页按钮，检查GPS开启后，重新开始跑步" id="errorrun" title="警 告"></inselectalertview>
+    <inselectalertview bind:confirmEvent="closeToindex" confirmText="回到首页" content="网络异常！开始跑步失败。" content1="此次运动数据将视为无效。" content2="请点击回到首页按钮，检查网络开启后，重新开始跑步" id="wlerrorrun" title="警 告"></inselectalertview>
+    <inselectalertview bind:confirmEvent="closeToindex" confirmText="回到首页" content="已完成单日规定的跑步次数！开始跑步失败。" content1="此次运动数据将视为无效。" content2="请点击回到首页按钮，明日再来跑步" id="cserrorrun" title="警 告"></inselectalertview>
+    <inselectalertview bind:confirmEvent="closeToindex" confirmText="回到首页" content="未在规定的跑步时间范围内！开始跑步失败。" content1="此次运动数据将视为无效。" content2="请点击回到首页按钮，在指定时间跑步" id="timeerrorrun" title="警 告"></inselectalertview>
+    <inselectalertview bind:confirmEvent="closeToindex" confirmText="回到首页" content="启动跑步异常！上传跑步数据失败。" content1="此次运动数据将视为无效。" content2="请点击回到首页按钮，重新开始跑步" id="erroruploading" title="警 告"></inselectalertview>
+    <inalertview bind:cancelEvent="closeEvent2" bind:closeEvent="closeEvent2" cancelText="已设置" content="无法获取位置信息，为了更精准的定位，请打开" content1="GPS" content2="功能并确保已获取小程序定位授权" id="gpsalertview" title="提 示"></inalertview>
+    <inalertview bind:cancelEvent="closeBlueEvent" bind:closeEvent="closeBlueEvent" cancelText="已设置" content="请开启您的手机" content1="蓝牙" content2="功能才能运动" id="blueView" title="提 示"></inalertview>
+</view>

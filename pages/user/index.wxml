@@ -1,0 +1,129 @@
+<nav-bar navbarData="{{nvabarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight-20}}px" wx:if="{{userStatus.approveStatus==1}}">
+    <view bindtap="gotoNav" class="user-bluebg" data-url="/pages/user/edituserinfo">
+        <view class="user-head-view">
+            <image class="stu-img" src="{{userInfo.avatarUrl?userInfo.avatarUrl:'https://thirdwx.qlogo.cn/mmopen/vi_32/POgEwh4mIHO4nibH0KlMECNjjGxQUq24ZEaGT4poC6icRiccVGKSyXwibcPq4BWmiaIGuG1icwxaQX6grC9VemZoJ8rg/132'}}"></image>
+            <view class="name-view">
+                <label wx:if="{{userInfo.realName}}">{{userInfo.realName}}</label>
+                <label wx:if="{{!userInfo.realName}}">{{userInfo.nickName}}</label>
+                <view class="sex-view">
+                    <image class="sex" src="/images/20_icon_boy.jpg" wx:if="{{userInfo.sex==1}}"></image>
+                    <image class="sex" src="/images/20_icon_girl.jpg" wx:if="{{userInfo.sex==2}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="venue-view">
+        <view class="venue-view-l">
+            <image class="venue-image" src="/images/80_icon_run.png"></image>
+            <view class="venue-text"> 跑步 </view>
+        </view>
+    </view>
+    <view bindtap="gotoNav" class="progress-view" data-url="/pages/user/record" wx:if="{{schoolInfo.runRegular==3}}">
+        <view class="progress-view-l">
+            <view>已完成分数</view>
+            <label style="color:#0094fe;">{{userInfo.runScore}}</label>
+        </view>
+        <view class="progress-view-r">
+            <progress activeColor="#0094fe" borderRadius="8" class="progress" color="#ebebeb" percent="{{userInfo.scorePercent}}" showInfo="false" strokeWidth="12"></progress>
+        </view>
+    </view>
+    <view bindtap="gotoNav" class="progress-view" data-url="/pages/user/record" wx:if="{{schoolInfo.runRegular==2}}">
+        <view class="progress-view-l">
+            <view>已完成里程</view>
+            <label style="color:#0094fe;">{{userInfo.mileage}}km</label>
+        </view>
+        <view class="progress-view-r">
+            <progress activeColor="#0094fe" borderRadius="8" class="progress" color="#ebebeb" percent="{{userInfo.mileagePercent}}" showInfo="false" strokeWidth="12"></progress>
+        </view>
+    </view>
+    <view bindtap="gotoNav" class="progress-view" data-url="/pages/user/record" wx:if="{{schoolInfo.runRegular==1}}">
+        <view class="progress-view-l">
+            <view>已完成次数</view>
+            <label style="color:#0094fe;">{{userInfo.validCount}}次</label>
+        </view>
+        <view class="progress-view-r">
+            <progress activeColor="#0094fe" borderRadius="5" class="progress" color="#ebebeb" percent="{{userInfo.countPercent}}" showInfo="false" strokeWidth="12"></progress>
+        </view>
+    </view>
+    <view bindtap="gotoNav" class="user-group-view" data-url="/pages/index/rank" wx:if="{{userStatus.userType==1}}">
+        <view class="user-list-view">
+            <view class="user-list-l"> 排名 </view>
+            <view class="user-list-r"></view>
+        </view>
+    </view>
+    <view class="user-group-view-line"></view>
+    <view class="venue-view" wx:if="{{venueFlag==1}}">
+        <view class="venue-view-l">
+            <image class="venue-image" src="/images/80_icon_case.png"></image>
+            <view class="venue-text"> 锻炼 </view>
+        </view>
+    </view>
+    <view bindtap="gotoNav" class="progress-view" data-url="/pages/changguang/qdlist" wx:if="{{venueFlag==1}}">
+        <view class="progress-view-l">
+            <view>已有效锻炼</view>
+            <label style="color:#0094fe;">{{userInfo.venueCount}}次</label>
+        </view>
+        <view class="progress-view-r">
+            <progress activeColor="#0094fe" borderRadius="8" class="progress" color="#ebebeb" percent="{{userInfo.venuePercent}}" showInfo="false" strokeWidth="12"></progress>
+        </view>
+    </view>
+    <view bindtap="gotoNav" class="user-group-view" data-url="/pages/changguang/cgrank" wx:if="{{venueFlag==1&&userStatus.userType==1}}">
+        <view class="user-list-view">
+            <view class="user-list-l"> 排名 </view>
+            <view bindtap="gotoCgrank" class="user-list-r"></view>
+        </view>
+    </view>
+    <view class="user-group-view-line" wx:if="{{venueFlag==1}}"></view>
+    <view class="user-group-view">
+        <view bindtap="gotoNav" class="user-list-view" data-url="/pages/user/usecode">
+            <view class="user-list-l"> 我的二维码 </view>
+            <view class="user-list-r"></view>
+        </view>
+        <view bindtap="gotoNav" class="user-list-view" data-url="/pages/user/questionlist">
+            <view class="user-list-l"> 帮助与反馈 </view>
+            <view class="user-list-r"></view>
+        </view>
+        <view bindtap="gotoNav" class="user-list-view" data-url="/pages/user/questionlist">
+            <view class="user-list-l"> 当前版本号 </view>
+            <view class="user-list-r"> V3.0.2 </view>
+        </view>
+        <view bindtap="gotoNav" class="user-list-view" data-url="/pages/xbeacon/xbeacontest">
+            <view class="user-list-l"> 搜索蓝牙 </view>
+            <view class="user-list-r"></view>
+        </view>
+    </view>
+</view>
+<view class="container" style="margin-top:{{navheight+5}}px" wx:if="{{userStatus.approveStatus!=1}}">
+    <view bindtap="gotoStudentauth" class="user-renzheng-view">
+        <view class="user-renzheng-l"> 身份认证 </view>
+        <view class="user-renzheng-r" style="text-align:right;"> 立即认证 </view>
+    </view>
+    <view class="user-group-view">
+        <view bindtap="gotoNav" class="user-list-view" data-url="/pages/user/updateuser">
+            <view class="user-list-l"> 更改微信绑定 </view>
+            <view class="user-list-r" style="text-align:right;">
+                <label style="padding-right:60rpx;color:#ee7200" wx:if="{{applyStatus==0}}">待审核</label>
+                <label style="padding-right:60rpx;color:#07c160" wx:elif="{{applyStatus==1}}">审核通过</label>
+                <label style="padding-right:60rpx;color:#ff0000" wx:elif="{{applyStatus==2}}">审核失败</label>
+                <label style="padding-right:60rpx;color:#7A7A7A" wx:else>未提交</label>
+            </view>
+        </view>
+        <view bindtap="gotoNav" class="user-list-view" data-url="/pages/user/questionlist">
+            <view class="user-list-l"> 帮助与反馈 </view>
+            <view class="user-list-r"></view>
+        </view>
+        <view bindtap="gotoNav" class="user-list-view" data-url="/pages/xbeacon/index">
+            <view class="user-list-l"> 监听蓝牙 </view>
+            <view class="user-list-r"></view>
+        </view>
+        <view bindtap="gotoNav" class="user-list-view" data-url="/pages/xbeacon/xbeacontest">
+            <view class="user-list-l"> 搜索蓝牙 </view>
+            <view class="user-list-r"></view>
+        </view>
+        <view bindtap="gotoNav" class="user-list-view" data-url="/pages/xbeacon/xbeaconservices">
+            <view class="user-list-l"> 指定蓝牙 </view>
+            <view class="user-list-r"></view>
+        </view>
+    </view>
+</view>

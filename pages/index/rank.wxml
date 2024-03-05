@@ -1,0 +1,168 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="topTabSwiper">
+        <view bindtap="checkCurrent" class="tab  {{currentData==0?'tabBorer':''}}" data-current="0">班级</view>
+        <view bindtap="checkCurrent" class="tab  {{currentData==1?'tabBorer':''}}" data-current="1">院系</view>
+        <view bindtap="checkCurrent" class="tab  {{currentData==2?'tabBorer':''}}" data-current="2">学校</view>
+    </view>
+    <view class="linebg"></view>
+    <swiper bindchange="bindchange" class="swiper" current="{{currentData}}" duration="300" style="height:{{winHeight-30}}px">
+        <swiper-item>
+            <scroll-view bindscrolltolower="uploadData" bindscrolltoupper="downloadData" class="swiper_con" scrollTop="0" scrollWithAnimation="true" scrollY="true" style="height:{{winHeight-50}}px;">
+                <view class="rank-list" style="background:#fff9f1;border-top:20rpx solid #f7f7f7;border-bottom:20rpx solid #f7f7f7;">
+                    <view class="ranknum" style="width:100rpx;"></view>
+                    <view class="headimg-view" style="margin-left:12%;">
+                        <image class="headimg" src="{{cursturank.headUrl}}"></image>
+                    </view>
+                    <view class="name-view" style="width:30%;">
+                        <view class="stutentname1" style="margin-top:30rpx;">
+                            <label style="font-size:32rpx;">{{cursturank.realName}}</label>
+                            <label style="font-size:24rpx;">(排名{{cursturank.rank}})</label>
+                        </view>
+                    </view>
+                    <view class="bbdata-view">
+                        <view>
+                            <label class="gl1">{{cursturank.totalMileage}}</label>
+                            <label class="gl2">公里</label>
+                        </view>
+                        <view>
+                            <label class="gl3">运动次数：</label>
+                            <label class="gl4">{{cursturank.totalCount}}</label>
+                        </view>
+                    </view>
+                </view>
+                <view class="rank-list" wx:for="{{ranklist}}" wx:key="k1">
+                    <view class="ranknum" wx:if="{{item.statisRank<4}}">
+                        <image src="/images/20_rank{{item.statisRank}}.jpg" style="width:44rpx;height:66rpx;margin-top:25rpx;"></image>
+                    </view>
+                    <view class="ranknum" wx:if="{{item.statisRank>=4}}"> {{item.statisRank}} </view>
+                    <view class="headimg-view">
+                        <image class="headimg" src="{{item.headUrl}}"></image>
+                    </view>
+                    <view class="name-view">
+                        <view class="stutentname">{{item.realName}} <image src="/images/20_icon_boy.jpg" style="width:27rpx;height:27rpx;margin-top:39rpx;margn-left:10rpx;display:line-block;" wx:if="{{item.sexName=='男'}}"></image>
+                            <image src="/images/20_icon_girl.jpg" style="width:27rpx;height:27rpx;margin-top:39rpx;margn-left:10rpx;display:line-block;" wx:if="{{item.sexName=='女'}}"></image>
+                        </view>
+                    </view>
+                    <view class="bbdata-view">
+                        <view>
+                            <label class="gl1">{{item.statisMileage}}</label>
+                            <label class="gl2">公里</label>
+                        </view>
+                        <view>
+                            <label class="gl3">运动次数：</label>
+                            <label class="gl4">{{item.statisCount}}</label>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view bindscrolltolower="uploadData" bindscrolltoupper="downloadData" class="swiper_con" scrollTop="0" scrollWithAnimation="true" scrollY="true" style="height:{{winHeight-50}}px;">
+                <view class="rank-list" style="background:#fff9f1;border-top:20rpx solid #f7f7f7;border-bottom:20rpx solid #f7f7f7;">
+                    <view class="ranknum" style="width:100rpx;"></view>
+                    <view class="headimg-view" style="margin-left:12%;">
+                        <image class="headimg" src="{{cursturank.headUrl}}"></image>
+                    </view>
+                    <view class="name-view" style="width:30%;">
+                        <view class="stutentname1" style="margin-top:30rpx;">
+                            <label style="font-size:32rpx;">{{cursturank.realName}}</label>
+                            <label style="font-size:24rpx;">(排名{{cursturank.rank}})</label>
+                        </view>
+                    </view>
+                    <view class="bbdata-view">
+                        <view>
+                            <label class="gl1">{{cursturank.totalMileage}}</label>
+                            <label class="gl2">公里</label>
+                        </view>
+                        <view>
+                            <label class="gl3">运动次数：</label>
+                            <label class="gl4">{{cursturank.totalCount}}</label>
+                        </view>
+                    </view>
+                </view>
+                <view class="rank-list" wx:for="{{ranklist}}" wx:key="k1">
+                    <view class="ranknum" wx:if="{{item.statisRank<4}}">
+                        <image src="/images/20_rank{{item.statisRank}}.jpg" style="width:44rpx;height:66rpx;margin-top:25rpx;"></image>
+                    </view>
+                    <view class="ranknum" wx:if="{{item.statisRank>=4}}"> {{item.statisRank}} </view>
+                    <view class="headimg-view">
+                        <image class="headimg" src="{{item.headUrl}}"></image>
+                    </view>
+                    <view class="name-view">
+                        <view class="stutentname" wx:if="{{userType==1}}">{{tools.sub(item.realName,0,1)}}** <image src="/images/20_icon_boy.jpg" style="width:27rpx;height:27rpx;margin-top:39rpx;margn-left:10rpx;display:line-block;" wx:if="{{item.sexName=='男'}}"></image>
+                            <image src="/images/20_icon_girl.jpg" style="width:27rpx;height:27rpx;margin-top:39rpx;margn-left:10rpx;display:line-block;" wx:if="{{item.sexName=='女'}}"></image>
+                        </view>
+                        <view class="stutentname" wx:if="{{userType!=1}}">{{item.realName}} <image src="/images/20_icon_boy.jpg" style="width:27rpx;height:27rpx;margin-top:39rpx;margn-left:10rpx;display:line-block;" wx:if="{{item.sexName=='男'}}"></image>
+                            <image src="/images/20_icon_girl.jpg" style="width:27rpx;height:27rpx;margin-top:39rpx;margn-left:10rpx;display:line-block;" wx:if="{{item.sexName=='女'}}"></image>
+                        </view>
+                    </view>
+                    <view class="bbdata-view">
+                        <view>
+                            <label class="gl1">{{item.statisMileage}}</label>
+                            <label class="gl2">公里</label>
+                        </view>
+                        <view>
+                            <label class="gl3">运动次数：</label>
+                            <label class="gl4">{{item.statisCount}}</label>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view bindscrolltolower="uploadData" bindscrolltoupper="downloadData" class="swiper_con" scrollTop="0" scrollWithAnimation="true" scrollY="true" style="height:{{winHeight-50}}px;">
+                <view class="rank-list" style="background:#fff9f1;border-top:20rpx solid #f7f7f7;border-bottom:20rpx solid #f7f7f7;">
+                    <view class="ranknum" style="width:100rpx;"></view>
+                    <view class="headimg-view" style="margin-left:12%;">
+                        <image class="headimg" src="{{cursturank.headUrl}}"></image>
+                    </view>
+                    <view class="name-view" style="width:30%;">
+                        <view class="stutentname1" style="margin-top:30rpx;">
+                            <label style="font-size:32rpx;">{{cursturank.realName}}</label>
+                            <label style="font-size:24rpx;">(排名{{cursturank.rank}})</label>
+                        </view>
+                    </view>
+                    <view class="bbdata-view">
+                        <view>
+                            <label class="gl1">{{cursturank.totalMileage}}</label>
+                            <label class="gl2">公里</label>
+                        </view>
+                        <view>
+                            <label class="gl3">运动次数：</label>
+                            <label class="gl4">{{cursturank.totalCount}}</label>
+                        </view>
+                    </view>
+                </view>
+                <view class="rank-list" wx:for="{{ranklist}}" wx:key="k1">
+                    <view class="ranknum" wx:if="{{item.statisRank<4}}">
+                        <image src="/images/20_rank{{index+1}}.jpg" style="width:44rpx;height:66rpx;margin-top:25rpx;"></image>
+                    </view>
+                    <view class="ranknum" wx:if="{{item.statisRank>=4}}"> {{item.statisRank}} </view>
+                    <view class="headimg-view">
+                        <image class="headimg" src="{{item.headUrl}}"></image>
+                    </view>
+                    <view class="name-view">
+                        <view class="stutentname" wx:if="{{userType==1}}">{{tools.sub(item.realName,0,1)}}** <image src="/images/20_icon_boy.jpg" style="width:27rpx;height:27rpx;margin-top:39rpx;margn-left:10rpx;display:line-block;" wx:if="{{item.sexName=='男'}}"></image>
+                            <image src="/images/20_icon_girl.jpg" style="width:27rpx;height:27rpx;margin-top:39rpx;margn-left:10rpx;display:line-block;" wx:if="{{item.sexName=='女'}}"></image>
+                        </view>
+                        <view class="stutentname" wx:if="{{userType!=1}}">{{item.realName}} <image src="/images/20_icon_boy.jpg" style="width:27rpx;height:27rpx;margin-top:39rpx;margn-left:10rpx;display:line-block;" wx:if="{{item.sexName=='男'}}"></image>
+                            <image src="/images/20_icon_girl.jpg" style="width:27rpx;height:27rpx;margin-top:39rpx;margn-left:10rpx;display:line-block;" wx:if="{{item.sexName=='女'}}"></image>
+                        </view>
+                    </view>
+                    <view class="bbdata-view">
+                        <view>
+                            <label class="gl1">{{item.statisMileage}}</label>
+                            <label class="gl2">公里</label>
+                        </view>
+                        <view>
+                            <label class="gl3">运动次数：</label>
+                            <label class="gl4">{{item.statisCount}}</label>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>
+<wxs module="tools" src="../../utils/subutils.wxs" />

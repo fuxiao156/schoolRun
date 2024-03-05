@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "nav-bar": "../components/cnavbar/navbar"
+    },
+    "navigationBarTitleText": "成绩详情"
+}

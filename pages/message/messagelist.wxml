@@ -1,0 +1,25 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="feedlist-sectioon">
+        <view class="nodata" wx:if="{{nodata}}">
+            <view class="imgnone-view">
+                <image class="imgnone" src="/images/55_none.png"></image>
+            </view>
+            <view class="none-txt">暂无记录</view>
+        </view>
+        <view wx:if="{{!nodata}}">
+            <view class="feeklist" wx:for="{{messageList}}" wx:key="k1">
+                <view class="date-txt">{{item.createDate}}</view>
+                <view class="feeklist-box">
+                    <view class="title">标题：{{item.title}}</view>
+                    <view class="desc">{{item.summary}}</view>
+                    <view class="imgview">
+                        <image src="{{item.imagePath1}}" wx:if="{{item.imagePath1!=''}}"></image>
+                        <image src="{{item.imagePath2}}" wx:if="{{item.imagePath2!=''}}"></image>
+                    </view>
+                    <view bindtap="gotoNavDedeil" class="status" data-messageid="{{item.messageId}}"> 详情 </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,46 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="topTabSwiper">
+        <view bindtap="checkCurrent" class="tab  {{currentData==0?'tabBorer':''}}" data-current="0">轨迹</view>
+    </view>
+    <swiper bindchange="bindchange" class="swiper" current="{{currentData}}" duration="300" style="height:{{winHeight-navheight}}px">
+        <swiper-item>
+            <view class="swiper_con">
+                <view class="date-view">
+                    <image src="/images/timeicon.png" style="width:45rpx;height:45rpx;"></image>
+                    <label>{{startTime}}</label>
+                </view>
+                <view class="mapview">
+                    <map class="map" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" polyline="{{polyline}}" scale="16" style="height:{{winHeight*0.5}}px"></map>
+                    <view class="headview1">
+                        <cover-image class="stu-img" src="{{headUrl}}" style="width:80rpx;height:80rpx;" wx:if="{{true}}"></cover-image>
+                        <label style="font-size:36rpx;padding-left:80rpx;">{{realName}}</label>
+                        <image class="sex" src="/images/20_icon_boy.jpg" wx:if="{{sexNo==1}}"></image>
+                        <image class="sex" src="/images/20_icon_girl.jpg" wx:if="{{sexNo==2}}"></image>
+                        <label> / </label>
+                        <label>{{schoolName}}</label>
+                    </view>
+                    <view class="view-1">
+                        <view class="view-1-left">
+                            <label class="font1">{{actualMileage}}</label>
+                        </view>
+                    </view>
+                    <view class="top-view-2">
+                        <view class="top-view-box" style="text-align:left;">
+                            <view>{{averagePace}}</view>
+                            <label>平均配速</label>
+                        </view>
+                        <view class="top-view-box">
+                            <view>{{runTime}}</view>
+                            <label>用时</label>
+                        </view>
+                        <view class="top-view-box">
+                            <view>{{calorie}}</view>
+                            <label>热量（千卡）</label>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>

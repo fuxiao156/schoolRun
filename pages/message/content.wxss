@@ -1,0 +1,42 @@
+.feedlist-sectioon {
+    margin-top: 20rpx;
+    width: 100%;
+}
+
+.feeklist {
+    border-radius: 5rpx;
+    text-align: center;
+}
+
+.date-txt {
+    background: #d4d4d4;
+    border-radius: 6rpx;
+    color: #fff;
+    display: inline;
+    font-size: 20rpx;
+    margin: 0 auto;
+    padding: 10rpx 20rpx;
+}
+
+.feeklist-box {
+    background: #fff;
+    border-radius: 10rpx;
+    color: #000;
+    font-size: 28rpx;
+    margin: 20rpx auto;
+    padding: 30rpx 20rpx;
+    text-align: left;
+    width: 90%;
+}
+
+.title {
+    font-size: 32rpx;
+    text-align: left;
+}
+
+.desc {
+    color: #626262;
+    line-height: 40rpx;
+    margin-bottom: 20rpx;
+    margin-top: 10rpx;
+}

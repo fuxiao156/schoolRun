@@ -1,0 +1,69 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="stu-list" wx:if="{{applyStatus==3||applyStatus==2}}">
+        <label class="stu-list-tit">学校</label>
+        <view class="selectedpicker">
+            <view class="picker">
+                <picker bindchange="bindPickerChange" range="{{schoolNamearray}}" value="{{indexS}}">
+                    <view class="picker"> {{schoolNamearray[indexS]}} <view class="ceshi_next"></view>
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="stu-list" wx:else>
+        <label class="stu-list-tit">学校</label>
+        <view class="selectedpicker">
+            <view class="picker">
+                <picker bindchange="bindPickerChange" disabled="true" range="{{schoolNamearray}}" value="{{indexS}}">
+                    <view class="picker"> {{schoolName}} <view class="ceshi_next"></view>
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="stu-list" wx:if="{{applyStatus==3||applyStatus==2}}">
+        <label class="stu-list-tit">姓名</label>
+        <input bindinput="inputRealname" class="stu-list-txt" name="realName" placeholder="请输入您的姓名" type="text"></input>
+    </view>
+    <view class="stu-list" wx:else>
+        <label class="stu-list-tit">姓名</label>
+        <input class="stu-list-txt" disabled="true" placeholder="{{realName}}"></input>
+    </view>
+    <view class="stu-list" wx:if="{{applyStatus==3||applyStatus==2}}">
+        <label class="stu-list-tit">学号</label>
+        <input bindinput="inputStudentNo" class="stu-list-txt" name="studentNo" placeholder="请输入您的学号" type="text"></input>
+    </view>
+    <view class="stu-list" wx:else>
+        <label class="stu-list-tit">学号</label>
+        <input class="stu-list-txt" disabled="true" placeholder="{{studentNo}}"></input>
+    </view>
+    <view class="stu-list" wx:if="{{applyStatus==3||applyStatus==2}}">
+        <label class="stu-list-tit">原因</label>
+        <input bindinput="inputApplyContent" class="stu-list-txt" name="applyContent" placeholder="请输入您的原因" type="text"></input>
+    </view>
+    <view class="stu-list" wx:else>
+        <label class="stu-list-tit">原因</label>
+        <input class="stu-list-txt" disabled="true" placeholder="{{applyContent}}"></input>
+    </view>
+    <view class="stu-list" style="padding-bottom:40rpx;">
+        <label class="stu-list-tit">操作流程:</label>
+        <view class="stu-list-head">证明照片：</view>
+        <view class="stu-desc">1、请根据如下指定格式，完成书面材料</view>
+        <view class="stu-desc">2、提供书面材料给任课体育老师签字</view>
+        <view class="stu-desc">3、拍照证明材料填写信息，提交审核</view>
+        <view class="stu-desc">4、告知任课老师，老师通过程序审核</view>
+        <view bindtap="uploadimage" class="stu-zhaopian" wx:if="{{applyStatus==3||applyStatus==2}}">
+            <image class="zp-img" src="{{httpfilePath?httpfilePath:'/images/07_select_pic.jpg'}}"></image>
+        </view>
+        <view class="stu-zhaopian" wx:else>
+            <image class="zp-img" src="{{httpfilePath?httpfilePath:'/images/07_select_pic.jpg'}}"></image>
+        </view>
+    </view>
+    <view class="auth-btn-view">
+        <button class="auth-btn" style="border:1px solid #eaeaea;background:#eaeaea;color:#999999;" wx:if="{{applyStatus==0}}">待审核</button>
+        <button class="auth-btn" style="border:1px solid #eaeaea;background:#07c160;color:#fff;" wx:elif="{{applyStatus==1}}">审核通过</button>
+        <button bindtap="updateEvidence" class="auth-btn" style="border:1px solid #eaeaea;background:#ff0000;color:#fff;" wx:elif="{{applyStatus==2}}">审核失败</button>
+        <button bindtap="createAuthInfo" class="auth-btn" wx:else>提交</button>
+    </view>
+</view>

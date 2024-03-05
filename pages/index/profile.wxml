@@ -1,0 +1,24 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="mainbg" style="margin-top:{{navheight}}px">
+    <view class="logo-header">
+        <view class="logo-header-title">
+            <image class="logo1" src="/images/logo.gif"></image>
+        </view>
+        <view class="header-title">CSU课外体育</view>
+        <view style="clear:both;"></view>
+    </view>
+    <view class="nameline">亲爱的用户，欢迎您来到</view>
+    <view class="nameline2">CSU课外体育</view>
+    <view class="logobg">
+        <image class="logo" src="/images/logo.gif"></image>
+        <view>CSU课外体育</view>
+    </view>
+    <view class="tsinfo">
+        <view class="ts1 t2">为更好的体验CSU课外体育小程序，您需要授权：</view>
+        <view class="ts1">1、授权获取用户昵称、头像</view>
+        <view class="ts1">2、授权获取用户位置信息，并开启后台定位授权</view>
+    </view>
+    <button bindtap="getUserProfile" class="wxbtn" wx:if="{{canIUseGetUserProfile}}">
+        <image class="wxlogo" src="/images/wxlogo.png"></image> 立即进入</button>
+</view>
+<userlocationalertview bind::closeEvent="closeEvent2" cancelText="取消" confirmText="去设置" content="请开启GPS导航和" content1="小程序后台定位" content2="功能,【设置->位置信息->使用时小程序期间和离开小程序后】" id="userlocationalertview" title="提 示"></userlocationalertview>

@@ -1,0 +1,159 @@
+page {
+    background: #f7f7f7;
+}
+
+.tab {
+    float: left;
+    font-size: 30rpx;
+    padding: 15rpx 0;
+    text-align: center;
+}
+
+.topTabSwiper {
+    zoom: 1;
+    background: #fff;
+    border-bottom: 0 solid #ccc;
+    border-top: 0 solid #ccc;
+    font-size: 30rpx;
+    font-weight: 400;
+    padding-left: 10%;
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+}
+
+.topTabSwiper:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.tabBorer {
+    border-bottom: 1px solid #ff9801;
+    color: #ff9801;
+    font-size: 30rpx;
+    font-weight: 400;
+}
+
+.swiper {
+    width: 100%;
+}
+
+.swiper_con {
+    background: none;
+    height: 100%;
+    margin-top: 60rpx;
+    padding: 0rpx 0;
+    text-align: center;
+    width: 100%;
+}
+
+.linebg {
+    background: #fff;
+    border-bottom: 2rpx solid #d6d6d6;
+    height: 2rpx;
+    width: 100%;
+}
+
+.recordview1 {
+    background: #fff;
+    border-radius: 10rpx;
+    margin-left: 5%;
+    padding-bottom: 30rpx;
+    padding-top: 0;
+    width: 90%;
+}
+
+.recordview1 .title {
+    background: #edeae5;
+    border-radius: 10rpx 10rpx 0 0;
+    font-size: 36rpx;
+    font-weight: 700;
+    height: 84rpx;
+    line-height: 84rpx;
+    text-align: center;
+}
+
+.reclist {
+    border-bottom: 1px dashed silver;
+    font-size: 30rpx;
+    font-weight: 400;
+    margin-left: 5%;
+    padding: 20rpx 0;
+    width: 90%;
+}
+
+.reclist .reclist-left {
+    float: left;
+    font-weight: 400;
+    text-align: left;
+    width: 50%;
+}
+
+.reclist .reclist-right {
+    float: left;
+    text-align: right;
+    width: 50%;
+}
+
+.reclist label {
+    color: #ff9000;
+}
+
+.tbg {
+    background: #3188cb;
+    color: #fff;
+    display: flex;
+    font-size: 30rpx;
+    font-weight: 700;
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 100%;
+}
+
+.tbg .tit1 {
+    flex: 2;
+}
+
+.tbg .tit1,.tbg .tit2 {
+    border-right: 1rpx solid #3a92d2;
+    height: 70rpx;
+    text-align: center;
+}
+
+.tbg .tit2 {
+    flex: 3;
+}
+
+.list1 {
+    align-items: center;
+    background: #fff;
+    display: flex;
+    font-size: 28rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    width: 100%;
+}
+
+.lis1 {
+    flex: 2;
+}
+
+.lis1,.lis2 {
+    align-items: center;
+    border-right: 1rpx solid #edeae5;
+    text-align: center;
+}
+
+.lis2 {
+    flex: 3;
+}
+
+.lis3 {
+    align-items: center;
+    border-right: 1rpx solid #edeae5;
+    color: #3a92d2;
+    flex: 2;
+    text-align: center;
+}

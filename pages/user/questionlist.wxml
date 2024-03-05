@@ -1,0 +1,13 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="v1" style="margin-top:{{navheight+10}}px;"> 常见问题
+</view>
+<view>
+    <view bindtap="gotoNav" class="helplist" data-typeName="{{item.typeName}}" data-typeNo="{{item.typeNo}}" wx:for="{{questionArray}}" wx:key="key1">{{item.typeName}}</view>
+    <view bindtap="gotoQuestionSetting" class="helplist">权限设置</view>
+    <view class="foot">
+        <view class="foot-text">
+            <view class="blue">（工作时间：周一至周五：8:30~18:00）</view>
+        </view>
+        <button bindcontact="handleContact" class="foot-but" openType="contact">联系客服</button>
+    </view>
+</view>

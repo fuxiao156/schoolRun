@@ -1,0 +1,4 @@
+<nav-bar2 navbarData="{{navbarData}}"></nav-bar2>
+<view class="container" style="margin-top:{{navheight}}px">
+    <web-view src="{{weburl}}" style="margin-top:{{navheight}}px;top:100rpx;position:fixed;"></web-view>
+</view>

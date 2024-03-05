@@ -1,0 +1,10 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="v1" style="margin-top:{{navheight}}px;padding-left:30rpx;font-size:36rpx;"></view>
+<view>
+    <view class="helplist" wx:for="{{problemList}}" wx:key="key1">
+        <view bindtap="gotoNav" class="title" data-catid="{{item.catid}}">Q{{index+1}}：{{item.problem}}</view>
+        <view class="content">
+            <rich-text nodes=" {{item.answer}}"></rich-text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,73 @@
+page {
+    background: #eee;
+    height: 80%;
+    width: 100%;
+}
+
+.dt-list {
+    background: #fff;
+    height: 160rpx;
+    margin-bottom: 12rpx;
+    width: 100%;
+}
+
+.dt-list .dt-icon {
+    float: left;
+    margin-top: 25rpx;
+    padding-left: 40rpx;
+    width: 20%;
+}
+
+.dt-list .dt-list-text {
+    float: left;
+    font-size: 28rpx;
+    margin-top: 55rpx;
+    padding-left: 40rpx;
+    width: 70%;
+}
+
+.dt-list .dt-list-text .dt-title {
+    line-height: 50rpx;
+    width: 100%;
+}
+
+.dt-list .dt-list-text .dt-desc {
+    color: #8e8e8e;
+    width: 100%;
+}
+
+.dt-list .redIcon2 {
+    background: red;
+    border-radius: 30rpx;
+    color: #fff;
+    font-size: 20rpx;
+    height: 30rpx;
+    left: 17%;
+    line-height: 30rpx;
+    margin-top: 40rpx;
+    position: absolute;
+    text-align: center;
+    width: 30rpx;
+}
+
+.da-text {
+    align-items: flex-end;
+    height: 50%;
+    width: 100%;
+}
+
+.da-button,.da-text {
+    display: flex;
+    font-size: 30rpx;
+    justify-content: center;
+}
+
+.da-button {
+    align-items: center;
+    background-color: #0094fe;
+    border-radius: 20rpx;
+    color: #fff;
+    height: 80rpx;
+    margin-top: 100rpx;
+    width: 40%;
+}

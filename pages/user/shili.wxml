@@ -1,0 +1,31 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="notice-txt">
+        <view class="gth">
+            <image src="/images/11_notice.png" style="width:38rpx;height:38rpx;"></image>
+        </view> 上传以下三种证件之一均可 <view class="colse">
+            <image src="/images/11_close.png" style="width:44rpx;height:44rpx;"></image>
+        </view>
+    </view>
+    <view class="g1">
+        <view class="tit1">
+            <label class="tit2">1.学生证</label>
+            <label>（请上传带个人信息一面）</label>
+        </view>
+        <image class="g1-img" src="{{imageList[0].imageUrl}}"></image>
+    </view>
+    <view class="g1">
+        <view class="tit1">
+            <label class="tit2">2.校园卡</label>
+            <label>（请上传带个人信息一面）</label>
+        </view>
+        <image class="g1-img" src="{{imageList[1].imageUrl}}"></image>
+    </view>
+    <view class="g1">
+        <view class="tit1">
+            <label class="tit2">3.身份证</label>
+            <label>（请上传正面）</label>
+        </view>
+        <image class="g1-img" src="{{imageList[2].imageUrl}}"></image>
+    </view>
+</view>

@@ -1,0 +1,49 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px;">
+    <view class="gymClassList" style="height:{{winHeight-statusBarHeight}}px">
+        <view class="recordtxt">
+            <input bindinput="inputgymClassName" class="input" name="gymClassName" placeholder="请输入体育班名称" type="text"></input>
+            <view bindtap="loadInitData" class="button">查询</view>
+        </view>
+        <scroll-view class="scroll-views" scrollX="false" scrollY="true">
+            <view class="gymClass" wx:for="{{gymClassList}}" wx:key="ke1">
+                <view bindtap="gotoGymstudent" class="gymClasslist" data-gymClassName="{{item.gymClassName}}" data-gymClassNo="{{item.gymClassNo}}">
+                    <view class="gymclass-head">
+                        <view class="lessonName"> 课程名称:{{item.lessonName}} </view>
+                        <view class="gymClassDate"> 上课时间：<block wx:if="{{item.classDate==1}}">周一</block>
+                            <block wx:if="{{item.classDate==2}}">周二</block>
+                            <block wx:if="{{item.classDate==3}}">周三</block>
+                            <block wx:if="{{item.classDate==4}}">周四</block>
+                            <block wx:if="{{item.classDate==5}}">周五</block>
+                            <block wx:if="{{item.classDate==6}}">周六</block>
+                            <block wx:if="{{item.classDate==7}}">周七</block>
+                            <block wx:if="{{item.festival==1}}"> 1、2节</block>
+                            <block wx:if="{{item.festival==2}}"> 3、4节</block>
+                            <block wx:if="{{item.festival==3}}">5、6节</block>
+                            <block wx:if="{{item.festival==4}}">7、8节</block>
+                            <block wx:if="{{item.festival==5}}">9、10节</block>
+                        </view>
+                    </view>
+                    <view class="gymclass-body">
+                        <view class="gymClassName"> {{item.gymClassName}} </view>
+                        <view class="gymClass-num">
+                            <view class="statsAmount">
+                                <view class="statsAmount-num"> {{item.regularCount}} </view>
+                                <view class="statsAmount-name"> 达标人数 </view>
+                            </view>
+                            <view class="gymClass-num-fh">
+                                <view class="signed-fxg">/</view>
+                                <text class="signed-null" decode="true" space="ensp">&nbsp;</text>
+                            </view>
+                            <view class="factAmount">
+                                <view class="factAmount-num"> {{item.factAmount}} </view>
+                                <view class="factAmount-name"> 上课人数 </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="gymClass-foot"></view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

@@ -1,0 +1,49 @@
+<nav-bar2 navbarData="{{navbarData}}"></nav-bar2>
+<view class="cgangguanshow" style="margin-top:{{navheight}}px">
+    <view class="cg-hangname">
+        <view class="hang-left"> 场馆名称：{{venueName}} </view>
+    </view>
+    <view class="cg-hang">
+        <view class="hang-left"> 有效打卡次数： </view>
+        <view class="hang-right"> {{validCount}}次 </view>
+        <view class="hang-left2"> 无效打卡次数： </view>
+        <view class="hang-right2"> {{invalidCount}}次 </view>
+    </view>
+</view>
+<view class="yxqiandaos">
+    <view class="yxqiandao-tetle"> 打卡摘要 </view>
+    <view class="yxqiandao-list-no" wx:if="{{summaryArray.length==0}}"> 暂无打卡摘要 </view>
+    <view class="yxqiandao-list" wx:if="{{summaryArray}}">
+        <view bindtap="gotovenueCardDetails" class="yxqiandao" data-cardid="{{item.cardid}}" wx:for="{{summaryArray}}" wx:key="cardid">
+            <view class="list-hang-wx" wx:if="{{item.status==0}}">
+                <view class="hang-left"> 第{{item.id}}场： </view>
+                <view class="hang-center"> {{item.cardDate}} </view>
+                <view class="hang-right"> {{isvalid[item.status]}} </view>
+            </view>
+            <view class="list-hang-yx" wx:if="{{item.status==1}}">
+                <view class="hang-left"> 第{{item.id}}场： </view>
+                <view class="hang-center"> {{item.cardDate}} </view>
+                <view class="hang-right"> {{isvalid[item.status]}} </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="half-screen" style="margin-top:{{navheight}}px">
+    <view bindtap="hideModal" class="background_screen" wx:if="{{showModalStatus}}"></view>
+    <view animation="{{animationData}}" class="attr_box" wx:if="{{showModalStatus}}">
+        <view bindtap="hideModal" class="back">
+            <image class="" src="/images/close-circle-o.png"></image>
+        </view>
+        <view class="detailsArray-tetle"> 打卡详情 </view>
+        <view class="detailsArray-list-no" wx:if="{{detailsArray.length==0}}"> 暂无打卡详情 </view>
+        <view class="detailsArray-list" wx:if="{{detailsArray}}">
+            <view class="detailsArray" wx:for="{{detailsArray}}" wx:key="seqNo">
+                <view class="list-hang-wx">
+                    <view class="hang-left"> 第{{item.seqNo}}次： </view>
+                    <view class="hang-center"> {{item.cardTime}} </view>
+                    <view class="hang-right"> {{isvalid[item.status]}} </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

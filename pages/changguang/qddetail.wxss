@@ -1,0 +1,223 @@
+.cgangguanshow {
+    background-color: #fff;
+    border-radius: 0rpx 0rpx 40rpx 40rpx;
+    padding-bottom: 4%;
+    padding-top: 20rpx;
+}
+
+.cgangguanshow .cg-hang {
+    color: #666;
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 20rpx;
+    width: 90%;
+}
+
+.cgangguanshow .cg-hang .hang-left {
+    font-size: 28rpx;
+    width: 30%;
+}
+
+.cgangguanshow .cg-hang .hang-right {
+    font-size: 28rpx;
+    width: 20%;
+}
+
+.cgangguanshow .cg-hang .hang-left2 {
+    font-size: 28rpx;
+    width: 30%;
+}
+
+.cgangguanshow .cg-hang .hang-right2 {
+    font-size: 28rpx;
+    width: 20%;
+}
+
+.cgangguanshow .cg-hangname {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 20rpx;
+    width: 90%;
+}
+
+.cgangguanshow .cg-hangname .hang-left {
+    font-size: 32rpx;
+    font-weight: 600;
+    width: 90%;
+}
+
+.cgangguanshow .cg-hangname .hang-right {
+    font-size: 32rpx;
+    font-weight: 600;
+    width: 10%;
+}
+
+.yxqiandaos {
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 20rpx;
+    padding-bottom: 30rpx;
+    padding-top: 30rpx;
+    width: 94%;
+}
+
+.yxqiandaos .yxqiandao-tetle {
+    font-size: 32rpx;
+    font-weight: 600;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.yxqiandaos .yxqiandao-list-no {
+    font-size: 26rpx;
+    margin-top: 30rpx;
+    text-align: center;
+}
+
+.yxqiandaos .yxqiandao-list {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao {
+    margin-top: 0rpx;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-wx {
+    border-bottom: 1px solid silver;
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-wx .hang-left {
+    font-size: 28rpx;
+    width: 20%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-wx .hang-center {
+    font-size: 28rpx;
+    width: 65%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-wx .hang-right {
+    font-size: 28rpx;
+    width: 15%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-yx {
+    background: #ffe1b3;
+    border-bottom: 1px solid silver;
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-yx .hang-left {
+    font-size: 28rpx;
+    width: 20%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-yx .hang-center {
+    font-size: 28rpx;
+    width: 65%;
+}
+
+.yxqiandaos .yxqiandao-list .yxqiandao .list-hang-yx .hang-right {
+    font-size: 28rpx;
+    width: 15%;
+}
+
+.background_screen {
+    background: #000;
+    color: #fff;
+    height: 100%;
+    opacity: .5;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.attr_box,.background_screen {
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+}
+
+.attr_box {
+    background: #fff;
+    height: 70%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 20px;
+    top: 24%;
+    width: 90%;
+    z-index: 2000;
+}
+
+.attr_box .back {
+    height: 20px;
+    position: absolute;
+    right: 5%;
+    top: 3%;
+    width: 20px;
+}
+
+.attr_box .back image {
+    height: 100%;
+    width: 100%;
+}
+
+.attr_box .detailsArray-tetle {
+    font-size: 32rpx;
+    font-weight: 600;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.attr_box .detailsArray-list-no {
+    font-size: 26rpx;
+    margin-top: 30rpx;
+    text-align: center;
+}
+
+.attr_box .detailsArray-list {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.attr_box .detailsArray-list .detailsArray {
+    margin-top: 20rpx;
+}
+
+.attr_box .detailsArray-list .detailsArray .list-hang-wx {
+    border-bottom: 1px dashed silver;
+    display: flex;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.attr_box .detailsArray-list .detailsArray .list-hang-wx .hang-left {
+    font-size: 28rpx;
+    width: 20%;
+}
+
+.attr_box .detailsArray-list .detailsArray .list-hang-wx .hang-center {
+    font-size: 28rpx;
+    width: 65%;
+}
+
+.attr_box .detailsArray-list .detailsArray .list-hang-wx .hang-right {
+    font-size: 28rpx;
+    width: 15%;
+}

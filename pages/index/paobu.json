@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "inalertview": "../components/inalertview/inalertview",
+        "alertview": "../components/alertview/alertview",
+        "daojishi": "../components/daojishi/daojishi",
+        "nav-bar": "../components/navbar/index",
+        "inselectalertview": "../components/inselectalertview/inselectalertview"
+    },
+    "navigationBarTitleText": "跑步"
+}

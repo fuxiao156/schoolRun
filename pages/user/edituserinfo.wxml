@@ -1,0 +1,36 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="form">
+        <button bind:chooseavatar="onChooseAvatar" class="stu-list" openType="chooseAvatar">
+            <label class="stu-list-tit">头像</label>
+            <view class="selectedpicker">
+                <image class="stu-img" src="{{userInfo.avatarUrl}}"></image>
+            </view>
+        </button>
+        <view bindtap="gotoNav" class="stu-list" data-url="/pages/user/updatenickName">
+            <label class="stu-list-tit">昵称</label>
+            <view class="selectedpicker"> {{userInfo.nickName}} </view>
+        </view>
+        <view bindtap="gotoNav" class="stu-list" data-url="/pages/user/updatemobile">
+            <label class="stu-list-tit">手机号码</label>
+            <view class="selectedpicker" wx:if="{{userInfo.mobileNo!=''}}"> {{userInfo.mobileNo}} </view>
+            <view class="selectedpicker" wx:if="{{userInfo.mobileNo==''}}"> 未绑定 </view>
+        </view>
+        <view bindtap="gotoStudentauth" class="stu-list">
+            <label class="stu-list-tit">身份信息</label>
+            <view class="selectedpicker">
+                <label style="color:#ff0000" wx:if="{{!userStatus.approveStatus}}">未认证</label>
+                <label wx:if="{{userStatus.approveStatus}}">已认证</label>
+            </view>
+        </view>
+        <view bindtap="gotoNav" class="stu-list" data-url="/pages/user/updateEvidence" wx:if="{{userStatus.approveStatus==1}}">
+            <label class="stu-list-tit">更改证件照</label>
+            <view class="selectedpicker">
+                <label style="color:#7A7A7A" wx:if="{{updateStatus==0}}">未提交</label>
+                <label style="color:#ee7200" wx:if="{{updateStatus==1}}">待审核</label>
+                <label style="color:#07c160" wx:if="{{updateStatus==2}}">审核通过</label>
+                <label style="color:#ff0000" wx:if="{{updateStatus==3}}">审核失败</label>
+            </view>
+        </view>
+    </view>
+</view>

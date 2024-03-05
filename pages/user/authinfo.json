@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "nav-bar": "../components/cnavbar/navbar"
+    },
+    "navigationBarTitleText": "认证学籍资料"
+}

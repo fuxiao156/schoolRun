@@ -1,0 +1,19 @@
+<nav-bar bind:bindSearchInput="searchInput" navbarData="{{navbarData}}"></nav-bar>
+<view class="" style="margin-top:{{navheight}}px">
+    <view bindtap="gotoNav" class="dt-list" data-messageType="1">
+        <view class="redIcon2" wx:if="{{sysList.newCount>0}}">{{sysList.newCount}}</view>
+        <image class="dt-icon" src="/images/52_class.png" style="width:108rpx;height:108rpx;"></image>
+        <view class="dt-list-text">
+            <view class="dt-title">学校通知</view>
+            <view class="dt-desc">{{sysList.title}}</view>
+        </view>
+    </view>
+    <view bindtap="gotoNav" class="dt-list" data-messageType="2">
+        <view class="redIcon2" wx:if="{{messageList.newCount>0}}">{{messageList.newCount}}</view>
+        <image class="dt-icon" src="/images/52_notice.png" style="width:108rpx;height:108rpx;"></image>
+        <view class="dt-list-text">
+            <view class="dt-title">系统通知</view>
+            <view class="dt-desc">{{messageList.title}}</view>
+        </view>
+    </view>
+</view>

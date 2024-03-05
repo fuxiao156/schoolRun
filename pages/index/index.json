@@ -1,0 +1,14 @@
+{
+    "usingComponents": {
+        "alertview": "../components/alertview/alertview",
+        "authview": "../components/alertview/alertview",
+        "inalertview": "../components/inalertview/inalertview",
+        "userlocationalertview": "../components/userlocationalertview/alertview",
+        "nav-bar": "../components/navbar/index",
+        "selectalertview": "../components/selectalertview/selectalertview",
+        "inselectalertview": "../components/inselectalertview/inselectalertview",
+        "timeview": "../components/inalertview/inalertview"
+    },
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
+}

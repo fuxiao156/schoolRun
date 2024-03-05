@@ -1,0 +1,16 @@
+<view class="wx_alertview_container" hidden="{{!isShow}}">
+    <view class="wx-mask-view">
+        <view class="wx-alertview">
+            <view catchtap="_closeEvent" class="close">
+                <image catchtap="_closeEvent" class="closeimg" src="/images/close-circle-o.png"></image>
+            </view>
+            <view class="wx-alert-title">{{title}}</view>
+            <view class="wx-alert-content">{{content}}<label class="font1" wx:if="{{content1!=''}}">{{content1}}</label>{{content2}}</view>
+            <view class="wx-alert-footer">
+                <view catchtap="_cancelEvent" class="wx-alert-btn" wx:if="{{cancelText!='自由跑'}}">{{cancelText}}</view>
+                <view catchtap="_cancelEvent" class="wx-alert-btn" style="background:none;border:2rpx solid #ee7200;color:#ee7200;" wx:if="{{cancelText=='自由跑'}}">{{cancelText}}</view>
+                <view catchtap="_confirmEvent" class="wx-alert-btn">{{confirmText}}</view>
+            </view>
+        </view>
+    </view>
+</view>

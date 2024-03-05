@@ -1,0 +1,189 @@
+page {
+    background: #fff;
+}
+
+.mainbg {
+    width: 100%;
+}
+
+.mainbg .logobg {
+    margin-bottom: 80rpx;
+    margin-top: 80rpx;
+    text-align: center;
+    width: 100%;
+}
+
+.nameline {
+    color: #7c7c7c;
+}
+
+.nameline,.nameline2 {
+    font-size: 42rpx;
+    line-height: 50rpx;
+    margin-top: 20rpx;
+    padding-left: 150rpx;
+}
+
+.nameline2 {
+    color: #888;
+}
+
+.wxbtn {
+    background: #07c160;
+    border-radius: 50rpx;
+    color: #fff;
+    height: 100rpx;
+    line-height: 100rpx;
+    position: relative;
+    text-align: center;
+    width: 465rpx;
+}
+
+.wxbtn .wxlogo {
+    height: 60rpx;
+    left: 80rpx;
+    position: absolute;
+    top: 20rpx;
+    width: 75rpx;
+}
+
+.logo {
+    height: 141rpx;
+    margin: 0 auto;
+    width: 141rpx;
+}
+
+.logo,.logo1 {
+    text-align: center;
+}
+
+.logo1 {
+    height: 88rpx;
+    width: 88rpx;
+}
+
+.logo-header {
+    color: #7c7c7c;
+    margin-left: 5%;
+    margin-top: 40rpx;
+    width: 90%;
+}
+
+.logo-header .logo-header-title {
+    float: left;
+    width: 120rpx;
+}
+
+.logo-header .header-title {
+    float: left;
+    line-height: 88rpx;
+    width: 500rpx;
+}
+
+.commodity_screen {
+    background: #000;
+    color: #fff;
+    height: 100%;
+    opacity: .2;
+    top: 0;
+    z-index: 1000;
+}
+
+.commodity_attr_box,.commodity_screen {
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+.commodity_attr_box {
+    background: #fff;
+    bottom: 0;
+    height: 500rpx;
+    padding-top: 20rpx;
+    z-index: 2000;
+}
+
+.btn1 {
+    border-radius: 10rpx;
+    display: inline-block;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 10%;
+    width: 35%;
+}
+
+.primay-btn {
+    background: #2ba245;
+    color: #fff;
+}
+
+.tit {
+    font-size: 30rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 5%;
+    padding-left: 60rpx;
+    position: relative;
+    width: 90%;
+}
+
+.tit .tit-logo {
+    height: 50rpx;
+    left: 0;
+    position: absolute;
+    top: 16rpx;
+    width: 50rpx;
+}
+
+.info {
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 5%;
+    width: 95%;
+}
+
+.headernick {
+    border-bottom: 1px solid #eaeaea;
+    border-top: 1px solid #eaeaea;
+    font-size: 28rpx;
+    height: 150rpx;
+    margin-bottom: 40rpx;
+    margin-left: 5%;
+    width: 90%;
+}
+
+.headernick .userheadinfo {
+    float: left;
+    height: 100rpx;
+    margin-bottom: 20rpx;
+    margin-top: 20rpx;
+    width: 40%;
+    width: 100rpx;
+}
+
+.headernick .personinfo {
+    float: left;
+    height: 100rpx;
+    line-height: 50rpx;
+    margin-top: 20rpx;
+    padding-left: 4%;
+    width: 60%;
+}
+
+.tsinfo {
+    margin-bottom: 50rpx;
+    padding-left: 5%;
+    width: 90%;
+}
+
+.tsinfo .ts1 {
+    color: #666;
+    font-size: 28rpx;
+    line-height: 60rpx;
+}
+
+.tsinfo .t2 {
+    color: #000;
+    font-size: 32rpx;
+}

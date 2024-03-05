@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "nav-bar": "../components/cnavbar/navbar"
+    },
+    "navigationBarTitleText": "消息",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
+}

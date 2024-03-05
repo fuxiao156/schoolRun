@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "nav-bar2": "../components/cnavbar/navbar"
+    }
+}

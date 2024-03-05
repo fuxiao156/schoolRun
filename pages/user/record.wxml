@@ -1,0 +1,51 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="topTabSwiper">
+        <view bindtap="checkCurrent" class="tab  {{currentData==0?'tabBorer':''}}" data-current="0">学期记录</view>
+    </view>
+    <swiper bindchange="bindchange" class="swiper" current="{{currentData}}" duration="300" style="height:{{winHeight-navheight}}px">
+        <swiper-item>
+            <view class="recordtxt" wx:if="{{!nonedata}}"> {{userInfo.realName}}：有效次数<label>{{userInfo.validCount}}</label>次，有效里程<label>{{userInfo.mileage}}</label>km </view>
+            <view class="nonedata" style="margin-top:100rpx;" wx:if="{{nonedata}}">暂无跑步记录</view>
+            <scroll-view class="scroll-views" scrollX="false" scrollY="true">
+                <view class="recordview" wx:if="{{!nonedata}}">
+                    <view bindtap="goDetail" class="recordlist" data-detailId="{{item.detailId}}" wx:for="{{runList}}" wx:key="ke1">
+                        <view class="recordlist-head">
+                            <view class="recordlist-runtime"> {{item.runDate}} </view>
+                            <view class="recordlist-status" style="background-color:red;" wx:if="{{item.status==0}}"> 无效 </view>
+                            <view class="recordlist-status" style="background-color:#06920b" wx:if="{{item.status==1}}"> 有效 </view>
+                            <view class="recordlist-status" style="background-color:#ffffff" wx:if="{{item.morningRun!=1}}"></view>
+                            <view class="recordlist-status" style="background-color:#0094fe" wx:if="{{item.morningRun==1}}"> 晨跑 </view>
+                            <view class="recordlist-xiaoqu" wx:if="{{schoolInfo.runRegular==1&&item.status==1}}"> 换算次数：{{item.convertCount}}次 </view>
+                            <view class="recordlist-xiaoqu" wx:if="{{schoolInfo.runRegular==3}}"> 本次得分：{{item.runScore}}分 </view>
+                            <view class="recordlist-xiaoqu" wx:if="{{schoolInfo.runRegular==2}}"> 有效里程：{{item.validMileage}}km </view>
+                        </view>
+                        <view class="recordlist-img">
+                            <image class="img-icon1" src="/images/21_position.png" wx:if="{{item.runType==4}}"></image>
+                            <image class="img-icon1" src="/images/21_freedom.png" wx:if="{{item.runType==2}}"></image>
+                            <image class="img-icon1" src="/images/21_position.png" wx:if="{{item.runType==1}}"></image>
+                        </view>
+                        <view class="recordlist-left">
+                            <view class="recordlist-test-test">跑步里程</view>
+                            <view class="recordlist-test-mileage">{{item.actualMileage}}</view>
+                        </view>
+                        <view class="recordlist-right" wx:if="{{item.runType==4}}">
+                            <view class="recordlist-test-test">打卡位图</view>
+                            <view class="recordlist-test-num">{{item.runBitmap}}</view>
+                        </view>
+                        <view class="recordlist-right" wx:if="{{item.runType==1}}">
+                            <view class="recordlist-test-test">打卡位图</view>
+                            <view class="recordlist-test-num">{{item.runBitmap}}</view>
+                        </view>
+                        <view class="recordlist-right">
+                            <view class="recordlist-test-test">平均配速</view>
+                            <view class="recordlist-test-num">{{item.averagePace}}</view>
+                        </view>
+                        <view class="recordlist-remarks"> {{item.remarks}} </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>
+<wxs module="tools" src="../../utils/subutils.wxs" />

@@ -1,0 +1,133 @@
+.container {
+    padding: 0;
+    width: 100%;
+}
+
+.stu-list {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    height: auto;
+    line-height: 105rpx;
+    min-height: 105rpx;
+    position: relative;
+    width: 100%;
+}
+
+.stu-list-tit {
+    color: #333;
+    font-size: 30rpx;
+    padding-left: 40rpx;
+    width: 400rpx;
+}
+
+.stu-list .stu-list-head {
+    padding-right: 0rpx;
+}
+
+.stu-list .selectedpicker,.stu-list .stu-list-head {
+    font-size: 32rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 0rpx;
+}
+
+.stu-list .selectedpicker {
+    color: #a9a9a9;
+    padding-right: 40rpx;
+}
+
+.stu-list .selectedpicker:after {
+    border-color: #a9a9a9;
+    border-style: solid;
+    border-width: 2rpx 2rpx 0 0;
+    content: " ";
+    height: 15rpx;
+    margin-top: -4rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 46%;
+    transform: rotate(45deg);
+    width: 15rpx;
+}
+
+.stu-list .stu-list-txt {
+    display: inline-block;
+    left: 20%;
+    position: absolute;
+    top: 30rpx;
+}
+
+.stu-desc {
+    color: #999;
+    font-size: 28rpx;
+    line-height: 60rpx;
+    margin-top: -20rpx;
+    padding-left: 40rpx;
+    width: 70%;
+}
+
+.stu-list .stu-zhaopian {
+    position: absolute;
+    right: 30rpx;
+    top: 90rpx;
+}
+
+.zp-img {
+    height: 170rpx;
+    width: 136rpx;
+}
+
+.auth-btn-view {
+    background: #fff;
+    padding-bottom: 50rpx;
+    text-align: center;
+    width: 100%;
+}
+
+.auth-btn-view .auth-btn {
+    background: #ee7200;
+    border-radius: 48rpx;
+    color: #fff;
+    font-size: 36rpx;
+    height: 96rpx;
+    letter-spacing: 5pt;
+    line-height: 96rpx;
+    margin-top: 30rpx;
+    text-align: center;
+    width: 90%;
+}
+
+.demo-css {
+    background: #fff;
+    padding-bottom: 40rpx;
+    width: 100%;
+}
+
+.demo-css-title {
+    color: #333;
+    font-size: 32rpx;
+    font-weight: 600;
+    text-align: center;
+}
+
+.demo-css-hang {
+    display: flex;
+    font-size: 28rpx;
+    padding: 0rpx 5%;
+    width: 90%;
+}
+
+.demo-css-left {
+    width: 25%;
+}
+
+.demo-css-left span {
+    display: inline-block;
+    text-align: justify;
+    text-align-last: justify;
+    width: 4em;
+}
+
+.demo-css-right {
+    width: 75%;
+}

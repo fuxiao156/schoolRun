@@ -1,0 +1,5 @@
+<cover-view animation="{{animationData1}}" class="startBg" style="height:{{winHeight}}px;" wx:if="{{isShow}}">
+    <cover-view style="margin-top:100rpx;">
+        <cover-view animation="{{animationData}}" class="startnum">{{countDownNum}}</cover-view>
+    </cover-view>
+</cover-view>

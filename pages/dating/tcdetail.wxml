@@ -1,0 +1,170 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="container" style="margin-top:{{navheight}}px">
+    <view class="recordview-list">
+        <view class="title">{{schoolYear}}学年 {{schoolTerm}}学期</view>
+        <view class="zj001">
+            <view class="box">
+                <image class="img" src="/images/58_fen_1.jpg"></image>
+                <view>标准分</view>
+                <view>{{healthScore}}</view>
+            </view>
+            <view class="box">
+                <image class="img" src="/images/58_fen_2.jpg"></image>
+                <view>附加分</view>
+                <view>{{addScore}}</view>
+            </view>
+            <view class="box">
+                <image class="img" src="/images/58_fen_3.jpg"></image>
+                <view>学年总分</view>
+                <view>{{score}}</view>
+            </view>
+        </view>
+        <view class="tbg">
+            <view class="tit1">项目</view>
+            <view class="tit2">成绩</view>
+            <view class="tit3">得分</view>
+            <view class="tit4">等级</view>
+        </view>
+        <view class="list1 list1-bg">
+            <view class="lis1">
+                <image class="img-icon" src="/images/58_score_sg.gif"></image> 身高 </view>
+            <view class="lis2">{{stature}}厘米</view>
+            <view bindtap="gotoPrescriptionInfo" class="lis5" data-schoolTerm="{{schoolTerm}}" data-schoolYear="{{schoolYear}}" wx:if="{{prescription!=0&&score!='0.0'}}">运动处方</view>
+        </view>
+        <view class="list1">
+            <view class="lis1">
+                <image class="img-icon" src="/images/58_score_tz.gif"></image> 体重 </view>
+            <view class="lis2">{{avoirdupois}}公斤</view>
+            <view class="lis3">
+                <view style="width:15%;">{{saScore}}</view>
+                <view class="progress">
+                    <view class="progress-finished" style="width:{{saScore}}%" wx:if="{{saScore>=90}}">{{saScore}}</view>
+                    <view class="progress-finished green-bg1" style="width:{{saScore}}%" wx:if="{{saScore>=80&&saScore<90}}"> {{saScore}}</view>
+                    <view class="progress-finished yellow-bg" style="width:{{saScore}}%" wx:if="{{saScore>=60&&saScore<80}}"> {{saScore}}</view>
+                    <view class="progress-finished red-bg" style="width:{{saScore}}%" wx:if="{{saScore<60}}">{{saScore}}</view>
+                </view>
+            </view>
+            <view class="lis4">{{saConclusion}}</view>
+        </view>
+        <view class="list1 list1-bg">
+            <view class="lis1">
+                <image class="img-icon" src="/images/58_score_fh.gif"></image> 肺活量 </view>
+            <view class="lis2">{{vitalCapacity}}毫升</view>
+            <view class="lis3">
+                <view style="width:15%;">{{vitalCapacityScore}}</view>
+                <view class="progress">
+                    <view class="progress-finished" style="width:{{vitalCapacityScore}}%" wx:if="{{vitalCapacityScore>=90}}">{{vitalCapacityScore}}</view>
+                    <view class="progress-finished green-bg1" style="width:{{vitalCapacityScore}}%" wx:if="{{vitalCapacityScore<90&&vitalCapacityScore>=80}}">{{vitalCapacityScore}}</view>
+                    <view class="progress-finished yellow-bg" style="width:{{vitalCapacityScore}}%" wx:if="{{vitalCapacityScore<80&&vitalCapacityScore>=60}}">{{vitalCapacityScore}}</view>
+                    <view class="progress-finished red-bg" style="width:{{vitalCapacityScore}}%" wx:if="{{vitalCapacityScore<60}}">{{vitalCapacityScore}}</view>
+                </view>
+            </view>
+            <view class="lis4">{{vitalCapacityConclusion}}</view>
+        </view>
+        <view class="list1">
+            <view class="lis1">
+                <image class="img-icon" src="/images/58_score_50m.gif"></image> 50米跑 </view>
+            <view class="lis2">{{fiftyMeter}}s</view>
+            <view class="lis3">
+                <view style="width:15%;">{{fiftyMeterScore}}</view>
+                <view class="progress" style="float:right">
+                    <view class="progress-finished" style="width:{{fiftyMeterScore}}%" wx:if="{{fiftyMeterScore>=90}}"> {{fiftyMeterScore}}</view>
+                    <view class="progress-finished green-bg1" style="width:{{fiftyMeterScore}}%" wx:if="{{fiftyMeterScore<90&&fiftyMeterScore>=80}}">{{fiftyMeterScore}}</view>
+                    <view class="progress-finished yellow-bg" style="width:{{fiftyMeterScore}}%" wx:if="{{fiftyMeterScore<80&&fiftyMeterScore>=60}}">{{fiftyMeterScore}}</view>
+                    <view class="progress-finished red-bg" style="width:{{fiftyMeterScore}}%" wx:if="{{fiftyMeterScore<60}}"> {{fiftyMeterScore}}</view>
+                </view>
+            </view>
+            <view class="lis4">{{fiftyMeterConclusion}}</view>
+        </view>
+        <view class="list1 list1-bg">
+            <view class="lis1">
+                <image class="img-icon" src="/images/58_score_ty.gif"></image> 立定跳远 </view>
+            <view class="lis2">{{standingLongJump}}厘米</view>
+            <view class="lis3">
+                <view style="width:15%;">{{standingLongJumpScore}}</view>
+                <view class="progress">
+                    <view class="progress-finished" style="width:{{standingLongJumpScore}}%" wx:if="{{standingLongJumpScore>=90}}">{{standingLongJumpScore}}</view>
+                    <view class="progress-finished green-bg1" style="width:{{standingLongJumpScore}}%" wx:if="{{standingLongJumpScore<90&&standingLongJumpScore>=80}}">{{standingLongJumpScore}} </view>
+                    <view class="progress-finished yellow-bg" style="width:{{standingLongJumpScore}}%" wx:if="{{standingLongJumpScore>=60&&standingLongJumpScore<80}}">{{standingLongJumpScore}} </view>
+                    <view class="progress-finished red-bg" style="width:{{standingLongJumpScore}}%" wx:if="{{standingLongJumpScore<60}}">{{standingLongJumpScore}}</view>
+                </view>
+            </view>
+            <view class="lis4">{{standingLongJumpConclusion}}</view>
+        </view>
+        <view class="list1">
+            <view class="lis1">
+                <image class="img-icon" src="/images/58_score_tq.gif"></image> 坐体前屈 </view>
+            <view class="lis2">{{bend}}厘米</view>
+            <view class="lis3">
+                <view style="width:15%;">{{bendScore}}</view>
+                <view class="progress">
+                    <view class="progress-finished" style="width:{{bendScore}}%" wx:if="{{bendScore>=90}}">{{bendScore}}</view>
+                    <view class="progress-finished green-bg1" style="width:{{bendScore}}%" wx:if="{{bendScore>=80&&bendScore<90}}">{{bendScore}}</view>
+                    <view class="progress-finished yellow-bg" style="width:{{bendScore}}%" wx:if="{{bendScore>=60&&bendScore<80}}">{{bendScore}}</view>
+                    <view class="progress-finished red-bg" style="width:{{bendScore}}%" wx:if="{{bendScore<60}}">{{bendScore}} </view>
+                </view>
+            </view>
+            <view class="lis4">{{bendConclusion}}</view>
+        </view>
+        <view class="list1 list1-bg">
+            <view class="lis1">
+                <image class="img-icon" src="{{sex==1?'/images/58_score_yt.gif':'/images/58_score_yw.gif'}}"></image> {{sex==1?'引体向上':'仰卧起坐'}} </view>
+            <view class="lis2">{{lie}}个</view>
+            <view class="lis3">
+                <view style="width:15%;">{{lieScore}}</view>
+                <view class="progress">
+                    <view class="progress-finished" style="width:{{lieScore}}%" wx:if="{{lieScore>=90}}">{{lieScore}}</view>
+                    <view class="progress-finished green-bg1" style="width:{{lieScore}}%" wx:if="{{lieScore>=80&&lieScore<90}}">{{lieScore}}</view>
+                    <view class="progress-finished yellow-bg" style="width:{{lieScore}}%" wx:if="{{lieScore>=60&&lieScore<80}}">{{lieScore}}</view>
+                    <view class="progress-finished red-bg" style="width:{{lieScore}}%" wx:if="{{lieScore<60}}">{{lieScore}} </view>
+                </view>
+            </view>
+            <view class="lis4">{{lieConclusion}}</view>
+        </view>
+        <view class="list1">
+            <view class="lis1">
+                <image class="img-icon" src="{{sex==1?'/images/58_score_1000m.gif':'/images/58_score_800m.gif'}}"></image> {{sex==1?'1000米跑':'800米跑'}} </view>
+            <view class="lis2">{{kiloMeter}}</view>
+            <view class="lis3">
+                <view style="width:15%;">{{kiloMeterScore}}</view>
+                <view class="progress">
+                    <view class="progress-finished" style="width:{{kiloMeterScore}}%" wx:if="{{kiloMeterScore>=90}}"> {{kiloMeterScore}}</view>
+                    <view class="progress-finished green-bg1" style="width:{{kiloMeterScore}}%" wx:if="{{kiloMeterScore>=80&&kiloMeterScore<90}}">{{kiloMeterScore}}</view>
+                    <view class="progress-finished yellow-bg" style="width:{{kiloMeterScore}}%" wx:if="{{kiloMeterScore>=60&&kiloMeterScore<80}}">{{kiloMeterScore}}</view>
+                    <view class="progress-finished red-bg" style="width:{{kiloMeterScore}}%" wx:if="{{kiloMeterScore<60}}"> {{kiloMeterScore}}</view>
+                </view>
+            </view>
+            <view class="lis4">{{kiloMeterConclusion}}</view>
+        </view>
+        <view class="list1 list1-bg">
+            <view class="lis1">
+                <image class="img-icon" src="/images/58_score_tz.gif"></image> 左眼裸眼视力 </view>
+            <view class="lis2">{{leftVision}}</view>
+        </view>
+        <view class="list1 ">
+            <view class="lis1">
+                <image class="img-icon" src="/images/58_score_tz.gif"></image> 右眼裸眼视力 </view>
+            <view class="lis2">{{rightVision}}</view>
+        </view>
+        <view class="list1 list1-bg">
+            <view class="lis1">
+                <image class="img-icon" src="/images/58_score_tz.gif"></image> 左眼串镜 </view>
+            <view class="lis2">{{leftMirror}}</view>
+        </view>
+        <view class="list1">
+            <view class="lis1">
+                <image class="img-icon" src="/images/58_score_tz.gif"></image> 右眼串镜 </view>
+            <view class="lis2">{{rightMirror}}</view>
+        </view>
+        <view class="list1 list1-bg">
+            <view class="lis1">
+                <image class="img-icon" src="/images/58_score_tz.gif"></image> 左眼屈光不正 </view>
+            <view class="lis2">{{leftAmetropia}}</view>
+        </view>
+        <view class="list1">
+            <view class="lis1">
+                <image class="img-icon" src="/images/58_score_tz.gif"></image> 右眼屈光不正 </view>
+            <view class="lis2">{{rightAmetropia}}</view>
+        </view>
+    </view>
+</view>

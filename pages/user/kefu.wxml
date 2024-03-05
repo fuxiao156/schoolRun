@@ -1,0 +1,9 @@
+<nav-bar navbarData="{{navbarData}}"></nav-bar>
+<view class="notice-index" style="margin-top:{{navheight}}px">
+    <view class="foot-text">
+        <view class="blue">（工作时间：周一至周五：8:30~18:00）</view>
+    </view>
+    <view class="foot-but">
+        <button bindcontact="handleContact" class="but-lxkf" openType="contact">联系客服</button>
+    </view>
+</view>
