@@ -417,69 +417,7 @@ Page({
         0 == this.data.fileId && this.writeFile(), 4 == this.data.runType ? this.apiStopSchoolRun() : this.apiStopRun();
     },
     apiStopSchoolRun: function() {
-        var a = this;
-        a.stopLocationUpdate(), wx.stopBluetoothDevicesDiscovery({
-            success: function(t) {
-                wx.closeBluetoothAdapter({
-                    success: function(t) {}
-                });
-            }
-        });
-        var n = {}, d = Date.parse(new Date());
-        n.openid = i.globalData.userStatus.openid, n.detailId = a.data.detailId, n.longitude = "", 
-        n.latitude = "", n.runType = a.data.runType, n.endTime = d / 1e3, n.mileage = Math.ceil(100 * t.runmeters) / 100;
-        var s = e.sortKey(n, i.globalData.datakey);
-        n.sign = o.hexMD5(s), n.extentStatus = 1, n.continueCount = wx.getStorageSync("continueCount") || 0, 
-        n.positionCount = wx.getStorageSync("positionCount") || 0, n.seqNo = a.data.seqNo, 
-        n.runBitmap = a.data.runBitmap, n.remarks = a.data.remarks;
-        var u = a.data.timeoutArray.length;
-        if (u == a.data.timerunArray.length) n.suspendTime = a.data.timestopsum / 1e3; else {
-            var l = d - a.data.timeoutArray[u - 1];
-            n.suspendTime = (a.data.timestopsum + l) / 1e3;
-        }
-        n.suspendCount = u, n.searchCard = a.data.searchCard, n.punchBlueNum = a.data.punchBlueNum, 
-        n.punchDistanceNum = a.data.punchDistanceNum, wx.showLoading({
-            title: "加载中...",
-            mask: !0
-        }), wx.request({
-            url: i.globalData.apiurl + "/f/api/stopSchoolRun",
-            method: "POST",
-            data: n,
-            header: {
-                "content-type": "application/x-www-form-urlencoded"
-            },
-            success: function(e) {
-                wx.hideLoading(), 200 != e.statusCode ? wx.showToast({
-                    title: "距离够后截图~联系客服~提供学号和截图。服务器异常stopSchoolRun",
-                    icon: "none",
-                    duration: 2e3,
-                    mask: !0
-                }) : "000000" == e.data.retcode ? (i.globalData.getPersonaldata = 0, i.globalData.getHome = 0, 
-                clearTimeout(r), t.clearRunCacheData(), a.setData({
-                    time: "00:00:00"
-                }), wx.switchTab({
-                    url: "/pages/index/index"
-                })) : "000015" == e.data.retcode ? wx.showToast({
-                    title: e.data.retmsg,
-                    icon: "none",
-                    duration: 2e3,
-                    mask: !0
-                }) : wx.showToast({
-                    title: "距离够后截图~联系客服~提供学号和截图。网络或服务器异常stopSchoolRun",
-                    icon: "none",
-                    duration: 2e3,
-                    mask: !0
-                });
-            },
-            fail: function() {
-                wx.hideLoading(), wx.showToast({
-                    title: "距离够后截图~联系客服~提供学号和截图。网络或服务器异常stopSchoolRun",
-                    icon: "none",
-                    duration: 2e3,
-                    mask: !0
-                });
-            }
-        });
+		console.log("进入apiStopSchoolRun")
     },
     apiStopRun: function() {
         var a = this;

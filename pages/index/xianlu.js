@@ -88,66 +88,11 @@ Page({
             }), !t.data.locationEnabled) return t.selectComponent("#gpsalertview").showAlertView(), 
             !1;
             if (!t.data.isBlueOpen) return t.selectComponent("#blueView").showAlertView(), !1;
-            if (wx.showLoading({
-                title: "加载中...",
-                mask: !0
-            }), 1 == t.data.startType || 3 == t.data.startType) if (1 == t.data.deviceType) wx.getBluetoothDevices({
-                success: function(e) {
-                    for (var a = 0; a < e.devices.length; a++) if ("xBeacon" == e.devices[a].localName || "xBeacon" == e.devices[a].name) {
-                        if (null != e.devices[a].serviceData && null != e.devices[a].serviceData) if (e.devices[a].serviceData.hasOwnProperty("00001529-0000-1000-8000-00805F9B34FB")) {
-                            for (var o = n(e.devices[a].serviceData["00001529-0000-1000-8000-00805F9B34FB"]), i = 0; i < t.data.lineArray.length; i++) if (t.data.lineArray[i].deviceAddress.includes(o)) {
-                                t.setData({
-                                    inregion: 1
-                                }), t.stopLocationUpdate(), t.stopBluetooth(), wx.hideLoading(), wx.redirectTo({
-                                    url: "/pages/index/paobu?runType=" + t.data.runType + "&lineId=" + t.data.lineId + "&batchNo=" + t.data.batchNo + "&startType=" + t.data.startType + "&suspendStatus=" + t.data.suspendStatus
-                                });
-                                break;
-                            }
-                        } else if (e.devices[a].serviceData.hasOwnProperty("00002E60-0000-1000-8000-00805F9B34FB")) {
-                            for (o = n(e.devices[a].serviceData["00002E60-0000-1000-8000-00805F9B34FB"]), i = 0; i < t.data.lineArray.length; i++) if (t.data.lineArray[i].deviceAddress.includes(o)) {
-                                t.setData({
-                                    inregion: 1
-                                }), t.stopLocationUpdate(), t.stopBluetooth(), wx.hideLoading(), wx.redirectTo({
-                                    url: "/pages/index/paobu?runType=" + t.data.runType + "&lineId=" + t.data.lineId + "&batchNo=" + t.data.batchNo + "&startType=" + t.data.startType + "&suspendStatus=" + t.data.suspendStatus
-                                });
-                                break;
-                            }
-                        } else if (e.devices[a].serviceData.hasOwnProperty("00004160-0000-1000-8000-00805F9B34FB")) for (o = n(e.devices[a].serviceData["00004160-0000-1000-8000-00805F9B34FB"]), 
-                        i = 0; i < t.data.lineArray.length; i++) if (t.data.lineArray[i].deviceAddress.includes(o)) {
-                            t.setData({
-                                inregion: 1
-                            }), t.stopLocationUpdate(), t.stopBluetooth(), wx.hideLoading(), wx.redirectTo({
-                                url: "/pages/index/paobu?runType=" + t.data.runType + "&lineId=" + t.data.lineId + "&batchNo=" + t.data.batchNo + "&startType=" + t.data.startType + "&suspendStatus=" + t.data.suspendStatus
-                            });
-                            break;
-                        }
-                        if (1 == t.data.inregion) break;
-                    }
-                    0 == t.data.lineId ? (wx.hideLoading(), wx.showToast({
-                        title: "点击右下获取线路，多次长按跑步",
-                        icon: "none",
-                        duration: 3e3
-                    })) : (wx.hideLoading(), wx.showToast({
-                        title: "站在蓝色起点，多次长按跑步",
-                        icon: "none",
-                        duration: 3e3
-                    }));
-                },
-                fail: function(e) {
-                    wx.hideLoading(), wx.showToast({
-                        title: "点击右上三点或箭头~设置~蓝牙~使用时",
-                        icon: "none",
-                        duration: 3e3
-                    });
-                }
-            }); else {
-				t.stopLocationUpdate(), 
-				wx.hideLoading(), wx.redirectTo({
-					url: "/pages/index/paobu?runType=" + t.data.runType + "&lineId=" + t.data.lineId + "&batchNo=" + t.data.batchNo + "&startType=" + t.data.startType + "&suspendStatus=" + t.data.suspendStatus
-				})
-            } else t.stopLocationUpdate(), wx.hideLoading(), wx.redirectTo({
-                url: "/pages/index/paobu?runType=" + t.data.runType + "&lineId=" + t.data.lineId + "&batchNo=" + t.data.batchNo + "&startType=" + t.data.startType + "&suspendStatus=" + t.data.suspendStatus
-            });
+			t.setData({
+				inregion: 1
+			}), t.stopLocationUpdate(), t.stopBluetooth(), wx.hideLoading(), wx.redirectTo({
+				url: "/pages/index/paobu?runType=" + t.data.runType + "&lineId=" + t.data.lineId + "&batchNo=" + t.data.batchNo + "&startType=" + t.data.startType + "&suspendStatus=" + t.data.suspendStatus
+			});
         } else wx.showToast({
             title: "请上传人脸照片",
             icon: "error",
