@@ -49,7 +49,7 @@
         "pages/dating/gymevidence",
         "pages/user/updatenickName",
         "pages/user/updatemobile",
-        "pages/xbeacon/xbeacontest"
+		"pages/xbeacon/xbeacontest"
     ],
     "window": {
         "backgroundTextStyle": "light",

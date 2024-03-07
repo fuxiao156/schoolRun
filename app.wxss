@@ -41,7 +41,7 @@ page {
     line-height: 96rpx;
     position: relative;
     width: 370rpx;
-    z-index: 100000;
+    z-index: 1000;
 }
 
 .btn-jt {

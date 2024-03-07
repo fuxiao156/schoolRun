@@ -9,7 +9,7 @@
             </cover-view>
             <cover-view class="top-view-2">
                 <cover-view class="top-view-box" style="text-align:left;">
-                    <cover-view class="top-view-head">{{meters>0?av_speed:'1\'00'}}</cover-view>
+                    <cover-view class="top-view-head">{{meters>0?av_speed:"0'00"}}</cover-view>
                     <cover-view class="top-view-end">平均配速</cover-view>
                 </cover-view>
                 <cover-view class="top-view-box" style="text-align:left;">
@@ -43,19 +43,23 @@
         </cover-view>
         <cover-view bindtap="sdrunPunchCard" class="sdqd-text" wx:if="{{runCheckStatus==1&&uploadType==1}}"> 上传照片 </cover-view>
         <cover-view bindtap="sdrunEndPunchCard" class="sdqd-text" wx:if="{{runCheckStatus==1&&uploadType==2}}"> 上传照片 </cover-view>
-        <cover-view bind:longpress="runPunchCardBlue" class="punchCard" wx:if="{{runType==4&&deviceType==1}}">
             <cover-image class="punchCard-img" src="/images/dak.png"></cover-image>
-        </cover-view>
-        <cover-view bind:longpress="runPunchCardBlue" class="punchCard-text-time" wx:if="{{runType==4&&deviceType==1}}"> 长按三秒 </cover-view>
-        <cover-view bind:longpress="runPunchCardBlue" class="punchCard-text-open" wx:if="{{runType==4&&deviceType==1}}"> 手动打卡 </cover-view>
         <cover-view bindtap="stopNoRun" class="onstoprun" wx:if="{{startType>1}}">
             <cover-image class="onstoprun-img" src="/images/stoprun.png"></cover-image>
         </cover-view>
-        <cover-view bindtap="stopNoRun" class="onstoprun-text" wx:if="{{startType>1}}"> 强制结束 </cover-view>
-        <cover-view bindtap="getPunchCard" class="ondevice" wx:if="{{suspendStatus==1}}">
+        <cover-view bindtap="stopNoRun" class="onstoprun-text" > 强制结束 </cover-view>
+        <cover-view bindtap="consoleLog" class="ondevice" >
             <cover-image class="ondevice-img" src="/images/refreshqy.png"></cover-image>
         </cover-view>
-        <cover-view bindtap="getPunchCard" class="ondevice-text" wx:if="{{suspendStatus==1}}"> 更新打卡 </cover-view>
+        <cover-view bindtap="consoleLog" class="ondevice-text" > 打印日志 </cover-view>
+		<cover-view bindtap="punchFakeChard" class="offyesqy" >
+			<cover-image class="offyesqy-img" src="/images/stopqy.png"></cover-image>
+        </cover-view>
+        <cover-view bindtap="punchFakeChard" class="offyesqy-text" > 打卡 </cover-view>
+        <cover-view bindtap="showSetPanle" class="onlonlat">
+            <cover-image class="onlonlat-img" src="/images/z_wz.png"></cover-image>
+        </cover-view>
+        <cover-view bindtap="showSetPanle" class="onlonlat-text"> 参数设置 </cover-view>
         <cover-view class="pb-btn-vew">
             <cover-view bind:longpress="endRunShowBox" class="btn-end" hoverClass="btn-end2" wx:if="{{suspendStatus==0}}">
                 <cover-view class="ctxt">长按</cover-view>结束 <cover-view class="endicon"></cover-view>
@@ -84,4 +88,24 @@
     <inselectalertview bind:confirmEvent="closeToindex" confirmText="回到首页" content="启动跑步异常！上传跑步数据失败。" content1="此次运动数据将视为无效。" content2="请点击回到首页按钮，重新开始跑步" id="erroruploading" title="警 告"></inselectalertview>
     <inalertview bind:cancelEvent="closeEvent2" bind:closeEvent="closeEvent2" cancelText="已设置" content="无法获取位置信息，为了更精准的定位，请打开" content1="GPS" content2="功能并确保已获取小程序定位授权" id="gpsalertview" title="提 示"></inalertview>
     <inalertview bind:cancelEvent="closeBlueEvent" bind:closeEvent="closeBlueEvent" cancelText="已设置" content="请开启您的手机" content1="蓝牙" content2="功能才能运动" id="blueView" title="提 示"></inalertview>
+
+    <view class="run-Argue-set" wx:if="{{showSet}}">
+        <view class="run-set-title">跑步参数设置</view>
+        <view class="input-box">
+            <view class="input-title">距离</view>
+            <input placeholder="单位km" value="{{fakeDistance}}" bindblur="setDistance" class="input-content" type="digit"/>
+        </view>
+        <view class="input-box">
+            <view class="input-title">配速</view>
+            <input placeholder="单位分钟" value="{{fakeSpeed}}" bindblur="setSpeed" class="input-content" type="digit"/>
+        </view>
+        <view bindtap="getCompleteTime" class="run-set-button">确定</view>
+        <view class="run-set-info-title"> 提示</view>
+        <view class="run-set-info">设置好距离与配速后，到时间会自动提交。</view>
+        <view class="run-set-info">距离为小数，精确到小数点后两位(如3.50)；</view>
+        <view class="run-set-info">配速为小数，精确到小数点后一位(如3.5)；</view>
+        <view class="run-set-info">点位打卡将在3分钟内自动完成，无需操作；</view>
+        <view class="run-set-info">若3分钟内未完成点位打卡，请手动点击右下角的打卡按钮；</view>
+    </view>
+    <view class="completeTime">{{completeStrTime}}</view>
 </view>
