@@ -123,9 +123,12 @@ Page({
                 console.log("经过时间:"+ a)
                 console.log("需要时间："+this.data.needsecondes)
                 this.apiStopRun()
+                this.writeFile()
             }
+            var tempmeter =Math.ceil(a/this.data.fakeSpeed*5/3)/100 
             t.setData({
-                meters: Math.ceil(a/this.data.fakeSpeed*5/3)/100 
+                meters: tempmeter,
+                runmeters:tempmeter
             });
             if (0 == t.data.meters) t.setData({
                 times: a,
@@ -182,6 +185,7 @@ Page({
     onLocationChange: function() {
         var a = this;
         wx.onLocationChange(function(o) {
+            console.log("位置移动")
             if (1 == a.data.runstatus) {
                 e.playYuying("/images/goingrun.mp3");
                 var i = Date.parse(new Date());
