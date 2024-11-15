@@ -78,8 +78,12 @@ App({
         var o = wx.getMenuButtonBoundingClientRect();
         this.globalData.navBarHeight = o.bottom, this.globalData.brand = e.brand, this.globalData.model = e.model
         wx.setStorageSync("userStatus", a.globalData.userStatus)
+        //cx
         wx.setStorageSync("openid","oJSYL5g3dTH8mc4n1IFX62V_2ISc")
-		wx.setStorageSync("userid", "2022090813435521536") 
+        wx.setStorageSync("userid", "2022090813435521536") 
+        //jj
+        // wx.setStorageSync("openid","oJSYL5tDcquqjyzCnurMxLwgmWHA")
+        // wx.setStorageSync("userid", "20220908102845648146") 
 		this.globalData.userStatus.openid = wx.getStorageSync("openid")
 		this.globalData.userStatus.userid = wx.getStorageSync("userid")
         if (wx.getStorageSync("schoolInfo")) {

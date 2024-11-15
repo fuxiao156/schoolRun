@@ -474,7 +474,8 @@ Page({
     getRunLine: function() {
         var a = this, o = {};
         o.openid = t.globalData.userStatus.openid, o.longitude = a.data.longitude, o.latitude = a.data.latitude, 
-        o.extendType = a.data.extendType, o.applyCount = a.data.applyCount, o.areaNo = a.data.areaNo, 
+        o.extendType = a.data.extendType, o.applyCount = a.data.applyCount, o.areaNo = "1415493325914210304", 
+        // o.longitude = 112.931925, o.latitude = 28.157593,
         wx.showLoading({
             title: "加载中...",
             mask: !0

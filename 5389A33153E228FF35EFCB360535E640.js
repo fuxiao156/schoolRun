@@ -14,6 +14,8 @@ var t = require("@babel/runtime/helpers/classCallCheck.js"), e = require("@babel
             var e = {};
             if (e.latitude = t.latitude, e.longitude = t.longitude, e.flag = 0, this.latitude = t.latitude, 
             this.longitude = t.longitude, this.speed = t.speed, this.filterData(t)) if (this.filterData2(t)) {
+              //TODO:
+              //轨迹格式
                 if (e.numid = this.runpoints.length, this.seqNo = e.numid, this.seqNo <= 3600 && this.runpoints.push(e.numid + "," + e.longitude + "," + e.latitude + ",1," + this.runmeters + "," + new Date().toLocaleString()), 
                 wx.setStorageSync("runpoints", this.runpoints), 0 == this.status) {
                     var i = {};
@@ -54,6 +56,7 @@ var t = require("@babel/runtime/helpers/classCallCheck.js"), e = require("@babel
             this.stoppoint.longitude = this.longitude, this.stoppoint.latitude = this.latitude, 
             wx.setStorageSync("stoppoint", this.stoppoint);
             var t = this.runpoints.length;
+            //TODO:
             this.runpoints.push(t + "," + this.longitude + "," + this.latitude + ",3," + this.runmeters + "," + new Date().toLocaleString()), 
             wx.setStorageSync("runpoints", this.runpoints);
         }
@@ -66,6 +69,7 @@ var t = require("@babel/runtime/helpers/classCallCheck.js"), e = require("@babel
         key: "setStartpoint",
         value: function(t, e) {
             var i = this.runpoints.length;
+            //TODO:
             this.runpoints.push(i + "," + t + "," + e + ",4," + this.runmeters + "," + new Date().toLocaleString()), 
             wx.setStorageSync("runpoints", this.runpoints);
         }

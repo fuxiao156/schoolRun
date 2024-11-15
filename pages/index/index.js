@@ -49,9 +49,9 @@ Page({
     },
     bindChangePicker: function(t) {
         var a = t.detail.value;
-        e.globalData.schoolInfo.indexArea = a, e.globalData.schoolInfo.areaNo = this.data.areaList[a].areaNo, 
+        e.globalData.schoolInfo.indexArea = a, e.globalData.schoolInfo.areaNo = this.data.areaList[a]?.areaNo, 
         wx.setStorageSync("schoolInfo", e.globalData.schoolInfo), this.setData({
-            areaNo: this.data.areaList[a].areaNo,
+            areaNo: this.data.areaList[a]?.areaNo,
             indexArea: a
         });
     },
@@ -242,12 +242,12 @@ Page({
                     null != a && 0 != a ? (e.globalData.schoolInfo.areaList = t.data.areaList, o.setData({
                         areaList: t.data.areaList,
                         indexArea: a,
-                        areaNo: t.data.areaList[a].areaNo
+                        areaNo: t.data.areaList[a]?.areaNo
                     })) : (e.globalData.schoolInfo.areaList = t.data.areaList, e.globalData.schoolInfo.indexArea = 0, 
-                    e.globalData.schoolInfo.areaNo = t.data.areaList[0].areaNo, o.setData({
+                    e.globalData.schoolInfo.areaNo = t.data.areaList[0]?.areaNo, o.setData({
                         areaList: t.data.areaList,
                         indexArea: a,
-                        areaNo: t.data.areaList[0].areaNo
+                        areaNo: t.data.areaList[0]?.areaNo
                     }));
                 } else wx.showToast({
                     title: t.data.retmsg,
@@ -651,7 +651,7 @@ Page({
             this.setData({
                 areaList: e.globalData.schoolInfo.areaList,
                 indexArea: a,
-                areaNo: e.globalData.schoolInfo.areaList[a].areaNo
+                areaNo: e.globalData.schoolInfo.areaList[a]?.areaNo
             });
         }
         (0 == e.globalData.getPersonaldata && this.getPersonaldata(), wx.getStorageSync("detailId") && this.getExerciseStatus(), 
@@ -802,10 +802,14 @@ Page({
             }
         });
         var n = {}, i = Date.parse(new Date()) / 1e3, r = wx.getStorageSync("mileage") || 0;
-        n.openid = e.globalData.userStatus.openid, n.detailId = wx.getStorageSync("detailId"), 
-        n.longitude = "", n.latitude = "", n.runType = wx.getStorageSync("runType"), n.endTime = i, 
+        n.openid = e.globalData.userStatus.openid;
+        // n.detailId = wx.getStorageSync("detailId"), 
+        n.detailId = "820822011020241102201300819", 
+        n.longitude = "112.932691", n.latitude = "28.156226", n.runType = 1, n.endTime = i, 
         n.mileage = r;
+        console.log("n的值为",n)
         var s = t.sortKey(n, e.globalData.datakey);
+        console.log('s的值为',s);
         n.sign = a.hexMD5(s), n.extentStatus = 1, n.continueCount = wx.getStorageSync("continueCount") || 0, 
         n.positionCount = wx.getStorageSync("positionCount") || 0, n.seqNo = wx.getStorageSync("seqNo") || 0, 
         n.runBitmap = wx.getStorageSync("runBitmap") || "", n.remarks = "999999";
@@ -925,6 +929,73 @@ Page({
     },
     instopRunBut: function() {
         0 == this.data.fileId && this.writeFile(), 4 == wx.getStorageSync("runType") ? this.apiStopRun() : this.instopRun();
+    },
+    diyStopRun:function(detailId){
+        var o = this;
+        o.stopLocationUpdate();
+        var n = {}, i = Date.parse(new Date()), r = wx.getStorageSync("mileage") || 0;
+        r = Math.ceil(100 * r) / 100, n.openid = e.globalData.userStatus.openid, 
+        n.detailId = detailId, 
+        n.longitude = "", n.latitude = "",  n.endTime = i / 1e3, 
+        //n.longitude = "", n.latitude = "", n.endTime = i / 1e3, 
+        n.mileage = 1, n.runType = "1"; //n.runType = wx.getStorageSync("runType");
+        var s = t.sortKey(n, e.globalData.datakey);
+        console.log('s为',s);
+        console.log('n为',n);
+        console.log('sign为',a.hexMD5(s));
+        n.sign = a.hexMD5(s),
+        n.extentStatus = 1, n.continueCount = wx.getStorageSync("continueCount") || 0, 
+        n.positionCount = wx.getStorageSync("positionCount") || 0, n.seqNo = wx.getStorageSync("seqNo") || 0, 
+        n.remarks = "999999";
+        var l = wx.getStorageSync("timeoutArray") || [], u = wx.getStorageSync("timerunArray") || [], d = wx.getStorageSync("timestopsum") || 0, c = l.length;
+        if (c == u.length) n.suspendTime = d / 1e3; else {
+            var g = i - l[c - 1];
+            n.suspendTime = (d + g) / 1e3;
+        }
+        n.suspendCount = c;
+         wx.showLoading({
+            title: "加载中...",
+            mask: !0
+        }), wx.request({
+            url: e.globalData.apiurl + "/f/api/stopRun",
+            method: "POST",
+            data: n,
+            header: {
+                "content-type": "application/x-www-form-urlencoded"
+            },
+            success: function(e) {
+                wx.hideLoading(), 200 != e.statusCode ? wx.showToast({
+                    title: "人数过多请稍后重试，服务器异常stopRun2500",
+                    icon: "none",
+                    duration: 1e3
+                }) : "000000" == e.data.retcode ? (o.getPersonaldata(), o.getHome(), wx.removeStorageSync("detailId"), 
+                wx.removeStorageSync("mileage"), wx.removeStorageSync("runstatus"), wx.removeStorageSync("polylinecache"), 
+                wx.removeStorageSync("pointscache"), wx.removeStorageSync("runmeters"), wx.removeStorageSync("schoolId"), 
+                wx.removeStorageSync("uploadDetailNum"), wx.removeStorageSync("uploadType"), wx.removeStorageSync("runCheckStatus"), 
+                wx.removeStorageSync("lastDkDeviceid"), wx.removeStorageSync("runpoints"), wx.removeStorageSync("mileageTarget"), 
+                wx.removeStorageSync("maxSpaceTime"), wx.removeStorageSync("maxTime"), wx.removeStorageSync("minTime"), 
+                wx.removeStorageSync("deviceType"), wx.removeStorageSync("filePath"), wx.removeStorageSync("startRunDate"), 
+                wx.removeStorageSync("runType"), wx.removeStorageSync("startType"), wx.removeStorageSync("initlatitude"), 
+                wx.removeStorageSync("initlongitude"), o.inselectalertview2.hideAlertView()) : "000015" == e.data.retcode ? wx.showToast({
+                    title: e.data.retmsg,
+                    icon: "none",
+                    duration: 2e3,
+                    mask: !0
+                }) : wx.showToast({
+                    icon: "none",
+                    title: e.data.retmsg,
+                    duration: 1e3
+                });
+            },
+            fail: function() {
+                wx.hideLoading(), wx.showToast({
+                    icon: "none",
+                    title: "人数过多请稍后重试，网络或服务器异常stopRun2",
+                    duration: 1e3
+                });
+            }
+        });
+
     },
     instopRun: function() {
         var o = this;
@@ -1074,10 +1145,202 @@ Page({
         });
     },
     onReady: function(e) {},
+    onLongPressButton: function(){
+      // this.goToPanbao();
+      this.instopRun();
+    },
     onPullDownRefresh: function() {
         0 == e.globalData.userStatus.isExist && this.authLogin(), 0 == this.data.dayStartRunStatus && this.getHome(), 
         0 == e.globalData.runSet && this.runSet(), 0 == e.globalData.getMessageList2 && this.getMessageList2(), 
         0 != this.data.dayStartRunStatus && 0 != this.data.timeStartRunStatus || this.getTimeStatus(), 
         wx.getStorageSync("detailId") && this.getExerciseStatus(), wx.stopPullDownRefresh();
-    }
+    },
+    apiStartRun: function() {
+        var r = this, d = {};
+        (d.openid = e.globalData.userStatus.openid),
+          (d.runType = "1"),
+          (d.longitude = 112.93242320369),
+          (d.latitude = 28.156093183506766);
+        var s = t.sortKey(d, e.globalData.datakey);
+        (d.sign = a.hexMD5(s)),
+          (d.lineId = "1439550863052955648"),
+          (d.userid = e.globalData.userStatus.userid),
+          (d.batchNo = ""),
+          (d.areaNo = "1415493325914210304"),
+          (d.brand = e.globalData.brand),
+          (d.model = e.globalData.model),
+          wx.showLoading({
+            title: "加载中...",
+            mask: !0,
+          }),
+          wx.request({
+            url: e.globalData.apiurl + "/f/api/startRun",
+            method: "POST",
+            data: d,
+            header: {
+              "content-type": "application/x-www-form-urlencoded",
+            },
+            success: function (a) {
+              if ((wx.hideLoading(), 200 != a.statusCode))
+                return (
+                  wx.showToast({
+                    title: "人数过多请稍后重试，服务器异常startRun500",
+                    icon: "none",
+                    duration: 1e3,
+                  }),
+                  r.selectComponent("#erroruploading").showAlertView(),
+                  !1
+                );
+              if ("000000" != a.data.retcode)
+                return "000005" == a.data.retcode
+                  ? (e.playYuying("/images/norun.mp3"),
+                    r.selectComponent("#cserrorrun").showAlertView(),
+                    !1)
+                  : "000010" == a.data.retcode
+                  ? (e.playYuying("/images/norun.mp3"),
+                    r.selectComponent("#timeerrorrun").showAlertView(),
+                    !1)
+                  : (e.playYuying("/images/norun.mp3"),
+                    r.selectComponent("#erroruploading").showAlertView(),
+                    !1);
+              r.count_down(r), r.onLocationChange();
+              for (
+                var o = r.data.markers, i = [], n = [], d = 0;
+                d < a.data.lineArray.length;
+                d++
+              ) {
+                var s = {};
+                (s.id = a.data.lineArray[d].deviceId),
+                  (s.latitude = a.data.lineArray[d].latitude),
+                  (s.longitude = a.data.lineArray[d].longitude),
+                  (s.deviceType = a.data.lineArray[d].deviceType),
+                  (s.deviceId = a.data.lineArray[d].deviceId),
+                  (s.iconPath = "/images/21_position.png"),
+                  (s.width = 25),
+                  (s.height = 25),
+                  d == a.data.uploadDetailNum &&
+                    1 == a.data.uploadType &&
+                    (s.callout = {
+                      content: "上传人脸",
+                      fontSize: 14,
+                      bgColor: "#FFF",
+                      borderWidth: 1,
+                      borderColor: "#CCC",
+                      padding: 4,
+                      display: "ALWAYS",
+                      textAlign: "center",
+                    }),
+                  3 == a.data.lineArray[d].deviceType &&
+                    (s.callout = {
+                      content: "训练杆",
+                      fontSize: 14,
+                      bgColor: "#FFF",
+                      borderWidth: 1,
+                      borderColor: "#CCC",
+                      padding: 4,
+                      display: "ALWAYS",
+                      textAlign: "center",
+                    }),
+                  o.push(s),
+                  3 != a.data.lineArray[d].deviceType ? i.push(s) : n.push(s);
+              }
+              var u = [];
+              1 == r.data.polygonStatus &&
+                (u = [
+                  {
+                    points: a.data.polygonArray,
+                    strokeWidth: 2,
+                    strokeColor: "#3875FF",
+                    fillColor: "#3875FF30",
+                  },
+                ]),
+                (t.detailId = a.data.detailId),
+                r.setData({
+                  startRunDate: Date.parse(new Date()),
+                  runstatus: 0,
+                  detailId: a.data.detailId,
+                  aniHeigh: 0,
+                  markers: o,
+                  minTime: a.data.minTime,
+                  maxTime: a.data.maxTime,
+                  mileageTarget: a.data.mileageTarget,
+                  maxSpaceTime: a.data.maxSpaceTime,
+                  lineArray: a.data.lineArray,
+                  stopArray: a.data.lineArray,
+                  searchDiam: a.data.searchDiam,
+                  uploadType: a.data.uploadType,
+                  uploadDetailNum: a.data.uploadDetailNum,
+                  schoolId: a.data.schoolId,
+                  runCheckStatus: a.data.runCheckStatus,
+                  deviceType: a.data.deviceType,
+                  punchCardSum: a.data.lineArray.length,
+                  punchCardArray: i,
+                  suspendCardArray: n,
+                  polygons: u,
+                  polygonArray: a.data.polygonArray,
+                }),
+                0 == a.data.voiceCount
+                  ? r.setData({
+                      screenSwitch: a.data.screenSwitch,
+                      voiceCount: a.data.voiceCount,
+                      voiceSwitch: a.data.voiceSwitch,
+                      voiceMinute: 2,
+                      voiceSecond: 120,
+                    })
+                  : 1 == a.data.voiceCount
+                  ? r.setData({
+                      screenSwitch: a.data.screenSwitch,
+                      voiceCount: a.data.voiceCount,
+                      voiceSwitch: a.data.voiceSwitch,
+                      voiceMinute: 5,
+                      voiceSecond: 300,
+                    })
+                  : 2 == a.data.voiceCount
+                  ? r.setData({
+                      screenSwitch: a.data.screenSwitch,
+                      voiceCount: a.data.voiceCount,
+                      voiceSwitch: a.data.voiceSwitch,
+                      voiceMinute: 10,
+                      voiceSecond: 600,
+                    })
+                  : r.setData({
+                      screenSwitch: a.data.screenSwitch,
+                      voiceCount: a.data.voiceCount,
+                      voiceSwitch: a.data.voiceSwitch,
+                      voiceMinute: 15,
+                      voiceSecond: 900,
+                    }),
+                wx.setStorageSync("detailId", t.detailId),
+                wx.setStorageSync("schoolId", a.data.schoolId),
+                wx.setStorageSync("uploadDetailNum", a.data.uploadDetailNum),
+                wx.setStorageSync("uploadType", a.data.uploadType),
+                wx.setStorageSync("runCheckStatus", a.data.runCheckStatus),
+                wx.setStorageSync("minTime", a.data.minTime),
+                wx.setStorageSync("maxTime", a.data.maxTime),
+                wx.setStorageSync("mileageTarget", a.data.mileageTarget),
+                wx.setStorageSync("maxSpaceTime", a.data.maxSpaceTime),
+                wx.setStorageSync("deviceType", a.data.deviceType),
+                wx.setStorageSync("startRunDate", r.data.startRunDate),
+                wx.setStorageSync("runstatus", 0),
+                wx.setStorageSync("polygonArray", a.data.polygonArray),
+                wx.setStorageSync("polygons", u);
+
+
+            },
+            fail: function () {
+              return (
+                wx.hideLoading(),
+                e.playYuying("/images/norun.mp3"),
+                wx.showToast({
+                  title: "人数过多请稍后重试,网络或服务器异常startRun",
+                  icon: "none",
+                  duration: 1e3,
+                }),
+                r.selectComponent("#wlerrorrun").showAlertView(),
+                !1
+              );
+            },
+          });
+    },
+
 });

@@ -43,7 +43,7 @@
         <image bindtap="gotoHelp" class="img75" src="/images/62_list_disabled.png" wx:if="{{userStatus.approveStatus==1}}"></image>
         <view bindtap="gotoHelp" class="text75" wx:if="{{userStatus.approveStatus==1}}">规则</view>
     </view>
-    <button bind:longpress="goToPanbao" class="start-btn">长按跑步 <image class="btn-jt" src="/images/index-jt.png"></image>
+    <button bind:longpress="onLongPressButton" class="start-btn">长按跑步 <image class="btn-jt" src="/images/index-jt.png"></image>
     </button>
     <button catchtap="goTochang" class="changguan-btn" style="margin-top:30rpx;" wx:if="{{venueFlag==1}}">体育锻炼 <image class="btn-jt" src="/images/index1-jt.png"></image>
     </button>

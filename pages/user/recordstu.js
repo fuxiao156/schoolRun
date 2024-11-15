@@ -76,7 +76,8 @@ Page({
             title: "加载中...",
             mask: !0
         }), wx.request({
-            url: a.globalData.apiurl + "/f/api/runtermRecord?openid=" + t + "&userid=" + e,
+            url: a.globalData.apiurl + "/f/api/runtermRecord?openid=" + t + "&userid=" + e + "&runType=0",
+            data: fakeData,
             method: "POST",
             success: function(a) {
                 if (wx.hideLoading(), 200 != a.statusCode) wx.showToast({

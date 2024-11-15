@@ -1,4 +1,5 @@
 var t, e = require("../../2C088A0753E228FF4A6EE200B445E640.js"), a = require("../../5389A33153E228FF35EFCB360535E640.js"), o = require("../../83B41FC153E228FFE5D277C6CA15E640.js"), i = getApp(),  r = "";
+var posInfo = require("./data/pos");
 
 function d(t) {
     var e = t.slice(7, 13);
@@ -10,10 +11,11 @@ function d(t) {
 Page({
     data: {
         showSet:true,
-        fakeDistance:3.51,
-        fakeSpeed:3.5,
+        fakeDistance:3.54,
+        fakeSpeed:4.1,
         completeStrTime:"",
         needsecondes:60000,
+        fakeArr:[],
         navbarData: {
             showCapsule: 0,
             title: "跑步"
@@ -113,7 +115,7 @@ Page({
         searchCard: 0,
         punchBlueNum: 0,
         punchDistanceNum: 0,
-        areaNo: ""
+        areaNo: "",
     },
     count_down: function(t) {
         if (1 != t.data.runstatus) {
@@ -122,14 +124,18 @@ Page({
                 console.log("时间到")
                 console.log("经过时间:"+ a)
                 console.log("需要时间："+this.data.needsecondes)
-                this.apiStopRun()
                 this.writeFile()
+                this.apiStopRun()
             }
             var tempmeter =Math.ceil(a/this.data.fakeSpeed*5/3)/100 
             t.setData({
                 meters: tempmeter,
                 runmeters:tempmeter
             });
+            var temp = parseInt(a*993/this.data.needsecondes)
+            if(temp > this.fakeArr.length && temp< posInfo.length){
+              this.insertFakeData(temp);
+            }
             if (0 == t.data.meters) t.setData({
                 times: a,
                 time: o,
@@ -154,7 +160,7 @@ Page({
 
             var lastMarkTimes = t.data.punchCardSum - t.data.punchCardNum 
             if(lastMarkTimes>0){
-                if(a%6 == 5){
+                if(a%40 == 5){
                     t.punchFakeChard()
                 }
             }
@@ -294,7 +300,8 @@ Page({
         });
     },
     endRun: function() {
-        0 == this.data.fileId && this.writeFile(), 4 == this.data.runType ? this.apiStopSchoolRun() : this.apiStopRun();
+      console.log('进入endRun函数')
+       this.writeFile(), 4 == this.data.runType ? this.apiStopSchoolRun() : this.apiStopRun();
     },
     apiStopSchoolRun: function() {
 		console.log()
@@ -320,6 +327,7 @@ Page({
             var l = d - a.data.timeoutArray[u - 1];
             n.suspendTime = (a.data.timestopsum + l) / 1e3;
         }
+        console.log('跑步结束，提交的数据为',n)
         n.suspendCount = u, wx.showLoading({
             title: "加载中...",
             mask: !0
@@ -417,10 +425,13 @@ Page({
                 });
             },
             fail: function(r) {
-                var d = t.runpoints.join("\r\n");
+              //这里注入数据
+              //TODO:
+                // var d = t.runpoints.join("\r\n");
+                var fakeData = a.createFakeDataD();
                 n.writeFile({
                     filePath: wx.env.USER_DATA_PATH + "/" + a.data.detailId + ".txt",
-                    data: d,
+                    data: fakeData,
                     encoding: "utf8",
                     success: function(t) {
                         wx.showLoading({
@@ -475,6 +486,17 @@ Page({
                 });
             }
         });
+    },
+    createFakeDataD: function(){
+      return this.fakeArr.join("\r\n");
+    },
+    insertFakeData: function(index){
+      var fakeMeters = (index * fakeMeters / 993).toFixed(2)
+      this.fakeArr.push( this.fakeArr.length + ',' + posInfo[index].long + ',' + posInfo[index].lat + ',1,' + fakeMeters + ',' +new Date().toLocaleString()  )
+    },
+    fakeGetDistence: function(t, e, i, s) {
+        var n = t * Math.PI / 180, a = i * Math.PI / 180, o = n - a, l = e * Math.PI / 180 - s * Math.PI / 180, r = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(o / 2), 2) + Math.cos(n) * Math.cos(a) * Math.pow(Math.sin(l / 2), 2)));
+        return r *= 6378.137, r = Math.round(1e3 * r) / 1e3;
     },
     backmusic: function() {
         if (this.data.isbackground) return !1;
@@ -692,7 +714,7 @@ Page({
         this.endnoalertview.hideAlertView();
     },
     endNoRun: function() {
-        0 == this.data.fileId && this.writeFile(), 4 == this.data.runType ? this.apiStopRun() : this.finishendNoRun();
+        this.writeFile(), 4 == this.data.runType ? this.apiStopRun() : this.finishendNoRun();
     },
     finishendNoRun: function() {
         var a = this;
@@ -925,30 +947,23 @@ Page({
     },
     initstartRun: function() {
         var t = this;
-        wx.getLocation({
-            type: "gcj02",
-            isHighAccuracy: !0,
-            highAccuracyExpireTime: 3e3,
-            success: function(e) {
-                if (t.setData({
-                    initlatitude: e.latitude,
-                    initlongitude: e.longitude,
-                    latitude: e.latitude,
-                    longitude: e.longitude
-                }), wx.setStorageSync("positionCount", 0), wx.setStorageSync("continueCount", 0), 
-                wx.setStorageSync("initlatitude", e.latitude), wx.setStorageSync("initlongitude", e.longitude), 
-                null == e.longitude || null == e.longitude || "" == e.longitude || null == e.latitude || null == e.latitude || "" == e.latitude) return t.selectComponent("#errorrun").showAlertView(), 
-                !1;
-                t.apiStartRun(e.longitude, e.latitude);
-            },
-            fail: function(a) {
-                return e.playYuying("/images/norun.mp3"), wx.showToast({
-                    title: "位置获取失败，getLocation异常",
-                    icon: "none",
-                    duration: 1e3
-                }), t.selectComponent("#errorrun").showAlertView(), !1;
-            }
+        var e = {
+          initlatitude:28.157593 ,
+          initlongitude:112.931925 ,
+          latitude: 28.157593,
+          longitude:112.931925 
+        };
+        t.setData({
+            initlatitude: e.latitude,
+            initlongitude: e.longitude,
+            latitude: e.latitude,
+            longitude: e.longitude
         });
+        wx.setStorageSync("positionCount", 0);
+        wx.setStorageSync("continueCount", 0); 
+        wx.setStorageSync("initlatitude", e.latitude);
+        wx.setStorageSync("initlongitude", e.longitude);
+        t.apiStartRun(e.longitude, e.latitude);
     },
     apiStartRun: function(a, n) {
         var r = this, d = {};
