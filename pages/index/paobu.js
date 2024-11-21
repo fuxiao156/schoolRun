@@ -321,7 +321,8 @@ Page({
         }
         var s = e.sortKey(n, i.globalData.datakey);
         n.sign = o.hexMD5(s), n.extentStatus = 1, n.continueCount = wx.getStorageSync("continueCount") || 0, 
-        n.positionCount = wx.getStorageSync("positionCount") || 0, n.seqNo = a.data.seqNo, 
+        // n.positionCount = wx.getStorageSync("positionCount") || 0, n.seqNo = a.data.seqNo, 
+        n.positionCount = 993, n.seqNo = 993, 
         n.remarks = a.data.remarks;
         var u = a.data.timeoutArray.length;
         if (u == a.data.timerunArray.length) n.suspendTime = a.data.timestopsum / 1e3; else {
