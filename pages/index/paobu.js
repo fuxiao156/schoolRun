@@ -133,7 +133,8 @@ Page({
                 runmeters:tempmeter
             });
             var temp = parseInt(a*993/this.data.needsecondes)
-            if(temp > this.fakeArr.length && temp< posInfo.length){
+            // console.log('fakeArr is ',this.data.fakeArr)
+            if(temp > this.data.fakeArr.length && temp< posInfo.pos.length){
               this.insertFakeData(temp);
             }
             if (0 == t.data.meters) t.setData({
@@ -488,11 +489,12 @@ Page({
         });
     },
     createFakeDataD: function(){
-      return this.fakeArr.join("\r\n");
+      return this.data.fakeArr.join("\r\n");
     },
     insertFakeData: function(index){
-      var fakeMeters = (index * fakeMeters / 993).toFixed(2)
-      this.fakeArr.push( this.fakeArr.length + ',' + posInfo[index].long + ',' + posInfo[index].lat + ',1,' + fakeMeters + ',' +new Date().toLocaleString()  )
+      var fakeMeters = (index * this.data.fakeDistance * 1000 / 993).toFixed(2)
+      console.log('插入 ' + this.data.fakeArr.length + ',' + posInfo.pos[index].long + ',' + posInfo.pos[index].lat + ',1,' + fakeMeters + ',' +new Date().toLocaleString()  )
+      this.data.fakeArr.push( this.data.fakeArr.length + ',' + posInfo.pos[index].long + ',' + posInfo.pos[index].lat + ',1,' + fakeMeters + ',' +new Date().toLocaleString()  )
     },
     fakeGetDistence: function(t, e, i, s) {
         var n = t * Math.PI / 180, a = i * Math.PI / 180, o = n - a, l = e * Math.PI / 180 - s * Math.PI / 180, r = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(o / 2), 2) + Math.cos(n) * Math.cos(a) * Math.pow(Math.sin(l / 2), 2)));
